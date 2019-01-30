@@ -3,7 +3,7 @@ import { Error } from "@cogneco/mend"
 
 export class Assignment extends Block {
 	readonly class: string = "Assignment"
-	constructor(readonly name: string, readonly value: string, region: Error.Region) {
+	constructor(readonly name: string, readonly value: string, region?: Error.Region) {
 		super(region)
 	}
 	toObject(): { class: string } | any {

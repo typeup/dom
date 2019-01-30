@@ -5,7 +5,7 @@ import { Block, Paragraph } from "./block"
 
 export class File extends Node {
 	readonly class: string = "File"
-	constructor(readonly content: Block[], region: Error.Region) {
+	constructor(readonly content: Block[], region?: Error.Region) {
 		super(region)
 	}
 	toObject(): { class: string } | any {

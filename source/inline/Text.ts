@@ -3,7 +3,7 @@ import { Inline } from "./Inline"
 
 export class Text extends Inline {
 	readonly class: string = "Text"
-	constructor(private value: string, region: Error.Region) {
+	constructor(readonly value: string, region?: Error.Region) {
 		super(region)
 	}
 	toObject(): { class: string } | any {

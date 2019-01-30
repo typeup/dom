@@ -20,7 +20,7 @@ export class Video extends ContentBlock<inline.Inline> {
 			}
 		return result || ""
 	}
-	constructor(readonly source: string, readonly classes: string[], content: inline.Inline[], region: Error.Region) {
+	constructor(readonly source: string, readonly classes: string[], content: inline.Inline[], region?: Error.Region) {
 		super(content, region)
 	}
 	toObject(): { class: string } | any {

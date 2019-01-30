@@ -4,7 +4,7 @@ import { Inline } from "./Inline"
 
 export class Link extends ContentInline {
 	readonly class: string = "Link"
-	constructor(readonly target: string, content: Inline[], region: Error.Region) {
+	constructor(readonly target: string, content: Inline[], region?: Error.Region) {
 		super(content, region)
 	}
 	toObject(): { class: string } | any {

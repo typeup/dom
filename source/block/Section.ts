@@ -4,7 +4,7 @@ import { ContentBlock } from "./ContentBlock"
 
 export class Section extends ContentBlock<Block> {
 	readonly class: string = "Section"
-	constructor(content: Block[], region: Error.Region) {
+	constructor(content: Block[], region?: Error.Region) {
 		super(content, region)
 	}
 	toString() {

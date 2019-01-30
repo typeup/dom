@@ -4,7 +4,7 @@ import * as inline from "../inline"
 
 export class Figure extends ContentBlock<inline.Inline> {
 	readonly class: string = "Figure"
-	constructor(readonly source: Uri.Locator, readonly classes: string[], content: inline.Inline[], region: Error.Region) {
+	constructor(readonly source: Uri.Locator, readonly classes: string[], content: inline.Inline[], region?: Error.Region) {
 		super(content, region)
 	}
 	toObject(): { class: string } | any {

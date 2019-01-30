@@ -2,7 +2,7 @@ import { Error } from "@cogneco/mend"
 import { Inline } from "./Inline"
 
 export abstract class ContentInline extends Inline {
-	constructor(private content: Inline[], region: Error.Region) {
+	constructor(private content: Inline[], region?: Error.Region) {
 		super(region)
 	}
 	toString(): string {

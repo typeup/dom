@@ -3,7 +3,7 @@ import { Block } from "./Block"
 
 export class EmptyLine extends Block {
 	readonly class: string = "EmptyLine"
-	constructor(region: Error.Region) {
+	constructor(region?: Error.Region) {
 		super(region)
 	}
 	toString(): string {

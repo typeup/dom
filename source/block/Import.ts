@@ -4,7 +4,7 @@ import { Block } from "./Block"
 
 export class Import extends Block {
 	readonly class: string = "Import"
-	constructor(readonly source: Uri.Locator, readonly content: File, region: Error.Region) {
+	constructor(readonly source: Uri.Locator, readonly content: File, region?: Error.Region) {
 		super(region)
 	}
 	toObject(): { class: string } | any {

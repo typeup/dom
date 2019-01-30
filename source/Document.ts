@@ -4,7 +4,7 @@ import { Block } from "./block"
 
 export class Document extends File {
 	readonly class: string = "Document"
-	constructor(content: Block[], region: Error.Region) {
+	constructor(content: Block[], region?: Error.Region) {
 		super(content, region)
 	}
 	toJson(indent?: string): string {

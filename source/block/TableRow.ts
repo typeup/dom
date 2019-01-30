@@ -4,7 +4,7 @@ import { TableCell } from "./TableCell"
 
 export class TableRow extends ContentBlock<TableCell> {
 	readonly class: string = "TableRow"
-	constructor(content: TableCell[], region: Error.Region) {
+	constructor(content: TableCell[], region?: Error.Region) {
 		super(content, region)
 	}
 }
