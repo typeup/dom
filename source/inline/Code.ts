@@ -3,16 +3,16 @@ import { Inline } from "./Inline"
 
 export class Code extends Inline {
 	readonly class: string = "Code"
-	constructor(readonly content: string, region?: Error.Region) {
+	constructor(readonly value: string, region?: Error.Region) {
 		super(region)
 	}
 	toObject(): { class: string } | any {
 		return {
 			...super.toObject(),
-			content: this.content,
+			value: this.value,
 		}
 	}
 	toString(): string {
-		return "%" + super.toString() + "%"
+		return "%" + this.value + "%"
 	}
 }
