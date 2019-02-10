@@ -1,9 +1,7 @@
 version: 2.1
-jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:10.15
+commands:
+  prepare:
+    description: "Prepare working directory"
     steps:
       - checkout
       - restore_cache:
@@ -16,6 +14,14 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - prepare
       - run:
           name: Build
           command: npm run build
@@ -27,17 +33,7 @@ jobs:
     docker:
       - image: circleci/node:10.15
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-      - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - prepare
       - run:
           name: Bump version
           command: |
