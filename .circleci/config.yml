@@ -24,11 +24,15 @@ jobs:
           name: Run tests
           command: npm run test
       - run:
-          name: Bump version and Publish
+          name: Bump version
           command: |
             git config user.email circleci@circleci
             git config user.name CircleCI
             git checkout -- package-lock.json
             npm version patch -m "patch version bump [ci skip]"
+      - run:
+          name: Publish
+          command: |
+            git status
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
             npm publish --access public
