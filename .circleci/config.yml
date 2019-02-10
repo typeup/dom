@@ -1,0 +1,34 @@
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Run tests
+          command: npm run test
+      - run:
+          name: Bump version and Publish
+          command: |
+            git config user.email circleci@circleci
+            git config user.name CircleCI
+            git checkout -- package-lock.json
+            npm version patch -m "patch version bump [ci skip]"
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+            npm publish
