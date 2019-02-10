@@ -56,11 +56,4 @@ workflows:
   build-flow:
     jobs:
       - build
-  deploy-flow:
-    jobs:
-      - deploy:
-        requires: 
-          - build
-        filters:
-          branches:
-            only: master
+      - deploy
