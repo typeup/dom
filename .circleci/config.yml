@@ -31,4 +31,4 @@ jobs:
             git checkout -- package-lock.json
             npm version patch -m "patch version bump [ci skip]"
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-            npm publish
+            npm publish --access public
