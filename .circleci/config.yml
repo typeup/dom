@@ -53,10 +53,10 @@ jobs:
             npm publish --access public
 workflows:
   version: 2
-  build:
+  build-flow:
     jobs:
       - build
-  deploy:
+  deploy-flow:
     jobs:
       - deploy:
         requires: 
