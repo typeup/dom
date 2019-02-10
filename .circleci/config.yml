@@ -58,7 +58,7 @@ workflows:
       - build:
           filters:
             branches:
-              ignnore: master
+              ignore: master
       - deploy:
           filters:
             branches:
