@@ -1,4 +1,8 @@
 version: 2.1
+default: &default
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10.15
 commands:
   prepare:
     description: "Prepare working directory"
@@ -14,12 +18,9 @@ commands:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
 jobs:
   build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:10.15
+    <<: *default
     steps:
       - prepare
       - run:
@@ -29,9 +30,7 @@ jobs:
           name: Run tests
           command: npm run test
   deploy:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:10.15
+    <<: *default
     steps:
       - prepare
       - run:
@@ -59,4 +58,3 @@ workflows:
           filters:
             branches:
               only: master
-
