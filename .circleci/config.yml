@@ -55,7 +55,7 @@ workflows:
   version: 2
   build-flow:
     jobs:
-      - build
+      - build:
           filters:
             branches:
               ignnore: master
