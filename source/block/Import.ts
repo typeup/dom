@@ -3,7 +3,7 @@ import { File } from "../File"
 import { Block } from "./Block"
 
 export class Import extends Block {
-	readonly class: string = "Import"
+	readonly class: string = "Block.Import"
 	constructor(readonly source: Uri.Locator, readonly content: File, region?: Error.Region) {
 		super(region)
 	}

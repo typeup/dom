@@ -3,7 +3,7 @@ import { ContentBlock } from "./ContentBlock"
 import * as inline from "../inline"
 
 export class Video extends ContentBlock<inline.Inline> {
-	readonly class: string = "Video"
+	readonly class: string = "Block.Video"
 	get type(): string {
 		let result: string | undefined
 		const match = this.source.match(/\.([a-z,A-Z,0-9]+)$/)

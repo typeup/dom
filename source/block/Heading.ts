@@ -3,7 +3,7 @@ import { ContentBlock } from "./ContentBlock"
 import * as inline from "../inline"
 
 export class Heading extends ContentBlock<inline.Inline> {
-	readonly class: string = "Heading"
+	readonly class: string = "Block.Heading"
 	constructor(readonly level: number, content: inline.Inline[], region?: Error.Region) {
 		super(content, region)
 	}

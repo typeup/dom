@@ -2,7 +2,7 @@ import { Block } from "./Block"
 import { Error } from "@cogneco/mend"
 
 export class Assignment extends Block {
-	readonly class: string = "Assignment"
+	readonly class: string = "Block.Assignment"
 	constructor(readonly name: string, readonly value: string, region?: Error.Region) {
 		super(region)
 	}

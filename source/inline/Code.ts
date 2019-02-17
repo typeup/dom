@@ -2,7 +2,7 @@ import { Error } from "@cogneco/mend"
 import { Inline } from "./Inline"
 
 export class Code extends Inline {
-	readonly class: string = "Code"
+	readonly class: string = "Inline.Code"
 	constructor(readonly value: string, region?: Error.Region) {
 		super(region)
 	}

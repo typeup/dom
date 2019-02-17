@@ -2,7 +2,7 @@ import { ContentBlock } from "./ContentBlock"
 import { ListItem } from "./ListItem"
 
 export class OrderedList extends ContentBlock<ListItem> {
-	readonly class: string = "OrderedList"
+	readonly class: string = "Block.OrderedList"
 	constructor(content: ListItem[]) {
 		super(content, content.map(c => c.region).reduce((left, right) => left && right ? left.merge(right) : left || right))
 	}

@@ -3,7 +3,7 @@ import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 
 export class ListItem extends ContentBlock<Block> {
-	readonly class: string = "ListItem"
+	readonly class: string = "Block.ListItem"
 	constructor(content: Block[], region?: Error.Region) {
 		super(content, region)
 	}
