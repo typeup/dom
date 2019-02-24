@@ -2,14 +2,14 @@ import * as inline from "."
 
 const node = new inline.Code("const pi = 3.1415")
 
-describe("Code", () => {
+describe("Inline.Code", () => {
 	it("properties", () => {
-		expect(node.class).toBe("Code")
+		expect(node.class).toBe("Inline.Code")
 		expect(node.value).toBe("const pi = 3.1415")
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Code",
+			class: "Inline.Code",
 			value: "const pi = 3.1415",
 		})
 	})

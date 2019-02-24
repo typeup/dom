@@ -2,14 +2,14 @@ import * as inline from "."
 
 const node = new inline.Math("x^2")
 
-describe("Math", () => {
+describe("Inline.Math", () => {
 	it("properties", () => {
-		expect(node.class).toBe("Math")
+		expect(node.class).toBe("Inline.Math")
 		expect(node.value).toBe("x^2")
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Math",
+			class: "Inline.Math",
 			value: "x^2",
 		})
 	})

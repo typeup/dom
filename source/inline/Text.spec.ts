@@ -2,14 +2,14 @@ import * as inline from "."
 
 const node = new inline.Text("value")
 
-describe("Text", () => {
+describe("Inline.Text", () => {
 	it("properties", () => {
-		expect(node.class).toBe("Text")
+		expect(node.class).toBe("Inline.Text")
 		expect(node.value).toBe("value")
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Text",
+			class: "Inline.Text",
 			value: "value",
 		})
 	})

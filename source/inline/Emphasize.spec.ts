@@ -2,16 +2,16 @@ import * as inline from "."
 
 const node = new inline.Emphasize([ new inline.Text("TypeUp") ])
 
-describe("Emphasize", () => {
+describe("Inline.Emphasize", () => {
 	it("properties", () => {
-		expect(node.class).toBe("Emphasize")
+		expect(node.class).toBe("Inline.Emphasize")
 		expect(node.content).toEqual([ new inline.Text("TypeUp") ])
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Emphasize",
+			class: "Inline.Emphasize",
 			content: [
-				{ class: "Text", value: "TypeUp" },
+				{ class: "Inline.Text", value: "TypeUp" },
 			],
 		})
 	})
