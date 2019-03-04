@@ -1,5 +1,5 @@
 export { Code } from "./Code"
-export { Content as ContentInline } from "./Content"
+export { Content } from "./Content"
 export { Emphasize } from "./Emphasize"
 export { Inline } from "./Inline"
 export { Link } from "./Link"
