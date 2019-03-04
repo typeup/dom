@@ -1,8 +1,8 @@
 import { Error } from "@cogneco/mend"
-import { ContentBlock } from "./ContentBlock"
-import * as inline from "../inline/"
+import { Content } from "./Content"
+import * as inline from "../inline"
 
-export class CodeBlock extends ContentBlock<inline.Inline> {
+export class Code extends Content<inline.Inline> {
 	readonly class: string = "Block.Code"
 	constructor(readonly language: string, readonly value: string, content: inline.Inline[], region?: Error.Region) {
 		super(content, region)

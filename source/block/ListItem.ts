@@ -1,8 +1,8 @@
 import { Error } from "@cogneco/mend"
 import { Block } from "./Block"
-import { ContentBlock } from "./ContentBlock"
+import { Content } from "./Content"
 
-export class ListItem extends ContentBlock<Block> {
+export class ListItem extends Content<Block> {
 	readonly class: string = "Block.ListItem"
 	constructor(content: Block[], region?: Error.Region) {
 		super(content, region)

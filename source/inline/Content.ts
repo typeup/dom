@@ -1,7 +1,7 @@
 import { Error } from "@cogneco/mend"
 import { Inline } from "./Inline"
 
-export abstract class ContentInline extends Inline {
+export abstract class Content extends Inline {
 	constructor(readonly content: Inline[], region?: Error.Region) {
 		super(region)
 	}

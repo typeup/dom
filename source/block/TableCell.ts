@@ -1,8 +1,8 @@
 import { Error } from "@cogneco/mend"
-import { ContentBlock } from "./ContentBlock"
+import { Content } from "./Content"
 import * as inline from "../inline"
 
-export class TableCell extends ContentBlock<inline.Inline> {
+export class TableCell extends Content<inline.Inline> {
 	readonly class: string = "Bock.TableCell"
 	constructor(readonly header: boolean, content: inline.Inline[], region?: Error.Region) {
 		super(content, region)

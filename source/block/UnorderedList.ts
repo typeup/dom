@@ -1,7 +1,7 @@
-import { ContentBlock } from "./ContentBlock"
+import { Content } from "./Content"
 import { ListItem } from "./ListItem"
 
-export class UnorderedList extends ContentBlock<ListItem> {
+export class UnorderedList extends Content<ListItem> {
 	readonly class: string = "Block.UnorderedList"
 	constructor(content: ListItem[]) {
 		super(content, content.map(c => c.region).reduce((left, right) => left && right ? left.merge(right) : left || right))

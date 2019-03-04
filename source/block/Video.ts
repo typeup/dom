@@ -1,8 +1,8 @@
 import { Error } from "@cogneco/mend"
-import { ContentBlock } from "./ContentBlock"
+import { Content } from "./Content"
 import * as inline from "../inline"
 
-export class Video extends ContentBlock<inline.Inline> {
+export class Video extends Content<inline.Inline> {
 	readonly class: string = "Block.Video"
 	get type(): string {
 		let result: string | undefined
