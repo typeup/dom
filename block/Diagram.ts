@@ -2,8 +2,8 @@ import { Error } from "@cogneco/mend"
 import { Content } from "./Content"
 import * as inline from "../inline"
 
-export class Math extends Content<inline.Inline> {
-	readonly class: string = "Block.Math"
+export class Diagram extends Content<inline.Inline> {
+	readonly class: string = "Block.Diagram"
 	constructor(readonly value: string, content: inline.Inline[], region?: Error.Region) {
 		super(content, region)
 	}
@@ -14,6 +14,6 @@ export class Math extends Content<inline.Inline> {
 		}
 	}
 	toString() {
-		return `$$\n${this.value}\n$$\n${super.toString()}`
+		return `++\n${this.value}\n++\n${super.toString()}`
 	}
 }
