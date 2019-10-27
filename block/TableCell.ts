@@ -3,7 +3,7 @@ import { Content } from "./Content"
 import * as inline from "../inline"
 
 export class TableCell extends Content<inline.Inline> {
-	readonly class: string = "Bock.TableCell"
+	readonly class: string = "Block.TableCell"
 	constructor(readonly header: boolean, content: inline.Inline[], region?: Error.Region) {
 		super(content, region)
 	}

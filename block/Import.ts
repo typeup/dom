@@ -15,6 +15,6 @@ export class Import extends Block {
 		}
 	}
 	toString() {
-		return `!import ${this.source} \n`
+		return `!import ${this.source}\n`
 	}
 }
