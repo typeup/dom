@@ -41,7 +41,7 @@ describe("block.DefinitionList", () => {
 						},
 						{
 							content: [
-								{ value: "First Term", class: "Inline.Text" }
+								{ value: "First Term", class: "Inline.Text" },
 							],
 							class: "Block.DefinitionData",
 						},
