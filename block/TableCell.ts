@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import * as inline from "../inline"
 
@@ -14,3 +15,4 @@ export class TableCell extends Content<inline.Inline> {
 		}
 	}
 }
+register("Block.TableCell", data => new TableCell(data.header, data.content.map(Node.create)))

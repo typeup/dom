@@ -1,6 +1,6 @@
 import { Error } from "@cogneco/mend"
 
-import { Node } from "./Node"
+import { Node, register } from "./Node"
 import { Block, Paragraph } from "./block"
 
 export class File extends Node {
@@ -24,3 +24,4 @@ export class File extends Node {
 		return result
 	}
 }
+register("File", data => new File(data.content))

@@ -1,5 +1,6 @@
 import { Error } from "@cogneco/mend"
 import { File } from "./File"
+import { register } from "./Node"
 import { Block } from "./block"
 
 export class Document extends File {
@@ -13,3 +14,4 @@ export class Document extends File {
 		return JSON.stringify(this.toObject(), null, indent)
 	}
 }
+register("Document", data => new Document(data.content))

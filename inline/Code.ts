@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { register } from "../Node"
 import { Inline } from "./Inline"
 
 export class Code extends Inline {
@@ -16,3 +17,4 @@ export class Code extends Inline {
 		return "%" + this.value + "%"
 	}
 }
+register("Inline.Code", data => new Code(data.value))

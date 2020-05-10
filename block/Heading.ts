@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import * as inline from "../inline"
 
@@ -17,3 +18,4 @@ export class Heading extends Content<inline.Inline> {
 		return "#".repeat(this.level) + " " + super.toString()
 	}
 }
+register("Block.Heading", data => new Heading(data.level, data.content.map(Node.create)))

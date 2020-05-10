@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import * as inline from "../inline"
 import { Content } from "./Content"
 
@@ -11,3 +12,4 @@ export class DefinitionData extends Content<inline.Inline> {
 		return ": " + super.toString()
 	}
 }
+register("Block.DefinitionData", data => new DefinitionData(data.content.map(Node.create)))

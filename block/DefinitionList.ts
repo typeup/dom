@@ -1,3 +1,4 @@
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import { DefinitionTerm } from "./DefinitionTerm"
 
@@ -10,3 +11,4 @@ export class DefinitionList extends Content<DefinitionTerm> {
 		return this.content.map(item => item.toString()).join("\n")
 	}
 }
+register("Block.DefinitionList", data => new DefinitionList(data.content.map(Node.create)))

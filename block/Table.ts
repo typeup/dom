@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import { TableRow } from "./TableRow"
 import * as inline from "../inline"
@@ -31,3 +32,4 @@ export class Table extends Content<inline.Inline> {
 		return rows.join("") + super.toString()
 	}
 }
+register("Block.Table", data => new Table(data.alignments, data.rows.map(Node.create)))

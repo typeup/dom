@@ -1,3 +1,4 @@
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import { ListItem } from "./ListItem"
 
@@ -10,3 +11,4 @@ export class UnorderedList extends Content<ListItem> {
 		return this.content.map(item => item.toString("- ")).join("\n")
 	}
 }
+register("Block.UnorderedList", data => new UnorderedList(data.content.map(Node.create)))

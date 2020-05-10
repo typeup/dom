@@ -1,4 +1,5 @@
 import { Error, Uri } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { File } from "../File"
 import { Block } from "./Block"
 
@@ -18,3 +19,4 @@ export class Import extends Block {
 		return `!import ${this.source}\n`
 	}
 }
+register("Block.Import", data => new Import(data.source, Node.create(data.content) as File))

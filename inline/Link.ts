@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import { Inline } from "./Inline"
 
@@ -17,3 +18,4 @@ export class Link extends Content {
 		return "[" + this.target + " " + super.toString() + "]"
 	}
 }
+register("Inline.Link", data => new Link(data.target, data.content.map(Node.create)))
