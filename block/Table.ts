@@ -32,4 +32,4 @@ export class Table extends Content<inline.Inline> {
 		return rows.join("") + super.toString()
 	}
 }
-register("Block.Table", data => new Table(data.alignments, data.rows.map(Node.create)))
+register("Block.Table", data => new Table(data.alignments, data.rows.map(Node.create), data.content.map(Node.create)))
