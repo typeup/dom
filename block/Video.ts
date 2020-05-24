@@ -1,4 +1,5 @@
 import { Error, Uri } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import * as inline from "../inline"
 
@@ -33,3 +34,4 @@ export class Video extends Content<inline.Inline> {
 		return `!video ${this.source} ${this.classes}\n${super.toString()}`
 	}
 }
+register("Block.Video", data => new Video(data.source, data.classes, data.content.map(Node.create)))

@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { register } from "../Node"
 import { Inline } from "./Inline"
 
 export class Math extends Inline {
@@ -16,3 +17,4 @@ export class Math extends Inline {
 		return "$" + this.value + "$"
 	}
 }
+register("Inline.Math", data => new Math(data.value))

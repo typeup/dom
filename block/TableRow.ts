@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { Node, register } from "../Node"
 import { Content } from "./Content"
 import { TableCell } from "./TableCell"
 
@@ -8,3 +9,4 @@ export class TableRow extends Content<TableCell> {
 		super(content, region)
 	}
 }
+register("Block.TableRow", data => new TableRow(data.content.map(Node.create)))

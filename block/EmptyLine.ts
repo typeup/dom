@@ -1,4 +1,5 @@
 import { Error } from "@cogneco/mend"
+import { register } from "../Node"
 import { Block } from "./Block"
 
 export class EmptyLine extends Block {
@@ -10,3 +11,4 @@ export class EmptyLine extends Block {
 		return "\n"
 	}
 }
+register("Block.EmptyLine", data => new EmptyLine(data.region))
