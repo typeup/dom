@@ -50,14 +50,14 @@
   "@cogneco/mend": "^1.7.15"
  },
  "devDependencies": {
-  "@types/jest": "^25.2.1",
-  "@types/node": "^13.13.5",
+  "@types/jest": "^25.2.3",
+  "@types/node": "^14.0.5",
   "babel-core": "^6.26.3",
   "babel-jest": "^26.0.1",
   "jest": "^26",
-  "ts-jest": "^25.5.1",
+  "ts-jest": "^26.0.0",
   "tslint": "^6.1.2",
-  "typescript": "^3.8.3",
+  "typescript": "^3.9.3",
   "watch": "^1.0.2"
  }
 }
