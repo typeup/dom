@@ -1,6 +1,6 @@
 {
  "name": "@typeup/dom",
- "version": "0.2.11",
+ "version": "0.2.12",
  "description": "Document Object Model for TypeUp.",
  "repository": {
   "type": "git",
