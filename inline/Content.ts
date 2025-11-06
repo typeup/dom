@@ -1,17 +1,17 @@
-import { Error } from "@cogneco/mend"
-import { Inline } from "./Inline"
+import { Error } from "@cogneco/mend";
+import { Inline } from "./Inline";
 
 export abstract class Content extends Inline {
 	constructor(readonly content: Inline[], region?: Error.Region) {
-		super(region)
+		super(region);
 	}
-	toString(): string {
-		return this.content.map(c => c.toString()).join("")
+	override toString(): string {
+		return this.content.map((c) => c.toString()).join("");
 	}
-	toObject(): { class: string } | any {
+	override toObject(): { class: string } | any {
 		return {
 			...super.toObject(),
-			"content": this.content.map(c => c.toObject()),
-		}
+			content: this.content.map((c) => c.toObject()),
+		};
 	}
 }

@@ -1,19 +1,32 @@
-import { Error } from "@cogneco/mend"
-import { Node, register } from "../Node"
-import * as inline from "../inline"
-import { Content } from "./Content"
-import { DefinitionData } from "./DefinitionData"
+import { Error } from "@cogneco/mend";
+import { Node, register } from "../Node";
+import * as inline from "../inline";
+import { Content } from "./Content";
+import { DefinitionData } from "./DefinitionData";
 
 export class DefinitionTerm extends Content<inline.Inline> {
-	readonly class: string = "Block.DefinitionTerm"
-	constructor(content: inline.Inline[], readonly data: DefinitionData[], region?: Error.Region) {
-		super(content, region)
+	readonly class: string = "Block.DefinitionTerm";
+	constructor(
+		content: inline.Inline[],
+		readonly data: DefinitionData[],
+		region?: Error.Region
+	) {
+		super(content, region);
 	}
-	toObject(): object {
-		return { ...super.toObject(), data: this.data.map(d => d.toObject()) }
+	override toString(): string {
+		return (
+			super.toString() + "\n" + this.data.map((d) => d.toString()).join("\n")
+		);
 	}
-	toString(): string {
-		return super.toString() + "\n" + this.data.map(d => d.toString()).join("\n")
+	override toObject(): { class: string } | any {
+		return { ...super.toObject(), data: this.data.map((d) => d.toObject()) };
 	}
 }
-register("Block.DefinitonTerm", data => new DefinitionTerm(data.content.map(Node.create), data.data.map(Node.create)))
+register(
+	"Block.DefinitonTerm",
+	(data) =>
+		new DefinitionTerm(
+			data.content.map(Node.create),
+			data.data.map(Node.create)
+		)
+);

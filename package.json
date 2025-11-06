@@ -1,63 +1,61 @@
 {
- "name": "@typeup/dom",
- "version": "0.2.12",
- "description": "Document Object Model for TypeUp.",
- "repository": {
-  "type": "git",
-  "url": "git+https://github.com/typeup/dom"
- },
- "author": "Simon Mika <simon@mika.se>",
- "license": "MIT",
- "bugs": {
-  "url": "https://github.com/typeup/dom/issues"
- },
- "homepage": "https://github.com/typeup/dom#readme",
- "main": "dist/index.js",
- "typings": "dist/index.d.ts",
- "jest": {
-  "globals": {
-   "ts-jest": {
-    "tsConfig": "tsconfig.test.json"
-   }
+  "name": "@typeup/dom",
+  "version": "0.2.12",
+  "description": "Document Object Model for TypeUp.",
+  "author": "Simon Mika <simon@mika.se>",
+  "license": "MIT",
+  "repository": "https://github.com/typeup/dom",
+  "bugs": {
+    "url": "https://github.com/typeup/dom/issues"
   },
-  "testEnvironment": "node",
-  "testRegex": "((\\.|/)(test|spec))(\\.|\\/.+)(jsx?|tsx?)$",
-  "testPathIgnorePatterns": [
-   "node_modules/",
-   "dist/"
-  ],
-  "collectCoverageFrom": [
-   "**/*.{ts,tsx,js,jsx}",
-   "!**/node_modules/**",
-   "!**/dist/**"
-  ],
-  "preset": "ts-jest",
-  "testMatch": null
- },
- "scripts": {
-  "dev": "watch 'npm run build' .",
-  "lint": "tslint --config tslint.json --project .",
-  "build": "tsc -p .",
-  "pretest": "npm run build",
-  "test": "jest",
-  "test:watch": "watch jest",
-  "preversion": "npm run test",
-  "version": "npm run build",
-  "postversion": "git push && git push --tags",
-  "clean": "rm -rf dist node_modules coverage"
- },
- "dependencies": {
-  "@cogneco/mend": "^1.7.15"
- },
- "devDependencies": {
-  "@types/jest": "^25.2.3",
-  "@types/node": "^14.0.5",
-  "babel-core": "^6.26.3",
-  "babel-jest": "^26.0.1",
-  "jest": "^26",
-  "ts-jest": "^26.0.0",
-  "tslint": "^6.1.2",
-  "typescript": "^3.9.3",
-  "watch": "^1.0.2"
- }
+  "homepage": "https://github.com/typeup",
+  "private": false,
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/mjs/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/mjs/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "git": {
+    "tagName": "v${version}"
+  },
+  "github": {
+    "release": true
+  },
+  "scripts": {
+    "lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
+    "fix": "eslint '**/*.{ts,tsx}' --fix",
+    "build": "rimraf dist/* && tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
+    "test": "vitest --run",
+    "coverage": "vitest --coverage",
+    "prepare": "npm run build",
+    "clean": "rimraf dist node_modules coverage",
+    "verify": "npm run build && npm run test && npm run lint && npm audit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "8.18.1",
+    "@typescript-eslint/parser": "8.18.1",
+    "@vitest/coverage-v8": "^2.1.8",
+    "eslint": "^8.56.0",
+    "eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettierx": "github:utily/prettierx#utily-20231004",
+    "rimraf": "^6.0.1",
+    "typescript": "5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@cogneco/mend": "^1.7.15"
+  }
 }

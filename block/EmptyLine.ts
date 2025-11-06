@@ -1,14 +1,14 @@
-import { Error } from "@cogneco/mend"
-import { register } from "../Node"
-import { Block } from "./Block"
+import { Error } from "@cogneco/mend";
+import { register } from "../Node";
+import { Block } from "./Block";
 
 export class EmptyLine extends Block {
-	readonly class: string = "Block.EmptyLine"
+	readonly class: string = "Block.EmptyLine";
 	constructor(region?: Error.Region) {
-		super(region)
+		super(region);
 	}
-	toString(): string {
-		return "\n"
+	override toString(): string {
+		return "\n";
 	}
 }
-register("Block.EmptyLine", data => new EmptyLine(data.region))
+register("Block.EmptyLine", (data) => new EmptyLine(data.region));

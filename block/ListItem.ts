@@ -1,17 +1,19 @@
-import { Error } from "@cogneco/mend"
-import { Node, register } from "../Node"
-import { Block } from "./Block"
-import { Content } from "./Content"
+import { Error } from "@cogneco/mend";
+import { Node, register } from "../Node";
+import { Block } from "./Block";
+import { Content } from "./Content";
 
 export class ListItem extends Content<Block> {
-	readonly class: string = "Block.ListItem"
+	readonly class: string = "Block.ListItem";
 	constructor(content: Block[], region?: Error.Region) {
-		super(content, region)
+		super(content, region);
 	}
-	toString(symbol?: string): string {
-		if (!symbol)
-			symbol = " - "
-		return symbol + super.toString()
+	override toString(symbol?: string): string {
+		if (!symbol) symbol = " - ";
+		return symbol + super.toString();
 	}
 }
-register("Block.ListItem", data => new ListItem(data.content.map(Node.create)))
+register(
+	"Block.ListItem",
+	(data) => new ListItem(data.content.map(Node.create))
+);
