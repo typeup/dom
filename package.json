@@ -4,7 +4,10 @@
 	"description": "Document Object Model for TypeUp.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
-	"repository": "https://github.com/typeup/dom",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/typeup/dom.git"
+	},
 	"bugs": {
 		"url": "https://github.com/typeup/dom/issues"
 	},
