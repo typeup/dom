@@ -55,18 +55,18 @@
 		"release:major": "npm run verify && npm version major && git push --follow-tags"
 	},
 	"devDependencies": {
-		"@types/node": "^24.10.0",
-		"@typescript-eslint/eslint-plugin": "8.46.3",
-		"@typescript-eslint/parser": "8.46.3",
-		"@vitest/coverage-v8": "^4.0.7",
+		"@types/node": "^24.10.1",
+		"@typescript-eslint/eslint-plugin": "8.47.0",
+		"@typescript-eslint/parser": "8.47.0",
+		"@vitest/coverage-v8": "^4.0.13",
 		"eslint": "^8.56.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"prettierx": "github:utily/prettierx#utily-20231004",
-		"rimraf": "^6.1.0",
+		"rimraf": "^6.1.2",
 		"typescript": "5.9.3",
-		"vite": "^7.1.12",
-		"vitest": "^4.0.7"
+		"vite": "^7.2.4",
+		"vitest": "^4.0.13"
 	},
 	"dependencies": {
 		"mendly": "^2.1.0"
