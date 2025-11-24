@@ -5,21 +5,21 @@ describe("dom.Inline.Link", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "link",
+				class: "inline.link",
 				target: "https://github.com/typeup/",
-				content: [{ class: "text", value: "TypeUp" }],
+				content: [{ class: "inline.text", value: "TypeUp" }],
 			})
 		).toEqual(node))
 	it("properties", () => {
-		expect(node.class).toBe("link")
+		expect(node.class).toBe("inline.link")
 		expect(node.target).toBe("https://github.com/typeup/")
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "link",
+			class: "inline.link",
 			target: "https://github.com/typeup/",
-			content: [{ class: "text", value: "TypeUp" }],
+			content: [{ class: "inline.text", value: "TypeUp" }],
 		})
 	})
 	it("toString", () => {

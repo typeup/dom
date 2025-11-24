@@ -4,7 +4,7 @@ import { Content } from "./Content"
 import { Inline } from "./Inline"
 
 export class Link extends Content {
-	readonly class: string = "link"
+	readonly class: string = "inline.link"
 	constructor(readonly target: string, content: Inline[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -21,4 +21,4 @@ export class Link extends Content {
 
 export namespace Link {}
 
-register("link", data => new Link(data.target, data.content.map(Node.create)))
+register("inline.link", data => new Link(data.target, data.content.map(Node.create)))

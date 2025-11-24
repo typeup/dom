@@ -9,7 +9,7 @@ describe("dom.Block.Code", () => {
 				class: "block.code",
 				language: "c",
 				value: 'printf("Hello, World!")',
-				content: [{ class: "text", value: "Caption." }],
+				content: [{ class: "inline.text", value: "Caption." }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.code"))
@@ -18,7 +18,7 @@ describe("dom.Block.Code", () => {
 		expect(node.toObject()).toEqual({
 			language: "c",
 			value: 'printf("Hello, World!")',
-			content: [{ value: "Caption.", class: "text" }],
+			content: [{ value: "Caption.", class: "inline.text" }],
 			class: "block.code",
 		}))
 	it("toString", () => expect(node.toString()).toEqual('%% c\nprintf("Hello, World!")\n%%\nCaption.'))

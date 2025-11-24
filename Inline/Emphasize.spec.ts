@@ -4,15 +4,17 @@ const node = new dom.Inline.Emphasize([new dom.Inline.Text("TypeUp")])
 
 describe("dom.Inline.Emphasize", () => {
 	it("create", () =>
-		expect(dom.Node.create({ class: "emphasize", content: [{ class: "text", value: "TypeUp" }] })).toEqual(node))
+		expect(
+			dom.Node.create({ class: "inline.emphasize", content: [{ class: "inline.text", value: "TypeUp" }] })
+		).toEqual(node))
 	it("properties", () => {
-		expect(node.class).toBe("emphasize")
+		expect(node.class).toBe("inline.emphasize")
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "emphasize",
-			content: [{ class: "text", value: "TypeUp" }],
+			class: "inline.emphasize",
+			content: [{ class: "inline.text", value: "TypeUp" }],
 		})
 	})
 	it("toString", () => {

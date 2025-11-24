@@ -32,12 +32,12 @@ describe("dom.Block.Paragraph", () => {
 			  "class": "block.paragraph",
 			  "content": [
 			    Text {
-			      "class": "text",
+			      "class": "inline.text",
 			      "region": undefined,
 			      "value": "first",
 			    },
 			    Text {
-			      "class": "text",
+			      "class": "inline.text",
 			      "region": Region {
 			        "content": "second",
 			        "end": Position {
@@ -68,7 +68,7 @@ describe("dom.Block.Paragraph", () => {
 			      "value": "second",
 			    },
 			    Text {
-			      "class": "text",
+			      "class": "inline.text",
 			      "region": Region {
 			        "content": "third",
 			        "end": Position {
@@ -99,7 +99,7 @@ describe("dom.Block.Paragraph", () => {
 			      "value": "third",
 			    },
 			    Text {
-			      "class": "text",
+			      "class": "inline.text",
 			      "region": undefined,
 			      "value": "forth",
 			    },
@@ -135,14 +135,14 @@ describe("dom.Block.Paragraph", () => {
 		`)
 	})
 	it("create", () =>
-		expect(dom.Node.create({ class: "block.paragraph", content: [{ class: "text", value: "paragraph" }] })).toEqual(
-			node
-		))
+		expect(
+			dom.Node.create({ class: "block.paragraph", content: [{ class: "inline.text", value: "paragraph" }] })
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.paragraph"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("paragraph")]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
-			content: [{ value: "paragraph", class: "text" }],
+			content: [{ value: "paragraph", class: "inline.text" }],
 			class: "block.paragraph",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("paragraph"))

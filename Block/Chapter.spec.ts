@@ -7,7 +7,7 @@ describe("dom.Block.Chapter", () => {
 		expect(
 			dom.Node.create({
 				class: "block.chapter",
-				content: [{ class: "block.paragraph", content: [{ class: "text", value: "paragraph" }] }],
+				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "paragraph" }] }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.chapter"))
@@ -16,7 +16,7 @@ describe("dom.Block.Chapter", () => {
 		expect(node.toObject()).toEqual({
 			content: [
 				{
-					content: [{ value: "paragraph", class: "text" }],
+					content: [{ value: "paragraph", class: "inline.text" }],
 					class: "block.paragraph",
 				},
 			],

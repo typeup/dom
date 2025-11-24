@@ -12,7 +12,7 @@ describe("dom.Block.List.Ordered", () => {
 				content: [
 					{
 						class: "block.list.item",
-						content: [{ class: "block.paragraph", content: [{ class: "text", value: "Item 0" }] }],
+						content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Item 0" }] }],
 					},
 				],
 			})
@@ -26,7 +26,7 @@ describe("dom.Block.List.Ordered", () => {
 				{
 					content: [
 						{
-							content: [{ value: "Item 0", class: "text" }],
+							content: [{ value: "Item 0", class: "inline.text" }],
 							class: "block.paragraph",
 						},
 					],

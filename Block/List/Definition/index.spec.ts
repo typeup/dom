@@ -18,10 +18,10 @@ describe("dom.Block.List.Definition", () => {
 				content: [
 					{
 						class: "block.list.definition.term",
-						content: [{ class: "text", value: "Alpha" }],
+						content: [{ class: "inline.text", value: "Alpha" }],
 						data: [
-							{ class: "block.list.definition.data", content: [{ class: "text", value: "Term A" }] },
-							{ class: "block.list.definition.data", content: [{ class: "text", value: "First Term" }] },
+							{ class: "block.list.definition.data", content: [{ class: "inline.text", value: "Term A" }] },
+							{ class: "block.list.definition.data", content: [{ class: "inline.text", value: "First Term" }] },
 						],
 					},
 				],
@@ -42,14 +42,14 @@ describe("dom.Block.List.Definition", () => {
 		expect(node.toObject()).toEqual({
 			content: [
 				{
-					content: [{ value: "Alpha", class: "text" }],
+					content: [{ value: "Alpha", class: "inline.text" }],
 					data: [
 						{
-							content: [{ value: "Term A", class: "text" }],
+							content: [{ value: "Term A", class: "inline.text" }],
 							class: "block.list.definition.data",
 						},
 						{
-							content: [{ value: "First Term", class: "text" }],
+							content: [{ value: "First Term", class: "inline.text" }],
 							class: "block.list.definition.data",
 						},
 					],

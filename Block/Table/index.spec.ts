@@ -29,23 +29,23 @@ describe("dom.Block.Table", () => {
 					{
 						class: "block.table.row",
 						content: [
-							{ class: "block.table.cell", content: [{ class: "text", value: "Header 0" }], header: true },
-							{ class: "block.table.cell", content: [{ class: "text", value: "Header 1" }], header: true },
-							{ class: "block.table.cell", content: [{ class: "text", value: "Header 2" }], header: true },
-							{ class: "block.table.cell", content: [{ class: "text", value: "Header 3" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 0" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 1" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 2" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 3" }], header: true },
 						],
 					},
 					{
 						class: "block.table.row",
 						content: [
-							{ class: "block.table.cell", content: [{ class: "text", value: "value 0" }], header: false },
-							{ class: "block.table.cell", content: [{ class: "text", value: "value 1" }], header: false },
-							{ class: "block.table.cell", content: [{ class: "text", value: "value 2" }], header: false },
-							{ class: "block.table.cell", content: [{ class: "text", value: "value 3" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 0" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 1" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 2" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 3" }], header: false },
 						],
 					},
 				],
-				content: [{ class: "block.paragraph", content: [{ class: "text", value: "Caption." }] }],
+				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Caption." }] }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.table"))
@@ -75,22 +75,22 @@ describe("dom.Block.Table", () => {
 					content: [
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "Header 0" }],
+							content: [{ class: "inline.text", value: "Header 0" }],
 							header: true,
 						},
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "Header 1" }],
+							content: [{ class: "inline.text", value: "Header 1" }],
 							header: true,
 						},
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "Header 2" }],
+							content: [{ class: "inline.text", value: "Header 2" }],
 							header: true,
 						},
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "Header 3" }],
+							content: [{ class: "inline.text", value: "Header 3" }],
 							header: true,
 						},
 					],
@@ -100,22 +100,22 @@ describe("dom.Block.Table", () => {
 					content: [
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "value 0" }],
+							content: [{ class: "inline.text", value: "value 0" }],
 							header: false,
 						},
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "value 1" }],
+							content: [{ class: "inline.text", value: "value 1" }],
 							header: false,
 						},
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "value 2" }],
+							content: [{ class: "inline.text", value: "value 2" }],
 							header: false,
 						},
 						{
 							class: "block.table.cell",
-							content: [{ class: "text", value: "value 3" }],
+							content: [{ class: "inline.text", value: "value 3" }],
 							header: false,
 						},
 					],
@@ -123,7 +123,7 @@ describe("dom.Block.Table", () => {
 			],
 			content: [
 				{
-					content: [{ value: "Caption.", class: "text" }],
+					content: [{ value: "Caption.", class: "inline.text" }],
 					class: "block.paragraph",
 				},
 			],

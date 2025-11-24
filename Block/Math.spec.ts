@@ -8,7 +8,7 @@ describe("dom.Block.Math", () => {
 			dom.Node.create({
 				class: "block.math",
 				value: "a^2 + b^2 = c^2",
-				content: [{ class: "text", value: "Caption." }],
+				content: [{ class: "inline.text", value: "Caption." }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.math"))
@@ -16,7 +16,7 @@ describe("dom.Block.Math", () => {
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			value: "a^2 + b^2 = c^2",
-			content: [{ value: "Caption.", class: "text" }],
+			content: [{ value: "Caption.", class: "inline.text" }],
 			class: "block.math",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("$$\na^2 + b^2 = c^2\n$$\nCaption."))
