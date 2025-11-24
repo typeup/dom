@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { dom } from "../index"
 
-describe("block.Video", () => {
+describe("dom.Block.Video", () => {
 	const node = new dom.Block.Video(
 		new mendly.Uri(undefined, undefined, [".", "video.ogg"]),
 		["class"],

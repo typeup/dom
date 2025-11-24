@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.Code", () => {
+describe("dom.Block.Code", () => {
 	const node = new dom.Block.Code("c", 'printf("Hello, World!")', [new dom.Inline.Text("Caption.")])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

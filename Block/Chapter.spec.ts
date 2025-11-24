@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.Chapter", () => {
+describe("dom.Block.Chapter", () => {
 	const node = new dom.Block.Chapter([new dom.Block.Paragraph([new dom.Inline.Text("paragraph")])])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

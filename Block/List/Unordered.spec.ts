@@ -1,6 +1,6 @@
 import { dom } from "../../index"
 
-describe("block.UnorderedList", () => {
+describe("dom.Block.List.Unordered", () => {
 	const node = new dom.Block.List.Unordered([
 		new dom.Block.List.Item([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])]),
 	])

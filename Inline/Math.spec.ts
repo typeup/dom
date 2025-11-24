@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("math", () => {
+describe("dom.Inline.Math", () => {
 	const node = new dom.Inline.Math("x^2")
 	it("create", () => expect(dom.Node.create({ class: "math", value: "x^2" })).toEqual(node))
 	it("properties", () => {

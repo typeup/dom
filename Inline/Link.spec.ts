@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("link", () => {
+describe("dom.Inline.Link", () => {
 	const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")])
 	it("create", () =>
 		expect(

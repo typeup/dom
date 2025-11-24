@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.Assignment", () => {
+describe("dom.Block.Assignment", () => {
 	const node = new dom.Block.Assignment("variable", "value")
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

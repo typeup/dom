@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.Math", () => {
+describe("dom.Block.Math", () => {
 	const node = new dom.Block.Math("a^2 + b^2 = c^2", [new dom.Inline.Text("Caption.")])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

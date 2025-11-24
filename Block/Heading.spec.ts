@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.Heading", () => {
+describe("dom.Block.Heading", () => {
 	const node = new dom.Block.Heading(3, [new dom.Inline.Text("Header")])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

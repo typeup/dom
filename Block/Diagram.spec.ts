@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.Diagram", () => {
+describe("dom.Block.Diagram", () => {
 	const node = new dom.Block.Diagram("<svg></svg>", [new dom.Inline.Text("Caption.")])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

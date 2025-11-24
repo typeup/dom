@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("text", () => {
+describe("dom.Inline.Text", () => {
 	const node = new dom.Inline.Text("value")
 	it("create", () => expect(dom.Node.create({ class: "text", value: "value" })).toEqual(node))
 	it("properties", () => {

@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { dom } from "../index"
 
-describe("block.Figure", () => {
+describe("dom.Block.Figure", () => {
 	const node = new dom.Block.Figure(
 		new mendly.Uri(undefined, undefined, [".", "image.png"]),
 		["class"],

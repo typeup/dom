@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { dom } from "../index"
 
-describe("block.Import", () => {
+describe("dom.Block.Import", () => {
 	const node = new dom.Block.Import(
 		new mendly.Uri(undefined, undefined, [".", "subdocument.tup"]),
 		new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])

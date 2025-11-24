@@ -1,6 +1,6 @@
 import { dom } from "./index"
 
-describe("file", () => {
+describe("dom.File", () => {
 	const node = new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>

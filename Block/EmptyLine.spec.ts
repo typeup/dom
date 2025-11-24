@@ -1,6 +1,6 @@
 import { dom } from "../index"
 
-describe("block.EmptyLine", () => {
+describe("dom.Block.EmptyLine", () => {
 	const node = new dom.Block.EmptyLine()
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () => expect(dom.Node.create({ class: "block.emptyLine" })).toEqual(node))

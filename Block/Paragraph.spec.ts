@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { dom } from "../index"
 
-describe("block.Paragraph", () => {
+describe("dom.Block.Paragraph", () => {
 	const node = new dom.Block.Paragraph([new dom.Inline.Text("paragraph")])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("constructor with multiple children", () => {

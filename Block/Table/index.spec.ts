@@ -1,6 +1,6 @@
 import { dom } from "../../index"
 
-describe("block.Table", () => {
+describe("dom.Block.Table", () => {
 	const node = new dom.Block.Table(
 		["left", "center", "right", ""],
 		[
