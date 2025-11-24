@@ -1,62 +1,62 @@
 {
-  "name": "@typeup/dom",
-  "version": "0.2.12",
-  "description": "Document Object Model for TypeUp.",
-  "author": "Simon Mika <simon@mika.se>",
-  "license": "MIT",
-  "repository": "https://github.com/typeup/dom",
-  "bugs": {
-    "url": "https://github.com/typeup/dom/issues"
-  },
-  "homepage": "https://github.com/typeup",
-  "private": false,
-  "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/mjs/index.js",
-  "types": "./dist/types/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/mjs/index.js"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      }
-    }
-  },
-  "git": {
-    "tagName": "v${version}"
-  },
-  "github": {
-    "release": true
-  },
-  "scripts": {
-    "lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
-    "fix": "eslint '**/*.{ts,tsx}' --fix",
-    "build": "rimraf dist/* && tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
-    "test": "vitest --run",
-    "coverage": "vitest --coverage",
-    "prepare": "npm run build",
-    "clean": "rimraf dist node_modules coverage",
-    "verify": "npm run build && npm run test && npm run lint && npm audit"
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.0",
-    "@typescript-eslint/eslint-plugin": "8.46.3",
-    "@typescript-eslint/parser": "8.46.3",
-    "@vitest/coverage-v8": "^4.0.7",
-    "eslint": "^8.56.0",
-    "eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "prettierx": "github:utily/prettierx#utily-20231004",
-    "rimraf": "^6.1.0",
-    "typescript": "5.9.3",
-    "vite": "^7.1.12",
-    "vitest": "^4.0.7"
-  },
-  "dependencies": {
-    "mendly": "^2.1.0"
-  }
+	"name": "@typeup/dom",
+	"version": "1.0.0",
+	"description": "Document Object Model for TypeUp.",
+	"author": "Simon Mika <simon@mika.se>",
+	"license": "MIT",
+	"repository": "https://github.com/typeup/dom",
+	"bugs": {
+		"url": "https://github.com/typeup/dom/issues"
+	},
+	"homepage": "https://github.com/typeup",
+	"private": false,
+	"type": "module",
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/mjs/index.js",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/mjs/index.js"
+			},
+			"require": {
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/cjs/index.js"
+			}
+		}
+	},
+	"git": {
+		"tagName": "v${version}"
+	},
+	"github": {
+		"release": true
+	},
+	"scripts": {
+		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
+		"fix": "eslint '**/*.{ts,tsx}' --fix",
+		"build": "rimraf dist/* && tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
+		"test": "vitest --run",
+		"coverage": "vitest --coverage",
+		"prepare": "npm run build",
+		"clean": "rimraf dist node_modules coverage",
+		"verify": "npm run build && npm run test && npm run lint && npm audit"
+	},
+	"devDependencies": {
+		"@types/node": "^24.10.0",
+		"@typescript-eslint/eslint-plugin": "8.46.3",
+		"@typescript-eslint/parser": "8.46.3",
+		"@vitest/coverage-v8": "^4.0.7",
+		"eslint": "^8.56.0",
+		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
+		"prettierx": "github:utily/prettierx#utily-20231004",
+		"rimraf": "^6.1.0",
+		"typescript": "5.9.3",
+		"vite": "^7.1.12",
+		"vitest": "^4.0.7"
+	},
+	"dependencies": {
+		"mendly": "^2.1.0"
+	}
 }
