@@ -1,11 +1,11 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { Block } from "./Block";
 import { Content } from "./Content";
 
 export class ListItem extends Content<Block> {
 	readonly class: string = "Block.ListItem";
-	constructor(content: Block[], region?: Error.Region) {
+	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region);
 	}
 	override toString(symbol?: string): string {

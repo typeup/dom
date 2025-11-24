@@ -1,11 +1,11 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import * as inline from "../inline";
 import { Content } from "./Content";
 
 export class DefinitionData extends Content<inline.Inline> {
 	readonly class: string = "Block.DefinitionData";
-	constructor(content: inline.Inline[], region?: Error.Region) {
+	constructor(content: inline.Inline[], region?: mendly.Error.Region) {
 		super(content, region);
 	}
 	override toString(): string {

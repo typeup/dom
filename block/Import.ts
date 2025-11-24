@@ -1,4 +1,4 @@
-import { Error, Uri } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { File } from "../File";
 import { Block } from "./Block";
@@ -6,9 +6,9 @@ import { Block } from "./Block";
 export class Import extends Block {
 	readonly class: string = "Block.Import";
 	constructor(
-		readonly source: Uri.Locator,
+		readonly source: mendly.Uri,
 		readonly content: File,
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(region);
 	}

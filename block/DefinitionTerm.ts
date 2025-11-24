@@ -1,4 +1,4 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import * as inline from "../inline";
 import { Content } from "./Content";
@@ -9,7 +9,7 @@ export class DefinitionTerm extends Content<inline.Inline> {
 	constructor(
 		content: inline.Inline[],
 		readonly data: DefinitionData[],
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(content, region);
 	}
@@ -23,7 +23,7 @@ export class DefinitionTerm extends Content<inline.Inline> {
 	}
 }
 register(
-	"Block.DefinitonTerm",
+	"Block.DefinitionTerm",
 	(data) =>
 		new DefinitionTerm(
 			data.content.map(Node.create),

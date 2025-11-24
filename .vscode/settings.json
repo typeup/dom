@@ -48,17 +48,19 @@
 		"isly",
 		"isoly",
 		"langly",
+		"mendly",
+		"Mika",
 		"paramly",
 		"persistly",
 		"selectivly",
 		"servly",
 		"servly-azure",
+		"sessionly",
 		"smoothly",
 		"tidily",
 		"transactly",
 		"typedly",
-		"uply",
-		"paramly",
+		"uply"
 	],
 	"typescript.tsdk": "node_modules/typescript/lib"
 }

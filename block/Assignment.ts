@@ -1,4 +1,4 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { Block } from "./Block";
 
@@ -7,7 +7,7 @@ export class Assignment extends Block {
 	constructor(
 		readonly name: string,
 		readonly value: string,
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(region);
 	}

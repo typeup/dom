@@ -1,8 +1,8 @@
-import { Error } from "@cogneco/mend"
-import { Node } from "../Node"
+import { mendly } from "mendly";
+import { Node } from "../Node";
 
 export abstract class Block extends Node {
-	constructor(region?: Error.Region) {
-		super(region)
+	constructor(region?: mendly.Error.Region) {
+		super(region);
 	}
 }

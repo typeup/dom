@@ -1,10 +1,10 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { register } from "../Node";
 import { Inline } from "./Inline";
 
 export class Math extends Inline {
 	readonly class: string = "Inline.Math";
-	constructor(readonly value: string, region?: Error.Region) {
+	constructor(readonly value: string, region?: mendly.Error.Region) {
 		super(region);
 	}
 	override toObject(): { class: string } | any {

@@ -1,4 +1,4 @@
-import { Error, Uri } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { Content } from "./Content";
 import * as inline from "../inline";
@@ -6,10 +6,10 @@ import * as inline from "../inline";
 export class Figure extends Content<inline.Inline> {
 	readonly class: string = "Block.Figure";
 	constructor(
-		readonly source: Uri.Locator,
+		readonly source: mendly.Uri,
 		readonly classes: string[],
 		content: inline.Inline[],
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(content, region);
 	}

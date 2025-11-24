@@ -1,4 +1,4 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { Content } from "./Content";
 import { TableRow } from "./TableRow";
@@ -10,7 +10,7 @@ export class Table extends Content<inline.Inline> {
 		readonly alignments: ("" | "left" | "center" | "right")[],
 		readonly rows: TableRow[],
 		content: inline.Inline[],
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(content, region);
 	}

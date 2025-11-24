@@ -1,4 +1,4 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { Content } from "./Content";
 import { Inline } from "./Inline";
@@ -8,7 +8,7 @@ export class Link extends Content {
 	constructor(
 		readonly target: string,
 		content: Inline[],
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(content, region);
 	}

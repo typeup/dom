@@ -1,11 +1,11 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 
 import { Node, register } from "./Node";
 import { Block, Paragraph } from "./block";
 
 export class File extends Node {
 	readonly class: string = "File";
-	constructor(readonly content: Block[], region?: Error.Region) {
+	constructor(readonly content: Block[], region?: mendly.Error.Region) {
 		super(region);
 	}
 	override toObject(): { class: string } | any {

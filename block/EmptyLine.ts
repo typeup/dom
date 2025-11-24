@@ -1,10 +1,10 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { register } from "../Node";
 import { Block } from "./Block";
 
 export class EmptyLine extends Block {
 	readonly class: string = "Block.EmptyLine";
-	constructor(region?: Error.Region) {
+	constructor(region?: mendly.Error.Region) {
 		super(region);
 	}
 	override toString(): string {

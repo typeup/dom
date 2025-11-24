@@ -1,11 +1,11 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { File } from "./File";
 import { register } from "./Node";
 import { Block } from "./block";
 
 export class Document extends File {
 	override readonly class: string = "Document";
-	constructor(content: Block[], region?: Error.Region) {
+	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region);
 	}
 	toJson(indent?: string): string {

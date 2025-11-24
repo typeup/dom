@@ -1,4 +1,4 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Node, register } from "../Node";
 import { Content } from "./Content";
 import * as inline from "../inline";
@@ -8,7 +8,7 @@ export class Diagram extends Content<inline.Inline> {
 	constructor(
 		readonly value: string,
 		content: inline.Inline[],
-		region?: Error.Region
+		region?: mendly.Error.Region
 	) {
 		super(content, region);
 	}

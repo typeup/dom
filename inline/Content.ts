@@ -1,8 +1,8 @@
-import { Error } from "@cogneco/mend";
+import { mendly } from "mendly";
 import { Inline } from "./Inline";
 
 export abstract class Content extends Inline {
-	constructor(readonly content: Inline[], region?: Error.Region) {
+	constructor(readonly content: Inline[], region?: mendly.Error.Region) {
 		super(region);
 	}
 	override toString(): string {
