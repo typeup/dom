@@ -1,25 +1,25 @@
-import { dom } from "../index"
+import { dom } from "../../index"
 
 describe("block.UnorderedList", () => {
-	const node = new dom.Block.UnorderedList([
-		new dom.Block.ListItem([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])]),
+	const node = new dom.Block.List.Unordered([
+		new dom.Block.List.Item([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])]),
 	])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.UnorderedList",
+				class: "Block.List.Unordered",
 				content: [
 					{
-						class: "Block.ListItem",
+						class: "Block.List.Item",
 						content: [{ class: "Block.Paragraph", content: [{ class: "Text", value: "Item 0" }] }],
 					},
 				],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.UnorderedList"))
+	it("class", () => expect(node.class).toBe("Block.List.Unordered"))
 	it("content", () =>
-		expect(node.content).toEqual([new dom.Block.ListItem([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])])]))
+		expect(node.content).toEqual([new dom.Block.List.Item([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])])]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			content: [
@@ -30,10 +30,10 @@ describe("block.UnorderedList", () => {
 							class: "Block.Paragraph",
 						},
 					],
-					class: "Block.ListItem",
+					class: "Block.List.Item",
 				},
 			],
-			class: "Block.UnorderedList",
+			class: "Block.List.Unordered",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("- Item 0"))
 })
