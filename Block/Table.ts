@@ -25,7 +25,6 @@ export class Table extends Content<inline.Inline> {
 						let result: string
 						switch (alignment) {
 							default:
-							case "":
 								result = "---"
 								break
 							case "left":

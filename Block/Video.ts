@@ -15,8 +15,6 @@ export class Video extends Content<Inline> {
 				case "mp4":
 					result = "video/mp4"
 					break
-				default:
-					break
 			}
 		return result || ""
 	}

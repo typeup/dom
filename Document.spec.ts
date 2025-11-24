@@ -23,5 +23,25 @@ describe("Document", () => {
 				},
 			],
 		}))
+	it("toJson", () =>
+		expect(node.toJson()).toMatchInlineSnapshot(
+			`"{"class":"Document","content":[{"class":"Block.Paragraph","content":[{"class":"Inline.Text","value":"Paragraph."}]}]}"`
+		))
+	it("empty document", () => {
+		const document = new dom.Document([])
+		expect(document.content).toEqual([])
+		expect(document.class).toBe("Document")
+	})
+	it("multiple blocks", () => {
+		const document = new dom.Document([
+			new dom.Block.Paragraph([new dom.Inline.Text("First paragraph.")]),
+			new dom.Block.Paragraph([new dom.Inline.Text("Second paragraph.")]),
+		])
+		expect(document.content.length).toBe(2)
+		expect(document.toString()).toMatchInlineSnapshot(`
+			"First paragraph.
+			Second paragraph."
+		`)
+	})
 	it("toString", () => expect(node.toString()).toEqual("Paragraph."))
 })

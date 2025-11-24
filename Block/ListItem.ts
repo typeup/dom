@@ -8,9 +8,7 @@ export class ListItem extends Content<Block> {
 	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
-	override toString(symbol?: string): string {
-		if (!symbol)
-			symbol = " - "
+	override toString(symbol: string = " - "): string {
 		return symbol + super.toString()
 	}
 }

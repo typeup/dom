@@ -6,6 +6,9 @@ export abstract class Node {
 	toObject(): { class: string } & any {
 		return { class: this.class }
 	}
+	toJson(indent: string = ""): string {
+		return JSON.stringify(this.toObject(), null, indent)
+	}
 	static create(data: { class: string } & any): Node | undefined {
 		const creator = creators[data.class]
 		return creator?.(data)

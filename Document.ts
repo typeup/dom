@@ -8,11 +8,6 @@ export class Document extends File {
 	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
-	toJson(indent?: string): string {
-		if (!indent)
-			indent = ""
-		return JSON.stringify(this.toObject(), null, indent)
-	}
 }
 
 export namespace Document {}
