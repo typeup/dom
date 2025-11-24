@@ -3,6 +3,14 @@ import { dom } from "../index"
 describe("block.Math", () => {
 	const node = new dom.Block.Math("a^2 + b^2 = c^2", [new dom.Inline.Text("Caption.")])
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(
+			dom.Node.create({
+				class: "Block.Math",
+				value: "a^2 + b^2 = c^2",
+				content: [{ class: "Inline.Text", value: "Caption." }],
+			})
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Math"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("Caption.")]))
 	it("toObject", () =>

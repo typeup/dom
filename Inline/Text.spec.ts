@@ -2,6 +2,7 @@ import { dom } from "../index"
 
 describe("Inline.Text", () => {
 	const node = new dom.Inline.Text("value")
+	it("create", () => expect(dom.Node.create({ class: "Inline.Text", value: "value" })).toEqual(node))
 	it("properties", () => {
 		expect(node.class).toBe("Inline.Text")
 		expect(node.value).toBe("value")

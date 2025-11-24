@@ -7,6 +7,14 @@ describe("block.Import", () => {
 		new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
 	)
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(
+			dom.Node.create({
+				class: "Block.Import",
+				source: new mendly.Uri(undefined, undefined, [".", "subdocument.tup"]),
+				content: new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])]),
+			})
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Import"))
 	it("source", () => expect(node.source).toEqual(new mendly.Uri(undefined, undefined, [".", "subdocument.tup"])))
 

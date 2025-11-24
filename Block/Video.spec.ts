@@ -8,6 +8,15 @@ describe("block.Video", () => {
 		[new dom.Inline.Text("Caption.")]
 	)
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(
+			dom.Node.create({
+				class: "Block.Video",
+				source: new mendly.Uri(undefined, undefined, [".", "video.ogg"]),
+				classes: ["class"],
+				content: [{ class: "Inline.Text", value: "Caption." }],
+			})
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Video"))
 	it("source", () => expect(node.source).toEqual(new mendly.Uri(undefined, undefined, [".", "video.ogg"])))
 

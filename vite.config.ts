@@ -11,10 +11,10 @@ export default defineConfig({
 			enabled: true,
 			cleanOnRerun: true,
 			thresholds: {
-				statements: 80,
+				statements: 90,
 				branches: 25,
-				functions: 70,
-				lines: 80,
+				functions: 90,
+				lines: 90,
 			},
 		},
 		globals: true,

@@ -3,6 +3,8 @@ import { dom } from "../index"
 describe("block.Assignment", () => {
 	const node = new dom.Block.Assignment("variable", "value")
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(dom.Node.create({ class: "Block.Assignment", name: "variable", value: "value" })).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Assignment"))
 	it("name", () => expect(node.name).toBe("variable"))
 	it("value", () => expect(node.value).toBe("value"))

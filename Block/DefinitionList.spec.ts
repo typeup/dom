@@ -11,6 +11,22 @@ describe("block.DefinitionList", () => {
 		),
 	])
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(
+			dom.Node.create({
+				class: "Block.DefinitionList",
+				content: [
+					{
+						class: "Block.DefinitionTerm",
+						content: [{ class: "Inline.Text", value: "Alpha" }],
+						data: [
+							{ class: "Block.DefinitionData", content: [{ class: "Inline.Text", value: "Term A" }] },
+							{ class: "Block.DefinitionData", content: [{ class: "Inline.Text", value: "First Term" }] },
+						],
+					},
+				],
+			})
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.DefinitionList"))
 	it("name", () =>
 		expect(node.content).toEqual([

@@ -8,6 +8,15 @@ describe("block.Figure", () => {
 		[new dom.Inline.Text("Caption.")]
 	)
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(
+			dom.Node.create({
+				class: "Block.Figure",
+				source: new mendly.Uri(undefined, undefined, [".", "image.png"]),
+				classes: ["class"],
+				content: [{ class: "Inline.Text", value: "Caption." }],
+			})
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Figure"))
 	it("source", () => expect(node.source).toEqual(new mendly.Uri(undefined, undefined, [".", "image.png"])))
 

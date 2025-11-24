@@ -5,6 +5,18 @@ describe("block.OrderedList", () => {
 		new dom.Block.ListItem([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])]),
 	])
 	it("constructor", () => expect(node).toBeTruthy())
+	it("create", () =>
+		expect(
+			dom.Node.create({
+				class: "Block.OrderedList",
+				content: [
+					{
+						class: "Block.ListItem",
+						content: [{ class: "Block.Paragraph", content: [{ class: "Inline.Text", value: "Item 0" }] }],
+					},
+				],
+			})
+		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.OrderedList"))
 	it("name", () =>
 		expect(node.content).toEqual([new dom.Block.ListItem([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])])]))
