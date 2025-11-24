@@ -7,7 +7,7 @@ describe("Document", () => {
 		expect(
 			dom.Node.create({
 				class: "Document",
-				content: [{ class: "Block.Paragraph", content: [{ class: "Inline.Text", value: "Paragraph." }] }],
+				content: [{ class: "Block.Paragraph", content: [{ class: "Text", value: "Paragraph." }] }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Document"))
@@ -19,13 +19,13 @@ describe("Document", () => {
 			content: [
 				{
 					class: "Block.Paragraph",
-					content: [{ value: "Paragraph.", class: "Inline.Text" }],
+					content: [{ value: "Paragraph.", class: "Text" }],
 				},
 			],
 		}))
 	it("toJson", () =>
 		expect(node.toJson()).toMatchInlineSnapshot(
-			`"{"class":"Document","content":[{"class":"Block.Paragraph","content":[{"class":"Inline.Text","value":"Paragraph."}]}]}"`
+			`"{"class":"Document","content":[{"class":"Block.Paragraph","content":[{"class":"Text","value":"Paragraph."}]}]}"`
 		))
 	it("empty document", () => {
 		const document = new dom.Document([])

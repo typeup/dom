@@ -8,7 +8,7 @@ describe("block.Diagram", () => {
 			dom.Node.create({
 				class: "Block.Diagram",
 				value: "<svg></svg>",
-				content: [{ class: "Inline.Text", value: "Caption." }],
+				content: [{ class: "Text", value: "Caption." }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Diagram"))
@@ -17,7 +17,7 @@ describe("block.Diagram", () => {
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			value: "<svg></svg>",
-			content: [{ value: "Caption.", class: "Inline.Text" }],
+			content: [{ value: "Caption.", class: "Text" }],
 			class: "Block.Diagram",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("++\n<svg></svg>\n++\nCaption."))

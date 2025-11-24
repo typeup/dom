@@ -1,15 +1,16 @@
 import { mendly } from "mendly"
-import * as inline from "../Inline"
-import { Node, register } from "../Node"
-import { Content } from "./Content"
-import { TableRow } from "./TableRow"
+import { Inline } from "../../Inline"
+import { Node, register } from "../../Node"
+import { Content } from "../Content"
+import { Cell as _Cell } from "./Cell"
+import { Row as _Row } from "./Row"
 
-export class Table extends Content<inline.Inline> {
+export class Table extends Content<Inline> {
 	readonly class: string = "Block.Table"
 	constructor(
 		readonly alignments: ("" | "left" | "center" | "right")[],
-		readonly rows: TableRow[],
-		content: inline.Inline[],
+		readonly rows: Table.Row[],
+		content: Inline[],
 		region?: mendly.Error.Region
 	) {
 		super(content, region)
@@ -53,6 +54,9 @@ export class Table extends Content<inline.Inline> {
 	}
 }
 
-export namespace Table {}
+export namespace Table {
+	export import Row = _Row
+	export import Cell = _Cell
+}
 
 register("Block.Table", data => new Table(data.alignments, data.rows.map(Node.create), data.content.map(Node.create)))

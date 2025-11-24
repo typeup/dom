@@ -1,11 +1,11 @@
 import { mendly } from "mendly"
-import * as inline from "../Inline"
+import { Inline } from "../Inline"
 import { Node, register } from "../Node"
 import { Content } from "./Content"
 
-export class Math extends Content<inline.Inline> {
+export class Math extends Content<Inline> {
 	readonly class: string = "Block.Math"
-	constructor(readonly value: string, content: inline.Inline[], region?: mendly.Error.Region) {
+	constructor(readonly value: string, content: Inline[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
 	override toString(): string {

@@ -12,7 +12,7 @@ describe("block.UnorderedList", () => {
 				content: [
 					{
 						class: "Block.ListItem",
-						content: [{ class: "Block.Paragraph", content: [{ class: "Inline.Text", value: "Item 0" }] }],
+						content: [{ class: "Block.Paragraph", content: [{ class: "Text", value: "Item 0" }] }],
 					},
 				],
 			})
@@ -26,7 +26,7 @@ describe("block.UnorderedList", () => {
 				{
 					content: [
 						{
-							content: [{ value: "Item 0", class: "Inline.Text" }],
+							content: [{ value: "Item 0", class: "Text" }],
 							class: "Block.Paragraph",
 						},
 					],

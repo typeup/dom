@@ -5,14 +5,14 @@ describe("block.Heading", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({ class: "Block.Heading", level: 3, content: [{ class: "Inline.Text", value: "Header" }] })
+			dom.Node.create({ class: "Block.Heading", level: 3, content: [{ class: "Text", value: "Header" }] })
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Heading"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("Header")]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			level: 3,
-			content: [{ value: "Header", class: "Inline.Text" }],
+			content: [{ value: "Header", class: "Text" }],
 			class: "Block.Heading",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("### Header"))

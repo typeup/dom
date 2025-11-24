@@ -2,15 +2,15 @@ import { dom } from "../index"
 
 const node = new dom.Inline.Code("const pi = 3.1415")
 
-describe("Inline.Code", () => {
-	it("create", () => expect(dom.Node.create({ class: "Inline.Code", value: "const pi = 3.1415" })).toEqual(node))
+describe("Code", () => {
+	it("create", () => expect(dom.Node.create({ class: "Code", value: "const pi = 3.1415" })).toEqual(node))
 	it("properties", () => {
-		expect(node.class).toBe("Inline.Code")
+		expect(node.class).toBe("Code")
 		expect(node.value).toBe("const pi = 3.1415")
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Inline.Code",
+			class: "Code",
 			value: "const pi = 3.1415",
 		})
 	})

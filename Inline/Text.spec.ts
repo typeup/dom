@@ -1,15 +1,15 @@
 import { dom } from "../index"
 
-describe("Inline.Text", () => {
+describe("Text", () => {
 	const node = new dom.Inline.Text("value")
-	it("create", () => expect(dom.Node.create({ class: "Inline.Text", value: "value" })).toEqual(node))
+	it("create", () => expect(dom.Node.create({ class: "Text", value: "value" })).toEqual(node))
 	it("properties", () => {
-		expect(node.class).toBe("Inline.Text")
+		expect(node.class).toBe("Text")
 		expect(node.value).toBe("value")
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Inline.Text",
+			class: "Text",
 			value: "value",
 		})
 	})

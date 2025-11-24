@@ -14,7 +14,7 @@ describe("block.Video", () => {
 				class: "Block.Video",
 				source: new mendly.Uri(undefined, undefined, [".", "video.ogg"]),
 				classes: ["class"],
-				content: [{ class: "Inline.Text", value: "Caption." }],
+				content: [{ class: "Text", value: "Caption." }],
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("Block.Video"))
@@ -26,7 +26,7 @@ describe("block.Video", () => {
 		expect(node.toObject()).toEqual({
 			source: "./video.ogg",
 			classes: ["class"],
-			content: [{ value: "Caption.", class: "Inline.Text" }],
+			content: [{ value: "Caption.", class: "Text" }],
 			class: "Block.Video",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!video ./video.ogg class\nCaption."))

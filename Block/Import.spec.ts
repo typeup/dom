@@ -28,7 +28,7 @@ describe("block.Import", () => {
 				content: [
 					{
 						class: "Block.Paragraph",
-						content: [{ value: "Paragraph.", class: "Inline.Text" }],
+						content: [{ value: "Paragraph.", class: "Text" }],
 					},
 				],
 			},

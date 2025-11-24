@@ -3,7 +3,7 @@ import { register } from "../Node"
 import { Inline } from "./Inline"
 
 export class Text extends Inline {
-	readonly class: string = "Inline.Text"
+	readonly class: string = "Text"
 	constructor(readonly value: string, region?: mendly.Error.Region) {
 		super(region)
 	}
@@ -17,4 +17,4 @@ export class Text extends Inline {
 
 export namespace Text {}
 
-register("Inline.Text", data => new Text(data.value))
+register("Text", data => new Text(data.value))

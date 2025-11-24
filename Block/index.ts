@@ -17,8 +17,6 @@ import { OrderedList as _OrderedList } from "./OrderedList"
 import { Paragraph as _Paragraph } from "./Paragraph"
 import { Section as _Section } from "./Section"
 import { Table as _Table } from "./Table"
-import { TableCell as _TableCell } from "./TableCell"
-import { TableRow as _TableRow } from "./TableRow"
 import { UnorderedList as _UnorderedList } from "./UnorderedList"
 import { Video as _Video } from "./Video"
 
@@ -43,8 +41,6 @@ export namespace Block {
 	export import Paragraph = _Paragraph
 	export import Section = _Section
 	export import Table = _Table
-	export import TableCell = _TableCell
-	export import TableRow = _TableRow
 	export import UnorderedList = _UnorderedList
 	export import Video = _Video
 }
