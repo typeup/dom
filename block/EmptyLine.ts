@@ -1,14 +1,14 @@
-import { mendly } from "mendly";
-import { register } from "../Node";
-import { Block } from "./Block";
+import { mendly } from "mendly"
+import { register } from "../Node"
+import { Block } from "./Block"
 
 export class EmptyLine extends Block {
-	readonly class: string = "Block.EmptyLine";
+	readonly class: string = "Block.EmptyLine"
 	constructor(region?: mendly.Error.Region) {
-		super(region);
+		super(region)
 	}
 	override toString(): string {
-		return "\n";
+		return "\n"
 	}
 }
-register("Block.EmptyLine", (data) => new EmptyLine(data.region));
+register("Block.EmptyLine", data => new EmptyLine(data.region))

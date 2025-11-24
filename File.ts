@@ -1,29 +1,29 @@
-import { mendly } from "mendly";
-
-import { Node, register } from "./Node";
-import { Block, Paragraph } from "./block";
+import { mendly } from "mendly"
+import { Block, Paragraph } from "./block"
+import { Node, register } from "./Node"
 
 export class File extends Node {
-	readonly class: string = "File";
+	readonly class: string = "File"
 	constructor(readonly content: Block[], region?: mendly.Error.Region) {
-		super(region);
+		super(region)
 	}
 	override toObject(): { class: string } | any {
 		return {
 			...super.toObject(),
-			content: this.content.map((element) => element.toObject()),
-		};
+			content: this.content.map(element => element.toObject()),
+		}
 	}
 	override toString(): string {
-		let result = "";
-		let wasParagraph = false;
+		let result = ""
+		let wasParagraph = false
 		for (const c of this.content) {
-			const isParagraph = c instanceof Paragraph;
-			if (isParagraph && wasParagraph) result += "\n";
-			result += c.toString();
-			wasParagraph = isParagraph;
+			const isParagraph = c instanceof Paragraph
+			if (isParagraph && wasParagraph)
+				result += "\n"
+			result += c.toString()
+			wasParagraph = isParagraph
 		}
-		return result;
+		return result
 	}
 }
-register("File", (data) => new File(data.content));
+register("File", data => new File(data.content))

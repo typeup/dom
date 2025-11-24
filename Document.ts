@@ -1,16 +1,17 @@
-import { mendly } from "mendly";
-import { File } from "./File";
-import { register } from "./Node";
-import { Block } from "./block";
+import { mendly } from "mendly"
+import { Block } from "./block"
+import { File } from "./File"
+import { register } from "./Node"
 
 export class Document extends File {
-	override readonly class: string = "Document";
+	override readonly class: string = "Document"
 	constructor(content: Block[], region?: mendly.Error.Region) {
-		super(content, region);
+		super(content, region)
 	}
 	toJson(indent?: string): string {
-		if (!indent) indent = "";
-		return JSON.stringify(this.toObject(), null, indent);
+		if (!indent)
+			indent = ""
+		return JSON.stringify(this.toObject(), null, indent)
 	}
 }
-register("Document", (data) => new Document(data.content));
+register("Document", data => new Document(data.content))

@@ -1,28 +1,21 @@
-import { mendly } from "mendly";
-import { Node, register } from "../Node";
-import { Content } from "./Content";
-import * as inline from "../inline";
+import { mendly } from "mendly"
+import * as inline from "../inline"
+import { Node, register } from "../Node"
+import { Content } from "./Content"
 
 export class Diagram extends Content<inline.Inline> {
-	readonly class: string = "Block.Diagram";
-	constructor(
-		readonly value: string,
-		content: inline.Inline[],
-		region?: mendly.Error.Region
-	) {
-		super(content, region);
+	readonly class: string = "Block.Diagram"
+	constructor(readonly value: string, content: inline.Inline[], region?: mendly.Error.Region) {
+		super(content, region)
 	}
 	override toString(): string {
-		return `++\n${this.value}\n++\n${super.toString()}`;
+		return `++\n${this.value}\n++\n${super.toString()}`
 	}
 	override toObject(): { class: string } | any {
 		return {
 			...super.toObject(),
 			value: this.value,
-		};
+		}
 	}
 }
-register(
-	"Block.Diagram",
-	(data) => new Diagram(data.value, data.content.map(Node.create))
-);
+register("Block.Diagram", data => new Diagram(data.value, data.content.map(Node.create)))
