@@ -4,7 +4,7 @@ import { Data as _Data } from "./Data"
 import { Term as _Term } from "./Term"
 
 export class Definition extends Content<Definition.Term> {
-	readonly class: string = "Block.List.Definition"
+	readonly class: string = "block.list.definition"
 	constructor(content: Definition.Term[]) {
 		super(content)
 	}
@@ -18,4 +18,4 @@ export namespace Definition {
 	export import Term = _Term
 }
 
-register("Block.List.Definition", data => new Definition(data.content.map(Node.create)))
+register("block.list.definition", data => new Definition(data.content.map(Node.create)))

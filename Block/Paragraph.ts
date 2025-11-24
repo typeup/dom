@@ -3,7 +3,7 @@ import { Node, register } from "../Node"
 import { Content } from "./Content"
 
 export class Paragraph extends Content<Inline> {
-	readonly class: string = "Block.Paragraph"
+	readonly class: string = "block.paragraph"
 	constructor(content: Inline[]) {
 		super(content)
 	}
@@ -11,4 +11,4 @@ export class Paragraph extends Content<Inline> {
 
 export namespace Paragraph {}
 
-register("Block.Paragraph", data => new Paragraph(data.content.map(Node.create)))
+register("block.paragraph", data => new Paragraph(data.content.map(Node.create)))

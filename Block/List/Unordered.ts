@@ -3,7 +3,7 @@ import { Content } from "../Content"
 import { Item } from "./Item"
 
 export class Unordered extends Content<Item> {
-	readonly class: string = "Block.List.Unordered"
+	readonly class: string = "block.list.unordered"
 	constructor(content: Item[]) {
 		super(content)
 	}
@@ -14,4 +14,4 @@ export class Unordered extends Content<Item> {
 
 export namespace Unordered {}
 
-register("Block.List.Unordered", data => new Unordered(data.content.map(Node.create)))
+register("block.list.unordered", data => new Unordered(data.content.map(Node.create)))

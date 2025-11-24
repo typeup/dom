@@ -4,7 +4,7 @@ import { Node, register } from "../Node"
 import { Content } from "./Content"
 
 export class Figure extends Content<Inline> {
-	readonly class: string = "Block.Figure"
+	readonly class: string = "block.figure"
 	constructor(
 		readonly source: mendly.Uri,
 		readonly classes: string[],
@@ -27,4 +27,4 @@ export class Figure extends Content<Inline> {
 
 export namespace Figure {}
 
-register("Block.Figure", data => new Figure(data.source, data.classes, data.content.map(Node.create)))
+register("block.figure", data => new Figure(data.source, data.classes, data.content.map(Node.create)))

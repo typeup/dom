@@ -4,7 +4,7 @@ import { Node, register } from "../Node"
 import { Content } from "./Content"
 
 export class Diagram extends Content<Inline> {
-	readonly class: string = "Block.Diagram"
+	readonly class: string = "block.diagram"
 	constructor(readonly value: string, content: Inline[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -21,4 +21,4 @@ export class Diagram extends Content<Inline> {
 
 export namespace Diagram {}
 
-register("Block.Diagram", data => new Diagram(data.value, data.content.map(Node.create)))
+register("block.diagram", data => new Diagram(data.value, data.content.map(Node.create)))

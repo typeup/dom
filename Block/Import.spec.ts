@@ -10,12 +10,12 @@ describe("block.Import", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.Import",
+				class: "block.import",
 				source: new mendly.Uri(undefined, undefined, [".", "subdocument.tup"]),
 				content: new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])]),
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.Import"))
+	it("class", () => expect(node.class).toBe("block.import"))
 	it("source", () => expect(node.source).toEqual(new mendly.Uri(undefined, undefined, [".", "subdocument.tup"])))
 
 	it("content", () =>
@@ -24,15 +24,15 @@ describe("block.Import", () => {
 		expect(node.toObject()).toEqual({
 			source: "./subdocument.tup",
 			content: {
-				class: "File",
+				class: "file",
 				content: [
 					{
-						class: "Block.Paragraph",
-						content: [{ value: "Paragraph.", class: "Text" }],
+						class: "block.paragraph",
+						content: [{ value: "Paragraph.", class: "text" }],
 					},
 				],
 			},
-			class: "Block.Import",
+			class: "block.import",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!import ./subdocument.tup\n"))
 })

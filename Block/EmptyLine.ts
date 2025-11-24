@@ -3,7 +3,7 @@ import { register } from "../Node"
 import { Block } from "./Block"
 
 export class EmptyLine extends Block {
-	readonly class: string = "Block.EmptyLine"
+	readonly class: string = "block.emptyLine"
 	constructor(region?: mendly.Error.Region) {
 		super(region)
 	}
@@ -14,4 +14,4 @@ export class EmptyLine extends Block {
 
 export namespace EmptyLine {}
 
-register("Block.EmptyLine", data => new EmptyLine(data.region))
+register("block.emptyLine", data => new EmptyLine(data.region))

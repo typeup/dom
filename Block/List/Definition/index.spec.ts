@@ -14,20 +14,20 @@ describe("dom.Block.List.Definition", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.List.Definition",
+				class: "block.list.definition",
 				content: [
 					{
-						class: "Block.List.Definition.Term",
-						content: [{ class: "Text", value: "Alpha" }],
+						class: "block.list.definition.term",
+						content: [{ class: "text", value: "Alpha" }],
 						data: [
-							{ class: "Block.List.Definition.Data", content: [{ class: "Text", value: "Term A" }] },
-							{ class: "Block.List.Definition.Data", content: [{ class: "Text", value: "First Term" }] },
+							{ class: "block.list.definition.data", content: [{ class: "text", value: "Term A" }] },
+							{ class: "block.list.definition.data", content: [{ class: "text", value: "First Term" }] },
 						],
 					},
 				],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.List.Definition"))
+	it("class", () => expect(node.class).toBe("block.list.definition"))
 	it("name", () =>
 		expect(node.content).toEqual([
 			new dom.Block.List.Definition.Term(
@@ -42,21 +42,21 @@ describe("dom.Block.List.Definition", () => {
 		expect(node.toObject()).toEqual({
 			content: [
 				{
-					content: [{ value: "Alpha", class: "Text" }],
+					content: [{ value: "Alpha", class: "text" }],
 					data: [
 						{
-							content: [{ value: "Term A", class: "Text" }],
-							class: "Block.List.Definition.Data",
+							content: [{ value: "Term A", class: "text" }],
+							class: "block.list.definition.data",
 						},
 						{
-							content: [{ value: "First Term", class: "Text" }],
-							class: "Block.List.Definition.Data",
+							content: [{ value: "First Term", class: "text" }],
+							class: "block.list.definition.data",
 						},
 					],
-					class: "Block.List.Definition.Term",
+					class: "block.list.definition.term",
 				},
 			],
-			class: "Block.List.Definition",
+			class: "block.list.definition",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("Alpha\n: Term A\n: First Term"))
 })

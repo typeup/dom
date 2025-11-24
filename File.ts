@@ -3,7 +3,7 @@ import { Block } from "./Block"
 import { Node, register } from "./Node"
 
 export class File extends Node {
-	readonly class: string = "File"
+	readonly class: string = "file"
 	constructor(readonly content: Block[], region?: mendly.Error.Region) {
 		super(region)
 	}
@@ -29,4 +29,4 @@ export class File extends Node {
 
 export namespace File {}
 
-register("File", data => new File(data.content))
+register("file", data => new File(data.content))

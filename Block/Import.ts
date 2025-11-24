@@ -4,7 +4,7 @@ import { Node, register } from "../Node"
 import { Block } from "./Block"
 
 export class Import extends Block {
-	readonly class: string = "Block.Import"
+	readonly class: string = "block.import"
 	constructor(readonly source: mendly.Uri, readonly content: File, region?: mendly.Error.Region) {
 		super(region)
 	}
@@ -22,4 +22,4 @@ export class Import extends Block {
 
 export namespace Import {}
 
-register("Block.Import", data => new Import(data.source, Node.create(data.content) as File))
+register("block.import", data => new Import(data.source, Node.create(data.content) as File))

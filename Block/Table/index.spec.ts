@@ -23,32 +23,32 @@ describe("block.Table", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.Table",
+				class: "block.table",
 				alignments: ["left", "center", "right", ""],
 				rows: [
 					{
-						class: "Block.Table.Row",
+						class: "block.table.row",
 						content: [
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "Header 0" }], header: true },
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "Header 1" }], header: true },
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "Header 2" }], header: true },
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "Header 3" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "text", value: "Header 0" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "text", value: "Header 1" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "text", value: "Header 2" }], header: true },
+							{ class: "block.table.cell", content: [{ class: "text", value: "Header 3" }], header: true },
 						],
 					},
 					{
-						class: "Block.Table.Row",
+						class: "block.table.row",
 						content: [
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "value 0" }], header: false },
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "value 1" }], header: false },
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "value 2" }], header: false },
-							{ class: "Block.Table.Cell", content: [{ class: "Text", value: "value 3" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "text", value: "value 0" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "text", value: "value 1" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "text", value: "value 2" }], header: false },
+							{ class: "block.table.cell", content: [{ class: "text", value: "value 3" }], header: false },
 						],
 					},
 				],
-				content: [{ class: "Block.Paragraph", content: [{ class: "Text", value: "Caption." }] }],
+				content: [{ class: "block.paragraph", content: [{ class: "text", value: "Caption." }] }],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.Table"))
+	it("class", () => expect(node.class).toBe("block.table"))
 	it("alignments", () => expect(node.alignments).toEqual(["left", "center", "right", ""]))
 	it("rows", () =>
 		expect(node.rows).toEqual([
@@ -71,51 +71,51 @@ describe("block.Table", () => {
 			alignments: ["left", "center", "right", ""],
 			rows: [
 				{
-					class: "Block.Table.Row",
+					class: "block.table.row",
 					content: [
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "Header 0" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "Header 0" }],
 							header: true,
 						},
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "Header 1" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "Header 1" }],
 							header: true,
 						},
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "Header 2" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "Header 2" }],
 							header: true,
 						},
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "Header 3" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "Header 3" }],
 							header: true,
 						},
 					],
 				},
 				{
-					class: "Block.Table.Row",
+					class: "block.table.row",
 					content: [
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "value 0" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "value 0" }],
 							header: false,
 						},
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "value 1" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "value 1" }],
 							header: false,
 						},
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "value 2" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "value 2" }],
 							header: false,
 						},
 						{
-							class: "Block.Table.Cell",
-							content: [{ class: "Text", value: "value 3" }],
+							class: "block.table.cell",
+							content: [{ class: "text", value: "value 3" }],
 							header: false,
 						},
 					],
@@ -123,11 +123,11 @@ describe("block.Table", () => {
 			],
 			content: [
 				{
-					content: [{ value: "Caption.", class: "Text" }],
-					class: "Block.Paragraph",
+					content: [{ value: "Caption.", class: "text" }],
+					class: "block.paragraph",
 				},
 			],
-			class: "Block.Table",
+			class: "block.table",
 		}))
 	it("toString", () =>
 		expect(node.toString()).toEqual(

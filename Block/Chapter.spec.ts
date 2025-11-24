@@ -6,21 +6,21 @@ describe("block.Chapter", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.Chapter",
-				content: [{ class: "Block.Paragraph", content: [{ class: "Text", value: "paragraph" }] }],
+				class: "block.chapter",
+				content: [{ class: "block.paragraph", content: [{ class: "text", value: "paragraph" }] }],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.Chapter"))
+	it("class", () => expect(node.class).toBe("block.chapter"))
 	it("name", () => expect(node.content).toEqual([new dom.Block.Paragraph([new dom.Inline.Text("paragraph")])]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			content: [
 				{
-					content: [{ value: "paragraph", class: "Text" }],
-					class: "Block.Paragraph",
+					content: [{ value: "paragraph", class: "text" }],
+					class: "block.paragraph",
 				},
 			],
-			class: "Block.Chapter",
+			class: "block.chapter",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("===\nparagraph"))
 })

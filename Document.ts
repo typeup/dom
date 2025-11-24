@@ -4,7 +4,7 @@ import { File } from "./File"
 import { register } from "./Node"
 
 export class Document extends File {
-	override readonly class: string = "Document"
+	override readonly class: string = "document"
 	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -12,4 +12,4 @@ export class Document extends File {
 
 export namespace Document {}
 
-register("Document", data => new Document(data.content))
+register("document", data => new Document(data.content))

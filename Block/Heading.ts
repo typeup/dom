@@ -4,7 +4,7 @@ import { Node, register } from "../Node"
 import { Content } from "./Content"
 
 export class Heading extends Content<Inline> {
-	readonly class: string = "Block.Heading"
+	readonly class: string = "block.heading"
 	constructor(readonly level: number, content: Inline[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -21,4 +21,4 @@ export class Heading extends Content<Inline> {
 
 export namespace Heading {}
 
-register("Block.Heading", data => new Heading(data.level, data.content.map(Node.create)))
+register("block.heading", data => new Heading(data.level, data.content.map(Node.create)))

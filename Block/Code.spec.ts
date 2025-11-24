@@ -6,20 +6,20 @@ describe("block.Code", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.Code",
+				class: "block.code",
 				language: "c",
 				value: 'printf("Hello, World!")',
-				content: [{ class: "Text", value: "Caption." }],
+				content: [{ class: "text", value: "Caption." }],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.Code"))
+	it("class", () => expect(node.class).toBe("block.code"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("Caption.")]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			language: "c",
 			value: 'printf("Hello, World!")',
-			content: [{ value: "Caption.", class: "Text" }],
-			class: "Block.Code",
+			content: [{ value: "Caption.", class: "text" }],
+			class: "block.code",
 		}))
 	it("toString", () => expect(node.toString()).toEqual('%% c\nprintf("Hello, World!")\n%%\nCaption.'))
 })

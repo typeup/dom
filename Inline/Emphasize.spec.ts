@@ -2,17 +2,17 @@ import { dom } from "../index"
 
 const node = new dom.Inline.Emphasize([new dom.Inline.Text("TypeUp")])
 
-describe("Emphasize", () => {
+describe("emphasize", () => {
 	it("create", () =>
-		expect(dom.Node.create({ class: "Emphasize", content: [{ class: "Text", value: "TypeUp" }] })).toEqual(node))
+		expect(dom.Node.create({ class: "emphasize", content: [{ class: "text", value: "TypeUp" }] })).toEqual(node))
 	it("properties", () => {
-		expect(node.class).toBe("Emphasize")
+		expect(node.class).toBe("emphasize")
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Emphasize",
-			content: [{ class: "Text", value: "TypeUp" }],
+			class: "emphasize",
+			content: [{ class: "text", value: "TypeUp" }],
 		})
 	})
 	it("toString", () => {

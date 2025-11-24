@@ -29,15 +29,15 @@ describe("block.Paragraph", () => {
 		])
 		expect(paragraph).toMatchInlineSnapshot(`
 			Paragraph {
-			  "class": "Block.Paragraph",
+			  "class": "block.paragraph",
 			  "content": [
 			    Text {
-			      "class": "Text",
+			      "class": "text",
 			      "region": undefined,
 			      "value": "first",
 			    },
 			    Text {
-			      "class": "Text",
+			      "class": "text",
 			      "region": Region {
 			        "content": "second",
 			        "end": Position {
@@ -68,7 +68,7 @@ describe("block.Paragraph", () => {
 			      "value": "second",
 			    },
 			    Text {
-			      "class": "Text",
+			      "class": "text",
 			      "region": Region {
 			        "content": "third",
 			        "end": Position {
@@ -99,7 +99,7 @@ describe("block.Paragraph", () => {
 			      "value": "third",
 			    },
 			    Text {
-			      "class": "Text",
+			      "class": "text",
 			      "region": undefined,
 			      "value": "forth",
 			    },
@@ -135,15 +135,15 @@ describe("block.Paragraph", () => {
 		`)
 	})
 	it("create", () =>
-		expect(dom.Node.create({ class: "Block.Paragraph", content: [{ class: "Text", value: "paragraph" }] })).toEqual(
+		expect(dom.Node.create({ class: "block.paragraph", content: [{ class: "text", value: "paragraph" }] })).toEqual(
 			node
 		))
-	it("class", () => expect(node.class).toBe("Block.Paragraph"))
+	it("class", () => expect(node.class).toBe("block.paragraph"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("paragraph")]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
-			content: [{ value: "paragraph", class: "Text" }],
-			class: "Block.Paragraph",
+			content: [{ value: "paragraph", class: "text" }],
+			class: "block.paragraph",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("paragraph"))
 })

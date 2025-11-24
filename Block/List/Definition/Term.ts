@@ -5,7 +5,7 @@ import { Content } from "../../Content"
 import { Data } from "./Data"
 
 export class Term extends Content<Inline> {
-	readonly class: string = "Block.List.Definition.Term"
+	readonly class: string = "block.list.definition.term"
 	constructor(content: Inline[], readonly data: Data[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -19,4 +19,4 @@ export class Term extends Content<Inline> {
 
 export namespace Term {}
 
-register("Block.List.Definition.Term", data => new Term(data.content.map(Node.create), data.data.map(Node.create)))
+register("block.list.definition.term", data => new Term(data.content.map(Node.create), data.data.map(Node.create)))

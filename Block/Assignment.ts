@@ -3,7 +3,7 @@ import { register } from "../Node"
 import { Block } from "./Block"
 
 export class Assignment extends Block {
-	readonly class: string = "Block.Assignment"
+	readonly class: string = "block.assignment"
 	constructor(readonly name: string, readonly value: string, region?: mendly.Error.Region) {
 		super(region)
 	}
@@ -21,4 +21,4 @@ export class Assignment extends Block {
 
 export namespace Assignment {}
 
-register("Block.Assignment", data => new Assignment(data.name, data.value))
+register("block.assignment", data => new Assignment(data.name, data.value))

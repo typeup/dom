@@ -11,13 +11,13 @@ describe("block.Figure", () => {
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Block.Figure",
+				class: "block.figure",
 				source: new mendly.Uri(undefined, undefined, [".", "image.png"]),
 				classes: ["class"],
-				content: [{ class: "Text", value: "Caption." }],
+				content: [{ class: "text", value: "Caption." }],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Block.Figure"))
+	it("class", () => expect(node.class).toBe("block.figure"))
 	it("source", () => expect(node.source).toEqual(new mendly.Uri(undefined, undefined, [".", "image.png"])))
 
 	it("classes", () => expect(node.classes).toEqual(["class"]))
@@ -26,8 +26,8 @@ describe("block.Figure", () => {
 		expect(node.toObject()).toEqual({
 			source: "./image.png",
 			classes: ["class"],
-			content: [{ value: "Caption.", class: "Text" }],
-			class: "Block.Figure",
+			content: [{ value: "Caption.", class: "text" }],
+			class: "block.figure",
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!figure ./image.png class\nCaption."))
 })

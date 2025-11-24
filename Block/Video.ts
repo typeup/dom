@@ -4,7 +4,7 @@ import { Node, register } from "../Node"
 import { Content } from "./Content"
 
 export class Video extends Content<Inline> {
-	readonly class: string = "Block.Video"
+	readonly class: string = "block.video"
 	get type(): string {
 		let result: string | undefined
 		if (this.source.extension)
@@ -40,4 +40,4 @@ export class Video extends Content<Inline> {
 
 export namespace Video {}
 
-register("Block.Video", data => new Video(data.source, data.classes, data.content.map(Node.create)))
+register("block.video", data => new Video(data.source, data.classes, data.content.map(Node.create)))

@@ -1,25 +1,25 @@
 import { dom } from "../index"
 
-describe("Link", () => {
+describe("link", () => {
 	const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")])
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Link",
+				class: "link",
 				target: "https://github.com/typeup/",
-				content: [{ class: "Text", value: "TypeUp" }],
+				content: [{ class: "text", value: "TypeUp" }],
 			})
 		).toEqual(node))
 	it("properties", () => {
-		expect(node.class).toBe("Link")
+		expect(node.class).toBe("link")
 		expect(node.target).toBe("https://github.com/typeup/")
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])
 	})
 	it("toObject", () => {
 		expect(node.toObject()).toEqual({
-			class: "Link",
+			class: "link",
 			target: "https://github.com/typeup/",
-			content: [{ class: "Text", value: "TypeUp" }],
+			content: [{ class: "text", value: "TypeUp" }],
 		})
 	})
 	it("toString", () => {

@@ -1,36 +1,36 @@
 import { dom } from "./index"
 
-describe("Document", () => {
+describe("document", () => {
 	const node = new dom.Document([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
 			dom.Node.create({
-				class: "Document",
-				content: [{ class: "Block.Paragraph", content: [{ class: "Text", value: "Paragraph." }] }],
+				class: "document",
+				content: [{ class: "block.paragraph", content: [{ class: "text", value: "Paragraph." }] }],
 			})
 		).toEqual(node))
-	it("class", () => expect(node.class).toBe("Document"))
+	it("class", () => expect(node.class).toBe("document"))
 
 	it("content", () => expect(node.content).toEqual([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
-			class: "Document",
+			class: "document",
 			content: [
 				{
-					class: "Block.Paragraph",
-					content: [{ value: "Paragraph.", class: "Text" }],
+					class: "block.paragraph",
+					content: [{ value: "Paragraph.", class: "text" }],
 				},
 			],
 		}))
 	it("toJson", () =>
 		expect(node.toJson()).toMatchInlineSnapshot(
-			`"{"class":"Document","content":[{"class":"Block.Paragraph","content":[{"class":"Text","value":"Paragraph."}]}]}"`
+			`"{"class":"document","content":[{"class":"block.paragraph","content":[{"class":"text","value":"Paragraph."}]}]}"`
 		))
 	it("empty document", () => {
 		const document = new dom.Document([])
 		expect(document.content).toEqual([])
-		expect(document.class).toBe("Document")
+		expect(document.class).toBe("document")
 	})
 	it("multiple blocks", () => {
 		const document = new dom.Document([

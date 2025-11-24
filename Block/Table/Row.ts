@@ -4,7 +4,7 @@ import { Content } from "../Content"
 import { Cell } from "./Cell"
 
 export class Row extends Content<Cell> {
-	readonly class: string = "Block.Table.Row"
+	readonly class: string = "block.table.row"
 	constructor(content: Cell[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -12,4 +12,4 @@ export class Row extends Content<Cell> {
 
 export namespace Row {}
 
-register("Block.Table.Row", data => new Row(data.content.map(Node.create)))
+register("block.table.row", data => new Row(data.content.map(Node.create)))

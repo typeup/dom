@@ -4,7 +4,7 @@ import { Block } from "./Block"
 import { Content } from "./Content"
 
 export class Section extends Content<Block> {
-	readonly class: string = "Block.Section"
+	readonly class: string = "block.section"
 	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -15,4 +15,4 @@ export class Section extends Content<Block> {
 
 export namespace Section {}
 
-register("Block.Section", data => new Section(data.content.map(Node.create)))
+register("block.section", data => new Section(data.content.map(Node.create)))

@@ -4,7 +4,7 @@ import { Content } from "./Content"
 import { Inline } from "./Inline"
 
 export class Emphasize extends Content {
-	readonly class: string = "Emphasize"
+	readonly class: string = "emphasize"
 	constructor(content: Inline[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
@@ -15,4 +15,4 @@ export class Emphasize extends Content {
 
 export namespace Emphasize {}
 
-register("Emphasize", data => new Emphasize(data.content.map(Node.create)))
+register("emphasize", data => new Emphasize(data.content.map(Node.create)))
