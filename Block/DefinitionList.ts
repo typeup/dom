@@ -1,5 +1,5 @@
-import { Content } from "./Content"
 import { Node, register } from "../Node"
+import { Content } from "./Content"
 import { DefinitionTerm } from "./DefinitionTerm"
 
 export class DefinitionList extends Content<DefinitionTerm> {

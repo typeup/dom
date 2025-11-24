@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
-import { Content } from "./Content"
 import * as inline from "../Inline"
 import { Node, register } from "../Node"
+import { Content } from "./Content"
 import { DefinitionData } from "./DefinitionData"
 
 export class DefinitionTerm extends Content<inline.Inline> {
