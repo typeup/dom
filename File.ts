@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { Block, Paragraph } from "./block"
+import { Block } from "./Block"
 import { Node, register } from "./Node"
 
 export class File extends Node {
@@ -17,7 +17,7 @@ export class File extends Node {
 		let result = ""
 		let wasParagraph = false
 		for (const c of this.content) {
-			const isParagraph = c instanceof Paragraph
+			const isParagraph = c instanceof Block.Paragraph
 			if (isParagraph && wasParagraph)
 				result += "\n"
 			result += c.toString()
@@ -26,4 +26,7 @@ export class File extends Node {
 		return result
 	}
 }
+
+export namespace File {}
+
 register("File", data => new File(data.content))

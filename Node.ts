@@ -11,6 +11,7 @@ export abstract class Node {
 		return creator?.(data)
 	}
 }
+export namespace Node {}
 export type Creator = (data: { class: string } & any) => Node
 const creators: { [name: string]: Creator | undefined } = {}
 export function register(name: string, creator: Creator) {

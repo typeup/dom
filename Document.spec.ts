@@ -1,11 +1,11 @@
-import * as dom from "./index"
+import { dom } from "./index"
 
 describe("Document", () => {
-	const node = new dom.Document([new dom.block.Paragraph([new dom.inline.Text("Paragraph.")])])
+	const node = new dom.Document([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
 	it("constructor", () => expect(node).toBeTruthy())
 	it("class", () => expect(node.class).toBe("Document"))
 
-	it("content", () => expect(node.content).toEqual([new dom.block.Paragraph([new dom.inline.Text("Paragraph.")])]))
+	it("content", () => expect(node.content).toEqual([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])]))
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			class: "Document",
