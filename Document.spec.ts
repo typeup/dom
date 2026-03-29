@@ -44,4 +44,11 @@ describe("dom.Document", () => {
 		`)
 	})
 	it("toString", () => expect(node.toString()).toEqual("Paragraph."))
+	it("variables", () => {
+		const document = new dom.Document([
+			new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")]),
+			new dom.Block.Assignment("x", "10"),
+		])
+		expect(document.variables).toEqual({ x: "10" })
+	})
 })

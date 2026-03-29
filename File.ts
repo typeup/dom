@@ -1,9 +1,13 @@
 import { mendly } from "mendly"
 import { Block } from "./Block"
 import { Node, register } from "./Node"
+import { Variables } from "./Variables"
 
 export class File extends Node {
 	readonly class: string = "file"
+	override get variables(): Variables {
+		return Variables.merge(...this.content.map(b => b.variables))
+	}
 	constructor(readonly content: Block[], region?: mendly.Error.Region) {
 		super(region)
 	}

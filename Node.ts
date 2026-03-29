@@ -1,7 +1,11 @@
 import { mendly } from "mendly"
+import { Variables } from "./Variables"
 
 export abstract class Node {
 	abstract readonly class: string
+	get variables(): Variables {
+		return {}
+	}
 	protected constructor(readonly region?: mendly.Error.Region) {}
 	toObject(): { class: string } & any {
 		return { class: this.class }
