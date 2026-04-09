@@ -1,4 +1,5 @@
 import { Block as _Block } from "./Block"
+import { Class as _Class } from "./Class"
 import { Document as _Document } from "./Document"
 import { File as _File } from "./File"
 import { Inline as _Inline } from "./Inline"
@@ -7,6 +8,7 @@ import { Variables as _Variables } from "./Variables"
 
 export namespace dom {
 	export import Block = _Block
+	export import Class = _Class
 	export import Document = _Document
 	export import File = _File
 	export import Inline = _Inline

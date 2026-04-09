@@ -1,10 +1,11 @@
+import { Class } from "../../../Class"
 import { Node, register } from "../../../Node"
 import { Content } from "../../Content"
 import { Data as _Data } from "./Data"
 import { Term as _Term } from "./Term"
 
 export class Definition extends Content<Definition.Term> {
-	readonly class: string = "block.list.definition"
+	readonly class: Class = "block.list.definition"
 	constructor(content: Definition.Term[]) {
 		super(content)
 	}

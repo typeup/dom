@@ -1,4 +1,5 @@
 import { mendly } from "mendly"
+import { Class } from "../../Class"
 import { Inline } from "../../Inline"
 import { Node, register } from "../../Node"
 import { Content } from "../Content"
@@ -6,7 +7,7 @@ import { Cell as _Cell } from "./Cell"
 import { Row as _Row } from "./Row"
 
 export class Table extends Content<Inline> {
-	readonly class: string = "block.table"
+	readonly class: Class = "block.table"
 	constructor(
 		readonly alignments: ("" | "left" | "center" | "right")[],
 		readonly rows: Table.Row[],
@@ -45,7 +46,7 @@ export class Table extends Content<Inline> {
 		)
 		return rows.join("") + super.toString()
 	}
-	override toObject(): { class: string } | any {
+	override toObject(): { class: Class } | any {
 		return {
 			...super.toObject(),
 			alignments: this.alignments,

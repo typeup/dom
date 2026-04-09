@@ -4,16 +4,16 @@ import { Node, register } from "../../Node"
 import { Block } from "../Block"
 import { Content } from "../Content"
 
-export class Item extends Content<Block> {
-	readonly class: Class = "block.list.item"
+export class Chapter extends Content<Block> {
+	readonly class: Class = "block.chapter"
 	constructor(content: Block[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
-	override toString(symbol: string = " - "): string {
-		return symbol + super.toString()
+	override toString() {
+		return `===\n${super.toString()}`
 	}
 }
 
-export namespace Item {}
+export namespace Chapter {}
 
-register("block.list.item", data => new Item(data.content.map(Node.create)))
+register("block.chapter", data => new Chapter(data.content.map(Node.create)))

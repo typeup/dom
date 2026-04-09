@@ -1,18 +1,19 @@
 import { mendly } from "mendly"
+import { Class } from "../../../Class"
 import { Inline } from "../../../Inline"
 import { Node, register } from "../../../Node"
 import { Content } from "../../Content"
 import { Data } from "./Data"
 
 export class Term extends Content<Inline> {
-	readonly class: string = "block.list.definition.term"
+	readonly class: Class = "block.list.definition.term"
 	constructor(content: Inline[], readonly data: Data[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
 	override toString(): string {
 		return super.toString() + "\n" + this.data.map(d => d.toString()).join("\n")
 	}
-	override toObject(): { class: string } | any {
+	override toObject(): { class: Class } | any {
 		return { ...super.toObject(), data: this.data.map(d => d.toObject()) }
 	}
 }
