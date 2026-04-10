@@ -72,7 +72,9 @@ describe("dom.Variables", () => {
 			],
 			expected: { app: { name: "test", version: "1.0", config: { dev: true, prod: false } } },
 		},
-	])("merge($input) == $expected", ({ input, expected }) => expect(dom.Variables.merge(...input)).toEqual(expected))
+	])("merge($input) == $expected", ({ input, expected }) =>
+		expect(dom.Variables.merge(...(input as dom.Variables[]))).toEqual(expected)
+	)
 	it.each([
 		{ variables: {}, keys: ["key1"], expected: [{}, {}] },
 		{ variables: { key1: "value1" }, keys: [], expected: [{}, { key1: "value1" }] },
@@ -209,7 +211,7 @@ describe("dom.Variables", () => {
 		},
 		{ variables: {}, prefix: "empty", expected: {} },
 	])("flatten($variables, $prefix) == $expected", ({ variables, prefix, expected }) =>
-		expect(dom.Variables.flatten(variables, prefix)).toEqual(expected)
+		expect(dom.Variables.flatten(variables as dom.Variables, prefix)).toEqual(expected)
 	)
 	it.each([
 		// Basic cases
@@ -222,7 +224,7 @@ describe("dom.Variables", () => {
 		},
 		{
 			variables: { a: 1, b: 2, c: 3 },
-			reducer: (accumulator: number, value: any) => accumulator + (typeof value === "number" ? value : 0),
+			reducer: (accumulator: number, value: any) => accumulator + (typeof value == "number" ? value : 0),
 			start: 0,
 			expected: 6,
 		},
@@ -235,7 +237,7 @@ describe("dom.Variables", () => {
 		},
 		{
 			variables: { a: { x: 1, y: 2 }, b: { z: 3 } },
-			reducer: (accumulator: number, value: any) => accumulator + (typeof value === "number" ? value : 0),
+			reducer: (accumulator: number, value: any) => accumulator + (typeof value == "number" ? value : 0),
 			start: 0,
 			expected: 6,
 		},
@@ -329,7 +331,9 @@ describe("dom.Variables", () => {
 			],
 		},
 	])("reduce($variables, reducer) == $expected", ({ variables, reducer, expected, start }) =>
-		expect(dom.Variables.reduce(variables, reducer, start)).toEqual(expected)
+		expect(dom.Variables.reduce(variables, reducer as Parameters<typeof dom.Variables.reduce>[1], start)).toEqual(
+			expected
+		)
 	)
 	it.each([
 		// Basic transformation
@@ -528,7 +532,7 @@ describe("dom.Variables", () => {
 			{ variables: { key: {} }, path: ["key"], type: "string" as const, expected: undefined },
 			{ variables: {}, path: ["missing"], type: "string" as const, expected: undefined },
 		])("parse %s: $variables at $path → $expected", ({ variables, path, type, expected }) =>
-			expect(dom.Variables.parse(variables, type, ...path)).toEqual(expected)
+			expect(dom.Variables.parse(variables as dom.Variables, type, ...path)).toEqual(expected)
 		)
 	})
 	describe("keys", () => {
@@ -662,6 +666,117 @@ describe("dom.Variables", () => {
 		])("entries($variables) yields $expected", ({ variables, expected }) => {
 			const result = Array.from(dom.Variables.entries(variables))
 			expect(result).toEqual(expected)
+		})
+	})
+	describe("from", () => {
+		it.each([
+			// Empty case
+			{ entries: [], expected: {} },
+			// Simple cases
+			{ entries: [[["key"], "value"]], expected: { key: "value" } },
+			{
+				entries: [
+					[["a"], "x"],
+					[["b"], "y"],
+				],
+				expected: { a: "x", b: "y" },
+			},
+			// Nested cases
+			{ entries: [[["user", "name"], "John"]], expected: { user: { name: "John" } } },
+			{
+				entries: [
+					[["config", "debug"], true],
+					[["config", "timeout"], 5000],
+				],
+				expected: { config: { debug: true, timeout: 5000 } },
+			},
+			{ entries: [[["deep", "nested", "path"], "value"]], expected: { deep: { nested: { path: "value" } } } },
+			// Mixed types
+			{
+				entries: [
+					[["str"], "text"],
+					[["num"], 42],
+					[["obj", "key"], "value"],
+				],
+				expected: { str: "text", num: 42, obj: { key: "value" } },
+			},
+			// Arrays
+			{
+				entries: [
+					[["items"], ["a", "b"]],
+					[["nested", "single"], "value"],
+				],
+				expected: { items: ["a", "b"], nested: { single: "value" } },
+			},
+			// Undefined values
+			{
+				entries: [
+					[["undefinedVal"], undefined],
+					[["obj", "inner"], "value"],
+				],
+				expected: { undefinedVal: undefined, obj: { inner: "value" } },
+			},
+			// Complex structure
+			{
+				entries: [
+					[["app", "config", "env"], "prod"],
+					[["app", "config", "cache", "enabled"], true],
+					[["app", "name"], "MyApp"],
+				],
+				expected: { app: { config: { env: "prod", cache: { enabled: true } }, name: "MyApp" } },
+			},
+			// Overriding paths (later entries win)
+			{
+				entries: [
+					[["key"], "first"],
+					[["key"], "second"],
+				],
+				expected: { key: "second" },
+			},
+			{
+				entries: [
+					[["config", "debug"], true],
+					[["config", "debug"], false],
+					[["config", "timeout"], 5000],
+				],
+				expected: { config: { debug: false, timeout: 5000 } },
+			},
+			// Different value types
+			{
+				entries: [
+					[["boolean"], true],
+					[["number"], 42],
+					[["string"], "text"],
+					[["array"], [1, 2, 3]],
+					[["null"], null],
+					[["undefined"], undefined],
+				],
+				expected: {
+					boolean: true,
+					number: 42,
+					string: "text",
+					array: [1, 2, 3],
+					null: null,
+					undefined: undefined,
+				},
+			},
+		])("from($entries) == $expected", ({ entries, expected }) => {
+			expect(dom.Variables.from(entries as Iterable<[string[], dom.Variables.Value]>)).toEqual(expected)
+		})
+
+		// Round-trip test: entries(variables) -> from() should yield original
+		it.each([
+			{ variables: {} },
+			{ variables: { key: "value" } },
+			{ variables: { a: "x", b: "y" } },
+			{ variables: { user: { name: "John", age: 30 } } },
+			{ variables: { config: { debug: true, timeout: 5000, features: { auth: true } } } },
+			{ variables: { str: "text", num: 42, bool: true, arr: [1, 2], obj: { nested: "value" } } },
+			{ variables: { deep: { nested: { path: { to: { value: "here" } } } } } },
+			{ variables: { mixed: { types: { string: "text", number: 42, boolean: true, array: ["a", "b"] } } } },
+		])("from(entries($variables)) should equal $variables", ({ variables }) => {
+			const reconstructed = dom.Variables.from(dom.Variables.entries(variables))
+			expect(reconstructed).toEqual(variables)
 		})
 	})
 })

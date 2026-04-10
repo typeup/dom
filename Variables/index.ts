@@ -33,7 +33,7 @@ export namespace Variables {
 	export function set(variables: Variables, value: Value, ...[head, ...tail]: string[]): Variables {
 		return !head
 			? variables
-			: { ...variables, [head]: tail.length ? set(variables[head] as Variables, value, ...tail) : value }
+			: { ...variables, [head]: tail.length ? set((variables[head] as Variables) || {}, value, ...tail) : value }
 	}
 	export function remove(variables: Variables, ...[head, ...tail]: string[]): Variables {
 		const result = !head
@@ -75,6 +75,12 @@ export namespace Variables {
 				yield [path, value]
 		}
 	}
+	export function from(entries: Iterable<[string[], Value]>): Variables {
+		let result: Variables = {}
+		for (const [path, value] of entries)
+			result = set(result, value, ...path)
+		return result
+	}
 	export function deepen(variables: Variables): Variables {
 		return Object.keys(variables).reduce((result, key) => set(result, variables[key], ...key.split(".")), {})
 	}
@@ -114,7 +120,6 @@ export namespace Variables {
 				: { ...result, [key]: mapper(value, path) }
 		}, {})
 	}
-
 	export function parse<T extends keyof Types>(variables: Variables, type: T, ...path: string[]): Types[T] | undefined {
 		const value = get(variables, ...path)
 		let result: Types[T] | undefined
