@@ -120,7 +120,7 @@ export namespace Variables {
 				: { ...result, [key]: mapper(value, path) }
 		}, {})
 	}
-	export function parse<T extends keyof Types>(variables: Variables, type: T, ...path: string[]): Types[T] | undefined {
+	export function parse<T extends keyof Types>(type: T, variables: Variables, ...path: string[]): Types[T] | undefined {
 		const value = get(variables, ...path)
 		let result: Types[T] | undefined
 		switch (type) {

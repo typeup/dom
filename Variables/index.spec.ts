@@ -532,7 +532,7 @@ describe("dom.Variables", () => {
 			{ variables: { key: {} }, path: ["key"], type: "string" as const, expected: undefined },
 			{ variables: {}, path: ["missing"], type: "string" as const, expected: undefined },
 		])("parse %s: $variables at $path → $expected", ({ variables, path, type, expected }) =>
-			expect(dom.Variables.parse(variables as dom.Variables, type, ...path)).toEqual(expected)
+			expect(dom.Variables.parse(type, variables as dom.Variables, ...path)).toEqual(expected)
 		)
 	})
 	describe("keys", () => {
