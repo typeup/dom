@@ -1,6 +1,6 @@
 {
 	"name": "@typeup/dom",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "Document Object Model for TypeUp.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
