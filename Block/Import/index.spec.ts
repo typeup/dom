@@ -12,7 +12,7 @@ describe("dom.Block.Import", () => {
 			dom.Node.create({
 				class: "block.import",
 				source: new mendly.Uri(undefined, undefined, [".", "subdocument.tup"]),
-				content: new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])]),
+				content: new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.import"))
@@ -25,14 +25,9 @@ describe("dom.Block.Import", () => {
 			source: "./subdocument.tup",
 			content: {
 				class: "file",
-				content: [
-					{
-						class: "block.paragraph",
-						content: [{ value: "Paragraph.", class: "inline.text" }],
-					},
-				],
+				content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
 			},
-			class: "block.import",
+			class: "block.import"
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!import ./subdocument.tup\n"))
 })

@@ -3,19 +3,12 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
 	test: {
-		typecheck: {
-			tsconfig: "./tsconfig.json",
-		},
+		typecheck: { tsconfig: "./tsconfig.json" },
 		coverage: {
 			reporter: ["text", "json", "html"],
 			enabled: true,
 			cleanOnRerun: true,
-			thresholds: {
-				statements: 100,
-				branches: 90,
-				functions: 100,
-				lines: 100,
-			},
+			thresholds: { statements: 100, branches: 90, functions: 100, lines: 100 }
 		},
 		globals: true,
 		include: ["**/*.spec.[tj]s"],
@@ -41,9 +34,9 @@ export default defineConfig({
 					"selectively",
 					"sessionly",
 					"tidily",
-					"typedly",
-				],
-			},
-		},
-	},
+					"typedly"
+				]
+			}
+		}
+	}
 })

@@ -7,7 +7,11 @@ import { Data } from "./Data"
 
 export class Term extends Content<Inline> {
 	readonly class: Class = "block.list.definition.term"
-	constructor(content: Inline[], readonly data: Data[], region?: mendly.Error.Region) {
+	constructor(
+		content: Inline[],
+		readonly data: Data[],
+		region?: mendly.Error.Region
+	) {
 		super(content, region)
 	}
 	override toString(): string {

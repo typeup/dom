@@ -8,10 +8,7 @@ describe("dom.Inline.Math", () => {
 		expect(node.value).toBe("x^2")
 	})
 	it("toObject", () => {
-		expect(node.toObject()).toEqual({
-			class: "inline.math",
-			value: "x^2",
-		})
+		expect(node.toObject()).toEqual({ class: "inline.math", value: "x^2" })
 	})
 	it("toString", () => {
 		expect(node.toString()).toEqual("$x^2$")

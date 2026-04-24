@@ -7,7 +7,7 @@ describe("dom.File", () => {
 		expect(
 			dom.Node.create({
 				class: "file",
-				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Paragraph." }] }],
+				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Paragraph." }] }]
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("file"))
@@ -16,12 +16,7 @@ describe("dom.File", () => {
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			class: "file",
-			content: [
-				{
-					class: "block.paragraph",
-					content: [{ value: "Paragraph.", class: "inline.text" }],
-				},
-			],
+			content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
 		}))
 	it("toString", () => expect(node.toString()).toEqual("Paragraph."))
 })

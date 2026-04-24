@@ -6,14 +6,15 @@ import { Inline } from "../Inline"
 
 export class Link extends Content {
 	readonly class: Class = "inline.link"
-	constructor(readonly target: string, content: Inline[], region?: mendly.Error.Region) {
+	constructor(
+		readonly target: string,
+		content: Inline[],
+		region?: mendly.Error.Region
+	) {
 		super(content, region)
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			target: this.target,
-		}
+		return { ...super.toObject(), target: this.target }
 	}
 	override toString(): string {
 		return "[" + this.target + " " + super.toString() + "]"

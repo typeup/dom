@@ -7,7 +7,7 @@ describe("dom.Document", () => {
 		expect(
 			dom.Node.create({
 				class: "document",
-				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Paragraph." }] }],
+				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Paragraph." }] }]
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("document"))
@@ -16,12 +16,7 @@ describe("dom.Document", () => {
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			class: "document",
-			content: [
-				{
-					class: "block.paragraph",
-					content: [{ value: "Paragraph.", class: "inline.text" }],
-				},
-			],
+			content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
 		}))
 	it("toJson", () =>
 		expect(node.toJson()).toMatchInlineSnapshot(
@@ -35,7 +30,7 @@ describe("dom.Document", () => {
 	it("multiple blocks", () => {
 		const document = new dom.Document([
 			new dom.Block.Paragraph([new dom.Inline.Text("First paragraph.")]),
-			new dom.Block.Paragraph([new dom.Inline.Text("Second paragraph.")]),
+			new dom.Block.Paragraph([new dom.Inline.Text("Second paragraph.")])
 		])
 		expect(document.content.length).toBe(2)
 		expect(document.toString()).toMatchInlineSnapshot(`
@@ -47,7 +42,7 @@ describe("dom.Document", () => {
 	it("variables", () => {
 		const document = new dom.Document([
 			new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")]),
-			new dom.Block.Assignment("x", "10"),
+			new dom.Block.Assignment("x", "10")
 		])
 		expect(document.variables).toEqual({ x: "10" })
 	})

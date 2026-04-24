@@ -31,11 +31,7 @@ export class Video extends Content<Inline> {
 		return `!video ${this.source} ${this.classes}\n${super.toString()}`
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			classes: this.classes,
-			source: this.source.toString(),
-		}
+		return { ...super.toObject(), classes: this.classes, source: this.source.toString() }
 	}
 }
 

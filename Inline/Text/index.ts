@@ -5,7 +5,10 @@ import { Inline } from "../Inline"
 
 export class Text extends Inline {
 	readonly class: Class = "inline.text"
-	constructor(readonly value: string, region?: mendly.Error.Region) {
+	constructor(
+		readonly value: string,
+		region?: mendly.Error.Region
+	) {
 		super(region)
 	}
 	override toObject(): { class: Class } | any {

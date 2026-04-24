@@ -14,7 +14,7 @@ describe("dom.Block.Video", () => {
 				class: "block.video",
 				source: new mendly.Uri(undefined, undefined, [".", "video.ogg"]),
 				classes: ["class"],
-				content: [{ class: "inline.text", value: "Caption." }],
+				content: [{ class: "inline.text", value: "Caption." }]
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.video"))
@@ -27,13 +27,13 @@ describe("dom.Block.Video", () => {
 			source: "./video.ogg",
 			classes: ["class"],
 			content: [{ value: "Caption.", class: "inline.text" }],
-			class: "block.video",
+			class: "block.video"
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!video ./video.ogg class\nCaption."))
 	it.each([
 		["ogg", "video/ogg"],
 		["mp4", "video/mp4"],
-		["", ""],
+		["", ""]
 	])("type with extension %s returns %s", (extension, expected) => {
 		const videoNode = new dom.Block.Video(
 			new mendly.Uri(undefined, undefined, [".", `video.${extension}`]),

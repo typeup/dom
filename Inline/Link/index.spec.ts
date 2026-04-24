@@ -7,7 +7,7 @@ describe("dom.Inline.Link", () => {
 			dom.Node.create({
 				class: "inline.link",
 				target: "https://github.com/typeup/",
-				content: [{ class: "inline.text", value: "TypeUp" }],
+				content: [{ class: "inline.text", value: "TypeUp" }]
 			})
 		).toEqual(node))
 	it("properties", () => {
@@ -19,7 +19,7 @@ describe("dom.Inline.Link", () => {
 		expect(node.toObject()).toEqual({
 			class: "inline.link",
 			target: "https://github.com/typeup/",
-			content: [{ class: "inline.text", value: "TypeUp" }],
+			content: [{ class: "inline.text", value: "TypeUp" }]
 		})
 	})
 	it("toString", () => {

@@ -14,7 +14,7 @@ describe("dom.Block.Figure", () => {
 				class: "block.figure",
 				source: new mendly.Uri(undefined, undefined, [".", "image.png"]),
 				classes: ["class"],
-				content: [{ class: "inline.text", value: "Caption." }],
+				content: [{ class: "inline.text", value: "Caption." }]
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.figure"))
@@ -27,7 +27,7 @@ describe("dom.Block.Figure", () => {
 			source: "./image.png",
 			classes: ["class"],
 			content: [{ value: "Caption.", class: "inline.text" }],
-			class: "block.figure",
+			class: "block.figure"
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!figure ./image.png class\nCaption."))
 })

@@ -12,10 +12,7 @@ describe("dom.Inline.Emphasize", () => {
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])
 	})
 	it("toObject", () => {
-		expect(node.toObject()).toEqual({
-			class: "inline.emphasize",
-			content: [{ class: "inline.text", value: "TypeUp" }],
-		})
+		expect(node.toObject()).toEqual({ class: "inline.emphasize", content: [{ class: "inline.text", value: "TypeUp" }] })
 	})
 	it("toString", () => {
 		expect(node.toString()).toEqual("_TypeUp_")

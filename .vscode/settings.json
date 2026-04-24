@@ -6,39 +6,13 @@
 		"dist": true,
 		"README.md": true,
 		"LICENSE": true,
-		"tsconfig.*": true,
-		"node_modules": true,
-		"*.code-workspace": true,
-		"*.config.ts": true,
-		"coverage": true
+		"tsconfig.*": true
 	},
-	"search.exclude": {
-		".*": false,
-		"*.json": false,
-		"CODEOWNERS": false,
-		"dist": false,
-		"README.md": false,
-		"LICENSE": false,
-		"tsconfig.*": false,
-		"node_modules": false,
-		"*.code-workspace": false,
-		"*.config.ts": false,
-		"coverage": false
-	},
-	"files.insertFinalNewline": true,
 	"editor.tabSize": 2,
-	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"eslint.autoFixOnSave": "explicit"
-	},
-	"eslint.format.enable": true,
-	"eslint.lintTask.enable": true,
-	"javascript.format.enable": false,
-	"typescript.format.enable": false,
+	"files.insertFinalNewline": true,
 	"cSpell.words": [
 		"authly",
 		"cloudly",
@@ -58,10 +32,6 @@
 		"sessionly",
 		"smoothly",
 		"tidily",
-		"transactly",
-		"typedly",
-		"typeup",
-		"uply"
-	],
-	"typescript.tsdk": "node_modules/typescript/lib"
+		"typedly"
+	]
 }

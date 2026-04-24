@@ -8,10 +8,7 @@ describe("dom.Inline.Text", () => {
 		expect(node.value).toBe("value")
 	})
 	it("toObject", () => {
-		expect(node.toObject()).toEqual({
-			class: "inline.text",
-			value: "value",
-		})
+		expect(node.toObject()).toEqual({ class: "inline.text", value: "value" })
 	})
 	it("toString", () => {
 		expect(node.toString()).toEqual("value")

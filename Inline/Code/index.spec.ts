@@ -9,10 +9,7 @@ describe("dom.Inline.Code", () => {
 		expect(node.value).toBe("const pi = 3.1415")
 	})
 	it("toObject", () => {
-		expect(node.toObject()).toEqual({
-			class: "inline.code",
-			value: "const pi = 3.1415",
-		})
+		expect(node.toObject()).toEqual({ class: "inline.code", value: "const pi = 3.1415" })
 	})
 	it("toString", () => {
 		expect(node.toString()).toEqual("%const pi = 3.1415%")

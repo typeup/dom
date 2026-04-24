@@ -2,9 +2,7 @@
 	"compilerOptions": {
 		// https://www.totaltypescript.com/tsconfig-cheat-sheet
 		/* transpiling */
-		"lib": [
-			"ES2023",
-		],
+		"lib": ["ES2023"],
 		"moduleResolution": "bundler",
 		"module": "ESNext",
 		// where mjs is omitted. point package.json `exports` (import) / `module` field to these
@@ -32,16 +30,10 @@
 		"removeComments": true,
 		"preserveConstEnums": true,
 		"forceConsistentCasingInFileNames": true,
-		"types": [
-			"vitest/globals"
-		]
+		"types": ["vitest/globals"]
 	},
-	"include": [
-		"**/*.spec.ts",
-	],
-	"files": [
-		"index.ts"
-	],
+	"include": ["**/*.spec.ts"],
+	"files": ["index.ts"],
 	"typeAcquisition": {
 		"enable": true
 	}

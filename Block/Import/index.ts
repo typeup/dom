@@ -6,18 +6,18 @@ import { Block } from "../Block"
 
 export class Import extends Block {
 	readonly class: Class = "block.import"
-	constructor(readonly source: mendly.Uri, readonly content: File, region?: mendly.Error.Region) {
+	constructor(
+		readonly source: mendly.Uri,
+		readonly content: File,
+		region?: mendly.Error.Region
+	) {
 		super(region)
 	}
 	override toString(): string {
 		return `!import ${this.source}\n`
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			source: this.source.toString(),
-			content: this.content.toObject(),
-		}
+		return { ...super.toObject(), source: this.source.toString(), content: this.content.toObject() }
 	}
 }
 
