@@ -5,7 +5,7 @@
 		"lib": [
 			"ES2023",
 		],
-		"moduleResolution": "node10",
+		"moduleResolution": "bundler",
 		"module": "ESNext",
 		// where mjs is omitted. point package.json `exports` (import) / `module` field to these
 		"outDir": "dist/mjs",
@@ -32,7 +32,6 @@
 		"removeComments": true,
 		"preserveConstEnums": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
 		"types": [
 			"vitest/globals"
 		]

@@ -1,7 +1,7 @@
-import type { Block } from "Block"
-import type { Document } from "Document"
-import type { File } from "File"
-import type { Inline } from "Inline"
+import type { Block } from "../Block"
+import type { Document } from "../Document"
+import type { File } from "../File"
+import type { Inline } from "../Inline"
 import type { Node } from "../Node"
 
 export type Class = typeof Class.values[number]
