@@ -102,10 +102,16 @@ describe("dom.Node", () => {
 				"block.math": [nodes.block.math[0]],
 				other: [nodes.block.paragraph[0], nodes.block.emptyLine[0], nodes.inline.link[0]]
 			}
+		},
+		{
+			name: "skips undefined entries",
+			nodes: [nodes.inline.text[0], undefined, nodes.inline.code[0], undefined, nodes.inline.text[1]],
+			classes: ["inline.text", "inline.code"],
+			expected: { "inline.text": [nodes.inline.text[0], nodes.inline.text[1]], "inline.code": [nodes.inline.code[0]] }
 		}
 	] as Array<{
 		name: string
-		nodes: dom.Node[]
+		nodes: Array<dom.Node | undefined>
 		classes: dom.Class[]
 		expected: Partial<Record<dom.Class | "other", dom.Node[]>>
 	}>)("split $name", ({ nodes: testNodes, classes, expected }) =>

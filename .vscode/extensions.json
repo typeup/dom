@@ -3,8 +3,6 @@
 		"biomejs.biome",
 		"vitest.explorer",
 		"dbaeumer.vscode-eslint",
-		"streetsidesoftware.code-spell-checker",
-		"eamodio.gitlens",
-		"GitHub.copilot-chat"
+		"streetsidesoftware.code-spell-checker"
 	]
 }

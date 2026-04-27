@@ -2,20 +2,11 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"type": "pwa-node",
+			"type": "node",
 			"request": "launch",
-			"name": "Run Build Output",
+			"name": "Debug Library",
 			"program": "${workspaceFolder}/dist/mjs/index.js",
-			"cwd": "${workspaceFolder}",
-			"console": "integratedTerminal",
 			"preLaunchTask": "build"
-		},
-		{
-			"type": "pwa-node",
-			"request": "launch",
-			"name": "Run Tests (npm)",
-			"runtimeExecutable": "npm",
-			"runtimeArgs": ["run", "test", "--"]
 		}
 	]
 }

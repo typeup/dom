@@ -1,12 +1,14 @@
 {
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
-		"outDir": "dist/mjs",
+		"noEmit": false,
+		"outDir": "./dist",
+		"rootDir": ".",
 		"declaration": true,
+		"declarationDir": "./dist/types",
 		"declarationMap": true,
-		"sourceMap": true,
-		"removeComments": true
+		"sourceMap": true
 	},
-	"include": ["**/*.ts"],
-	"exclude": ["**/*.spec.ts", "dist", "node_modules"]
+	"exclude": ["**/*.spec.ts", "coverage", "dist", "node_modules", "vite.config.ts"],
+	"files": ["index.ts"]
 }

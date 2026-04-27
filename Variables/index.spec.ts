@@ -104,6 +104,7 @@ describe("dom.Variables", () => {
 		expect(dom.Variables.split(variables, ...keys)).toEqual(expected))
 	it.each([
 		{ variables: {}, path: ["key"], expected: undefined },
+		{ variables: { a: "value" }, path: [], expected: undefined },
 		{ variables: { key: "value" }, path: ["key"], expected: "value" },
 		{ variables: { key: 42 }, path: ["key"], expected: 42 },
 		{ variables: { key: true }, path: ["key"], expected: true },
@@ -117,6 +118,8 @@ describe("dom.Variables", () => {
 		expect(dom.Variables.get(variables, ...path)).toEqual(expected))
 	it.each([
 		{ variables: {}, value: "value", path: ["key"], expected: { key: "value" } },
+		{ variables: { existing: "data" }, value: "value", path: [], expected: { existing: "data" } },
+		{ variables: {}, value: "v", path: ["a", "b"], expected: { a: { b: "v" } } },
 		{ variables: { existing: "data" }, value: "value", path: ["key"], expected: { existing: "data", key: "value" } },
 		{ variables: { key: "old" }, value: "new", path: ["key"], expected: { key: "new" } }
 	])("set($variables, $value, $path) == $expected", ({ variables, value, path, expected }) => {
@@ -124,6 +127,7 @@ describe("dom.Variables", () => {
 	})
 	it.each([
 		{ variables: {}, path: ["key"], expected: {} },
+		{ variables: { a: 1 }, path: [], expected: { a: 1 } },
 		{ variables: { key: "value" }, path: ["key"], expected: {} },
 		{ variables: { key1: "value1", key2: "value2" }, path: ["key1"], expected: { key2: "value2" } },
 		{ variables: { key1: "value1", key2: "value2" }, path: ["key2"], expected: { key1: "value1" } },

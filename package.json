@@ -4,6 +4,7 @@
 	"description": "Document Object Model for TypeUp.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
+	"private": false,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/typeup/dom.git"
@@ -13,6 +14,7 @@
 	},
 	"homepage": "https://github.com/typeup",
 	"type": "module",
+	"types": "./dist/types/index.d.ts",
 	"exports": {
 		".": {
 			"import": {
@@ -31,7 +33,7 @@
 		"README.md"
 	],
 	"git": {
-		"tagName": "v${version}"
+		"tagName": "release-${version}"
 	},
 	"github": {
 		"release": true
@@ -55,6 +57,6 @@
 		"vitest": "^4.1.5"
 	},
 	"dependencies": {
-		"mendly": "^3.1.1-beta.13"
+		"mendly": "^3.1.1-beta.15"
 	}
 }
