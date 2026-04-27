@@ -1,6 +1,6 @@
 {
 	"name": "@typeup/dom",
-	"version": "1.0.10",
+	"version": "1.0.11-beta.0",
 	"description": "Document Object Model for TypeUp.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
@@ -23,7 +23,6 @@
 			}
 		}
 	},
-	"types": "./dist/types/index.d.ts",
 	"files": [
 		"dist",
 		"*.ts",
