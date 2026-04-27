@@ -24,9 +24,6 @@
 	},
 	"files": [
 		"dist",
-		"*.ts",
-		"!*.spec.ts",
-		"!**/test/**",
 		"LICENSE",
 		"README.md"
 	],
