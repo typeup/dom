@@ -13,7 +13,7 @@ describe("dom.Block.Heading", () => {
 		expect(node.toObject()).toEqual({
 			level: 3,
 			content: [{ value: "Header", class: "inline.text" }],
-			class: "block.heading",
+			class: "block.heading"
 		}))
 	it("toString", () => expect(node.toString()).toEqual("### Header"))
 })

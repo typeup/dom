@@ -25,7 +25,7 @@ describe("dom.Block.Paragraph", () => {
 					"third"
 				)
 			),
-			new dom.Inline.Text("forth"),
+			new dom.Inline.Text("forth")
 		])
 		expect(paragraph).toMatchInlineSnapshot(`
 			Paragraph {
@@ -105,7 +105,7 @@ describe("dom.Block.Paragraph", () => {
 			    },
 			  ],
 			  "region": Region {
-			    "content": "second",
+			    "content": "secondthird",
 			    "end": Position {
 			      "column": 13,
 			      "line": 1,
@@ -143,7 +143,7 @@ describe("dom.Block.Paragraph", () => {
 	it("toObject", () =>
 		expect(node.toObject()).toEqual({
 			content: [{ value: "paragraph", class: "inline.text" }],
-			class: "block.paragraph",
+			class: "block.paragraph"
 		}))
 	it("toString", () => expect(node.toString()).toEqual("paragraph"))
 })

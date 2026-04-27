@@ -4,7 +4,7 @@ import type { File } from "../File"
 import type { Inline } from "../Inline"
 import type { Node } from "../Node"
 
-export type Class = typeof Class.values[number]
+export type Class = (typeof Class.values)[number]
 
 export namespace Class {
 	export const values = [
@@ -35,7 +35,7 @@ export namespace Class {
 		"inline.emphasize",
 		"inline.link",
 		"inline.math",
-		"inline.text",
+		"inline.text"
 	] as const
 	export type Types = {
 		"block.assignment": Block.Assignment

@@ -8,7 +8,10 @@ export abstract class Content<T extends Node> extends Block {
 	override get variables(): Variables {
 		return Variables.merge(...this.content.map(b => b.variables))
 	}
-	constructor(readonly content: T[], region?: mendly.Error.Region) {
+	constructor(
+		readonly content: T[],
+		region?: mendly.Error.Region
+	) {
 		super(
 			region ?? content.map(c => c.region).reduce((left, right) => (left && right ? left.merge(right) : left || right))
 		)
@@ -17,10 +20,7 @@ export abstract class Content<T extends Node> extends Block {
 		return this.content.map(c => c.toString()).join("")
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			content: this.content.map(c => c.toObject()),
-		}
+		return { ...super.toObject(), content: this.content.map(c => c.toObject()) }
 	}
 }
 

@@ -24,8 +24,7 @@ export abstract class Node {
 	): { [K in C | "other"]?: Class.Types[K][] } {
 		const result: ReturnType<typeof this.split> = {}
 		for (const node of nodes)
-			if (node)
-				(result[classes.includes(node.class as C) ? node.class : "other"] ??= []).push(node)
+			if (node) (result[classes.includes(node.class as C) ? node.class : "other"] ??= []).push(node)
 		return result
 	}
 }

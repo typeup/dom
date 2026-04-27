@@ -5,14 +5,14 @@ import { Inline } from "../Inline"
 
 export class Math extends Inline {
 	readonly class: Class = "inline.math"
-	constructor(readonly value: string, region?: mendly.Error.Region) {
+	constructor(
+		readonly value: string,
+		region?: mendly.Error.Region
+	) {
 		super(region)
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			value: this.value,
-		}
+		return { ...super.toObject(), value: this.value }
 	}
 	override toString(): string {
 		return "$" + this.value + "$"

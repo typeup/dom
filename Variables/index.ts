@@ -4,13 +4,7 @@ export interface Variables {
 
 export namespace Variables {
 	export type Value = Variables | string | number | boolean | undefined | Value[]
-	export type Types = {
-		integer: number
-		float: number
-		boolean: boolean
-		string: string
-		"string[]": string[]
-	}
+	export type Types = { integer: number; float: number; boolean: boolean; string: string; "string[]": string[] }
 	export function merge(...variables: Variables[]): Variables {
 		return variables.reduce((result, variables) => {
 			for (const key in variables) {
@@ -25,9 +19,7 @@ export namespace Variables {
 	}
 	export function split(variables: Variables, ...keys: (string | string[])[]): [Variables, Variables] {
 		const result: [Variables, Variables] = [{}, {}]
-		for (const key in variables)
-			if (variables[key])
-				result[keys.includes(key) ? 0 : 1][key] = variables[key]
+		for (const key in variables) if (variables[key]) result[keys.includes(key) ? 0 : 1][key] = variables[key]
 		return result
 	}
 	export function set(variables: Variables, value: Value, ...[head, ...tail]: string[]): Variables {
@@ -39,8 +31,8 @@ export namespace Variables {
 		const result = !head
 			? variables
 			: tail.length
-			? { ...variables, [head]: remove(variables[head] as Variables, ...tail) }
-			: Object.fromEntries(Object.entries(variables).filter(([key]) => key != head))
+				? { ...variables, [head]: remove(variables[head] as Variables, ...tail) }
+				: Object.fromEntries(Object.entries(variables).filter(([key]) => key != head))
 		return result
 	}
 	export function get(variables: Variables, ...[head, ...tail]: string[]): Value | undefined {
@@ -50,35 +42,28 @@ export namespace Variables {
 		for (const key in variables) {
 			const path = [...prefix, key]
 			const value = variables[key]
-			if (typeof value == "object" && value != undefined && !Array.isArray(value))
-				yield* keys(value, path)
-			else
-				yield path
+			if (typeof value == "object" && value != undefined && !Array.isArray(value)) yield* keys(value, path)
+			else yield path
 		}
 	}
 	export function* values(variables: Variables): Generator<Value> {
 		for (const key in variables) {
 			const value = variables[key]
-			if (typeof value == "object" && value != undefined && !Array.isArray(value))
-				yield* values(value)
-			else
-				yield value
+			if (typeof value == "object" && value != undefined && !Array.isArray(value)) yield* values(value)
+			else yield value
 		}
 	}
 	export function* entries(variables: Variables, prefix: string[] = []): Generator<[string[], Value]> {
 		for (const key in variables) {
 			const path = [...prefix, key]
 			const value = variables[key]
-			if (typeof value == "object" && value != undefined && !Array.isArray(value))
-				yield* entries(value, path)
-			else
-				yield [path, value]
+			if (typeof value == "object" && value != undefined && !Array.isArray(value)) yield* entries(value, path)
+			else yield [path, value]
 		}
 	}
 	export function from(entries: Iterable<[string[], Value]>): Variables {
 		let result: Variables = {}
-		for (const [path, value] of entries)
-			result = set(result, value, ...path)
+		for (const [path, value] of entries) result = set(result, value, ...path)
 		return result
 	}
 	export function deepen(variables: Variables): Variables {
@@ -129,8 +114,8 @@ export namespace Variables {
 					typeof value == "string"
 						? (value.split(value.includes(",") ? "," : " ").map(string => string.trim()) as Types[T])
 						: Array.isArray(value) && value.every(item => typeof item == "string")
-						? (value as Types[T])
-						: undefined
+							? (value as Types[T])
+							: undefined
 				break
 			case "integer":
 				{
@@ -149,12 +134,12 @@ export namespace Variables {
 					typeof value == "boolean"
 						? (value as Types[T])
 						: typeof value == "string"
-						? value.toLowerCase() == "true"
-							? (true as Types[T])
-							: value.toLowerCase() == "false"
-							? (false as Types[T])
+							? value.toLowerCase() == "true"
+								? (true as Types[T])
+								: value.toLowerCase() == "false"
+									? (false as Types[T])
+									: undefined
 							: undefined
-						: undefined
 				break
 			case "string":
 				switch (typeof value) {

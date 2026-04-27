@@ -4,6 +4,7 @@
 	"description": "Document Object Model for TypeUp.",
 	"author": "Simon Mika <simon@mika.se>",
 	"license": "MIT",
+	"private": false,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/typeup/dom.git"
@@ -12,66 +13,50 @@
 		"url": "https://github.com/typeup/dom/issues"
 	},
 	"homepage": "https://github.com/typeup",
-	"private": false,
 	"type": "module",
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/mjs/index.js",
 	"types": "./dist/types/index.d.ts",
 	"exports": {
 		".": {
 			"import": {
 				"types": "./dist/types/index.d.ts",
 				"default": "./dist/mjs/index.js"
-			},
-			"require": {
-				"types": "./dist/types/index.d.ts",
-				"default": "./dist/cjs/index.js"
 			}
 		}
 	},
+	"types": "./dist/types/index.d.ts",
+	"files": [
+		"dist",
+		"*.ts",
+		"!*.spec.ts",
+		"!**/test/**",
+		"LICENSE",
+		"README.md"
+	],
 	"git": {
-		"tagName": "v${version}"
+		"tagName": "release-${version}"
 	},
 	"github": {
 		"release": true
 	},
 	"scripts": {
-		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
-		"lint:fix": "eslint '**/*.{ts,tsx}' --fix",
+		"lint": "biome format .",
+		"format": "biome format --write .",
 		"type-check": "tsc --noEmit",
-		"type-check:cjs": "tsc -p tsconfig.cjs.json --noEmit",
-		"type-check:mjs": "tsc -p tsconfig.mjs.json --noEmit",
-		"build": "rimraf dist/* && npm run build:cjs && npm run build:mjs",
-		"build:cjs": "tsc -p tsconfig.cjs.json",
-		"build:mjs": "tsc -p tsconfig.mjs.json",
+		"build": "tsc -p tsconfig.build.json",
 		"test": "vitest --run",
-		"test:watch": "vitest",
-		"test:ui": "vitest --ui",
 		"coverage": "vitest --coverage",
-		"coverage:open": "vitest --coverage && open coverage/index.html",
-		"prepare": "npm run build",
-		"prepublishOnly": "npm run verify",
-		"clean": "rimraf dist node_modules coverage .nyc_output",
-		"verify": "npm run type-check && npm run build && npm run test && npm run lint && npm audit --only=prod",
-		"release": "npm run verify && npm version patch && git push --follow-tags",
-		"release:minor": "npm run verify && npm version minor && git push --follow-tags",
-		"release:major": "npm run verify && npm version major && git push --follow-tags"
+		"clean": "rimraf dist node_modules coverage",
+		"verify": "npm run build && npm run test && npm run lint && npm audit --omit=dev"
 	},
 	"devDependencies": {
-		"@types/node": "^25.6.0",
-		"@typescript-eslint/eslint-plugin": "8.59.0",
-		"@typescript-eslint/parser": "8.59.0",
+		"@biomejs/biome": "^2.4.13",
 		"@vitest/coverage-v8": "^4.1.5",
-		"eslint": "^8.57.0",
-		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
-		"eslint-plugin-simple-import-sort": "^13.0.0",
-		"prettierx": "github:utily/prettierx#utily-20231004",
 		"rimraf": "^6.1.3",
 		"typescript": "6.0.3",
 		"vite": "^8.0.10",
 		"vitest": "^4.1.5"
 	},
 	"dependencies": {
-		"mendly": "^3.1.0"
+		"mendly": "^3.1.1-beta.15"
 	}
 }

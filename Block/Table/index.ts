@@ -21,8 +21,8 @@ export class Table extends Content<Inline> {
 		rows.splice(
 			1,
 			0,
-			"|" +
-				this.alignments
+			"|"
+				+ this.alignments
 					.map(alignment => {
 						let result: string
 						switch (alignment) {
@@ -41,17 +41,13 @@ export class Table extends Content<Inline> {
 						}
 						return result
 					})
-					.join("|") +
-				"|\n"
+					.join("|")
+				+ "|\n"
 		)
 		return rows.join("") + super.toString()
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			alignments: this.alignments,
-			rows: this.rows.map(row => row.toObject()),
-		}
+		return { ...super.toObject(), alignments: this.alignments, rows: this.rows.map(row => row.toObject()) }
 	}
 }
 

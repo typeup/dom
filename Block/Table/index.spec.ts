@@ -8,14 +8,14 @@ describe("dom.Block.Table", () => {
 				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 0")]),
 				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 1")]),
 				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 2")]),
-				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 3")]),
+				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 3")])
 			]),
 			new dom.Block.Table.Row([
 				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 0")]),
 				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 1")]),
 				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 2")]),
-				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 3")]),
-			]),
+				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 3")])
+			])
 		],
 		[new dom.Block.Paragraph([new dom.Inline.Text("Caption.")])]
 	)
@@ -32,8 +32,8 @@ describe("dom.Block.Table", () => {
 							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 0" }], header: true },
 							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 1" }], header: true },
 							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 2" }], header: true },
-							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 3" }], header: true },
-						],
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 3" }], header: true }
+						]
 					},
 					{
 						class: "block.table.row",
@@ -41,11 +41,11 @@ describe("dom.Block.Table", () => {
 							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 0" }], header: false },
 							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 1" }], header: false },
 							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 2" }], header: false },
-							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 3" }], header: false },
-						],
-					},
+							{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 3" }], header: false }
+						]
+					}
 				],
-				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Caption." }] }],
+				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Caption." }] }]
 			})
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.table"))
@@ -56,14 +56,14 @@ describe("dom.Block.Table", () => {
 				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 0")]),
 				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 1")]),
 				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 2")]),
-				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 3")]),
+				new dom.Block.Table.Cell(true, [new dom.Inline.Text("Header 3")])
 			]),
 			new dom.Block.Table.Row([
 				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 0")]),
 				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 1")]),
 				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 2")]),
-				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 3")]),
-			]),
+				new dom.Block.Table.Cell(false, [new dom.Inline.Text("value 3")])
+			])
 		]))
 	it("content", () => expect(node.content).toEqual([new dom.Block.Paragraph([new dom.Inline.Text("Caption.")])]))
 	it("toObject", () =>
@@ -73,61 +73,24 @@ describe("dom.Block.Table", () => {
 				{
 					class: "block.table.row",
 					content: [
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "Header 0" }],
-							header: true,
-						},
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "Header 1" }],
-							header: true,
-						},
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "Header 2" }],
-							header: true,
-						},
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "Header 3" }],
-							header: true,
-						},
-					],
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 0" }], header: true },
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 1" }], header: true },
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 2" }], header: true },
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "Header 3" }], header: true }
+					]
 				},
 				{
 					class: "block.table.row",
 					content: [
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "value 0" }],
-							header: false,
-						},
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "value 1" }],
-							header: false,
-						},
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "value 2" }],
-							header: false,
-						},
-						{
-							class: "block.table.cell",
-							content: [{ class: "inline.text", value: "value 3" }],
-							header: false,
-						},
-					],
-				},
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 0" }], header: false },
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 1" }], header: false },
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 2" }], header: false },
+						{ class: "block.table.cell", content: [{ class: "inline.text", value: "value 3" }], header: false }
+					]
+				}
 			],
-			content: [
-				{
-					content: [{ value: "Caption.", class: "inline.text" }],
-					class: "block.paragraph",
-				},
-			],
-			class: "block.table",
+			content: [{ content: [{ value: "Caption.", class: "inline.text" }], class: "block.paragraph" }],
+			class: "block.table"
 		}))
 	it("toString", () =>
 		expect(node.toString()).toEqual(

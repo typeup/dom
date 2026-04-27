@@ -9,15 +9,15 @@ export class Assignment extends Block {
 	override get variables(): Variables {
 		return { [this.name]: this.value }
 	}
-	constructor(readonly name: string, readonly value: string, region?: mendly.Error.Region) {
+	constructor(
+		readonly name: string,
+		readonly value: string,
+		region?: mendly.Error.Region
+	) {
 		super(region)
 	}
 	override toObject(): { class: Class } | any {
-		return {
-			...super.toObject(),
-			name: this.name,
-			value: this.value,
-		}
+		return { ...super.toObject(), name: this.name, value: this.value }
 	}
 	override toString() {
 		return this.name + " = " + this.value + "\n"
