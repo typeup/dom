@@ -52,6 +52,6 @@
 		"vitest": "^4.1.5"
 	},
 	"dependencies": {
-		"mendly": "^3.1.1-beta.15"
+		"mendly": "^3.1.1-beta.16"
 	}
 }
