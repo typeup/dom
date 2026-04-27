@@ -17,10 +17,9 @@
 	"types": "./dist/types/index.d.ts",
 	"exports": {
 		".": {
-			"import": {
-				"types": "./dist/types/index.d.ts",
-				"default": "./dist/mjs/index.js"
-			}
+			"types": "./dist/types/index.d.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
 		}
 	},
 	"files": [
