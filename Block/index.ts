@@ -6,6 +6,7 @@ import { Content as _Content } from "./Content"
 import { Diagram as _Diagram } from "./Diagram"
 import { EmptyLine as _EmptyLine } from "./EmptyLine"
 import { Figure as _Figure } from "./Figure"
+import { Frame as _Frame } from "./Frame"
 import { Heading as _Heading } from "./Heading"
 import { Import as _Import } from "./Import"
 import { List as _List } from "./List"
@@ -26,6 +27,7 @@ export namespace Block {
 	export import Diagram = _Diagram
 	export import EmptyLine = _EmptyLine
 	export import Figure = _Figure
+	export import Frame = _Frame
 	export import Heading = _Heading
 	export import Import = _Import
 	export import List = _List

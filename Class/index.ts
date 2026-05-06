@@ -14,6 +14,7 @@ export namespace Class {
 		"block.diagram",
 		"block.emptyLine",
 		"block.figure",
+		"block.frame",
 		"block.heading",
 		"block.import",
 		"block.list.definition",
@@ -36,6 +37,7 @@ export namespace Class {
 		"inline.emphasize",
 		"inline.link",
 		"inline.math",
+		"inline.quote",
 		"inline.text"
 	] as const
 	export type Types = {
@@ -45,6 +47,7 @@ export namespace Class {
 		"block.diagram": Block.Diagram
 		"block.emptyLine": Block.EmptyLine
 		"block.figure": Block.Figure
+		"block.frame": Block.Frame
 		"block.heading": Block.Heading
 		"block.import": Block.Import
 		"block.list.definition": Block.List.Definition
@@ -67,6 +70,7 @@ export namespace Class {
 		"inline.emphasize": Inline.Emphasize
 		"inline.link": Inline.Link
 		"inline.math": Inline.Math
+		"inline.quote": Inline.Quote
 		"inline.text": Inline.Text
 		other: Node
 	}

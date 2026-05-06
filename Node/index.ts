@@ -11,8 +11,14 @@ export abstract class Node {
 	toObject(): { class: Class } & any {
 		return { class: this.class }
 	}
+	/**
+	 * @deprecated Use JSON.stringify() manually instead
+	 */
 	toJson(indent: string = ""): string {
-		return JSON.stringify(this.toObject(), null, indent)
+		return JSON.stringify(this, null, indent)
+	}
+	toJSON(): { class: Class } & any {
+		return this.toObject()
 	}
 	static create<K extends Class>(data: { class: K } & any): Class.Types[K] | undefined {
 		const creator = creators[data.class as keyof typeof creators]

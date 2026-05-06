@@ -19,8 +19,23 @@ describe("dom.Document", () => {
 			content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
 		}))
 	it("toJson", () =>
-		expect(node.toJson()).toMatchInlineSnapshot(
-			`"{"class":"document","content":[{"class":"block.paragraph","content":[{"class":"inline.text","value":"Paragraph."}]}]}"`
+		expect(node.toJSON()).toMatchInlineSnapshot(
+			`
+			{
+			  "class": "document",
+			  "content": [
+			    {
+			      "class": "block.paragraph",
+			      "content": [
+			        {
+			          "class": "inline.text",
+			          "value": "Paragraph.",
+			        },
+			      ],
+			    },
+			  ],
+			}
+		`
 		))
 	it("empty document", () => {
 		const document = new dom.Document([])

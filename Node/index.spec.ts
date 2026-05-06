@@ -22,6 +22,13 @@ describe("dom.Node", () => {
 			math: [new dom.Block.Math("E = mc^2", [new dom.Inline.Text("formula")])]
 		}
 	} as const
+	it.each([
+		{ name: "no indent", node: nodes.block.heading[0], indent: undefined },
+		{ name: "empty indent", node: nodes.block.heading[0], indent: "" },
+		{ name: "space indent", node: nodes.inline.text[0], indent: "  " },
+		{ name: "tab indent", node: nodes.inline.text[0], indent: "\t" }
+	] as Array<{ name: string; node: dom.Node; indent: string | undefined }>)("toJson $name", ({ node, indent }) =>
+		expect(node.toJson(indent)).toBe(JSON.stringify(node, null, indent)))
 
 	it.each([
 		{

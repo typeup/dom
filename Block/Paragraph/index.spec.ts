@@ -28,109 +28,26 @@ describe("dom.Block.Paragraph", () => {
 			new dom.Inline.Text("forth")
 		])
 		expect(paragraph).toMatchInlineSnapshot(`
-			Paragraph {
+			{
 			  "class": "block.paragraph",
 			  "content": [
-			    Text {
+			    {
 			      "class": "inline.text",
-			      "region": undefined,
 			      "value": "first",
 			    },
-			    Text {
+			    {
 			      "class": "inline.text",
-			      "region": Region {
-			        "content": "second",
-			        "end": Position {
-			          "column": 6,
-			          "line": 1,
-			        },
-			        "resource": Uri {
-			          "authority": Authority {
-			            "endpoint": Endpoint {
-			              "host": [],
-			              "port": undefined,
-			            },
-			            "user": User {
-			              "name": undefined,
-			              "password": undefined,
-			            },
-			          },
-			          "fragment": undefined,
-			          "path": [],
-			          "query": {},
-			          "scheme": [],
-			        },
-			        "start": Position {
-			          "column": 1,
-			          "line": 1,
-			        },
-			      },
 			      "value": "second",
 			    },
-			    Text {
+			    {
 			      "class": "inline.text",
-			      "region": Region {
-			        "content": "third",
-			        "end": Position {
-			          "column": 13,
-			          "line": 1,
-			        },
-			        "resource": Uri {
-			          "authority": Authority {
-			            "endpoint": Endpoint {
-			              "host": [],
-			              "port": undefined,
-			            },
-			            "user": User {
-			              "name": undefined,
-			              "password": undefined,
-			            },
-			          },
-			          "fragment": undefined,
-			          "path": [],
-			          "query": {},
-			          "scheme": [],
-			        },
-			        "start": Position {
-			          "column": 7,
-			          "line": 1,
-			        },
-			      },
 			      "value": "third",
 			    },
-			    Text {
+			    {
 			      "class": "inline.text",
-			      "region": undefined,
 			      "value": "forth",
 			    },
 			  ],
-			  "region": Region {
-			    "content": "secondthird",
-			    "end": Position {
-			      "column": 13,
-			      "line": 1,
-			    },
-			    "resource": Uri {
-			      "authority": Authority {
-			        "endpoint": Endpoint {
-			          "host": [],
-			          "port": undefined,
-			        },
-			        "user": User {
-			          "name": undefined,
-			          "password": undefined,
-			        },
-			      },
-			      "fragment": undefined,
-			      "path": [],
-			      "query": {},
-			      "scheme": [],
-			    },
-			    "start": Position {
-			      "column": 1,
-			      "line": 1,
-			    },
-			  },
 			}
 		`)
 	})
