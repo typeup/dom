@@ -24,6 +24,7 @@ export namespace Class {
 		"block.list.unordered",
 		"block.math",
 		"block.paragraph",
+		"block.quote",
 		"block.section",
 		"block.table",
 		"block.table.cell",
@@ -54,6 +55,7 @@ export namespace Class {
 		"block.list.unordered": Block.List.Unordered
 		"block.math": Block.Math
 		"block.paragraph": Block.Paragraph
+		"block.quote": Block.Quote
 		"block.section": Block.Section
 		"block.table": Block.Table
 		"block.table.cell": Block.Table.Cell

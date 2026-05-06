@@ -11,6 +11,7 @@ import { Import as _Import } from "./Import"
 import { List as _List } from "./List"
 import { Math as _Math } from "./Math"
 import { Paragraph as _Paragraph } from "./Paragraph"
+import { Quote as _Quote } from "./Quote"
 import { Section as _Section } from "./Section"
 import { Table as _Table } from "./Table"
 import { Video as _Video } from "./Video"
@@ -30,6 +31,7 @@ export namespace Block {
 	export import List = _List
 	export import Math = _Math
 	export import Paragraph = _Paragraph
+	export import Quote = _Quote
 	export import Section = _Section
 	export import Table = _Table
 	export import Video = _Video
