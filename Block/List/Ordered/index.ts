@@ -3,16 +3,14 @@ import { Node, register } from "../../../Node"
 import { Content } from "../../Content"
 import { Item } from "../Item"
 
-export class Ordered extends Content<Item> {
+export class Ordered<T extends Item.Content = Item.Content> extends Content<Item<T>> {
 	readonly class: Class = "block.list.ordered"
-	constructor(content: Item[]) {
+	constructor(content: Item<T>[]) {
 		super(content)
 	}
 	override toString(): string {
 		return this.content.map(item => item.toString("1. ")).join("\n")
 	}
 }
-
 export namespace Ordered {}
-
-register("block.list.ordered", data => new Ordered(data.content.map(Node.create) as Item[]))
+register("block.list.ordered", data => new Ordered(data.content.map(Node.create)))

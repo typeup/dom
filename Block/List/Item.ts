@@ -1,19 +1,20 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class"
+import type { Inline } from "../../Inline"
 import { Node, register } from "../../Node"
-import { Block } from "../Block"
+import type { Block } from "../Block"
 import { Content } from "../Content"
 
-export class Item extends Content<Block> {
+export class Item<T extends Item.Content = Item.Content> extends Content<T> {
 	readonly class: Class = "block.list.item"
-	constructor(content: Block[], region?: mendly.Error.Region) {
+	constructor(content: T[], region?: mendly.Error.Region) {
 		super(content, region)
 	}
 	override toString(symbol: string = " - "): string {
 		return symbol + super.toString()
 	}
 }
-
-export namespace Item {}
-
+export namespace Item {
+	export type Content = Inline | Block
+}
 register("block.list.item", data => new Item(data.content.map(Node.create)))
