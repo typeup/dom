@@ -8,7 +8,7 @@ export abstract class Node {
 		return {}
 	}
 	protected constructor(readonly region?: mendly.Error.Region) {}
-	is(type: Class): this is Class.Types[typeof type] {
+	is<C extends Class>(type: C): this is Class.Types[C] {
 		return (
 			this.class == type
 			|| (type == "block" && this.class.startsWith("block."))
