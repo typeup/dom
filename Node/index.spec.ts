@@ -20,8 +20,33 @@ describe("dom.Node", () => {
 			paragraph: [new dom.Block.Paragraph([new dom.Inline.Text("Content")])],
 			emptyLine: [new dom.Block.EmptyLine()],
 			math: [new dom.Block.Math("E = mc^2", [new dom.Inline.Text("formula")])]
+		},
+		file: {
+			file: [new dom.File([new dom.Block.EmptyLine()])],
+			document: [new dom.Document([new dom.Block.Paragraph([new dom.Inline.Text("Document")])])]
 		}
 	} as const
+	it.each([
+		{ name: "matches exact class", node: nodes.block.heading[0], type: "block.heading", expected: true },
+		{ name: "matches block parent class", node: nodes.block.heading[0], type: "block", expected: true },
+		{ name: "matches inline parent class", node: nodes.inline.text[0], type: "inline", expected: true },
+		{ name: "treats document as file", node: nodes.file.document[0], type: "file", expected: true },
+		{ name: "returns false for unrelated class", node: nodes.block.heading[0], type: "inline", expected: false },
+		{
+			name: "returns false for unrelated exact class",
+			node: nodes.inline.code[0],
+			type: "inline.text",
+			expected: false
+		},
+		{ name: "returns true for other class", node: nodes.file.document[0], type: "other", expected: true },
+		{ name: "does not treat file as block", node: nodes.file.file[0], type: "block", expected: false },
+		{ name: "does not treat document as inline", node: nodes.file.document[0], type: "inline", expected: false }
+	] as Array<{ name: string; node: dom.Node; type: dom.Class; expected: boolean }>)("is $name", ({
+		node,
+		type,
+		expected
+	}) => expect(node.is(type)).toBe(expected))
+
 	it.each([
 		{ name: "no indent", node: nodes.block.heading[0], indent: undefined },
 		{ name: "empty indent", node: nodes.block.heading[0], indent: "" },

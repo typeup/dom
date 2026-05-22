@@ -8,6 +8,7 @@ export type Class = (typeof Class.values)[number]
 
 export namespace Class {
 	export const values = [
+		"block",
 		"block.assignment",
 		"block.chapter",
 		"block.code",
@@ -33,14 +34,17 @@ export namespace Class {
 		"block.video",
 		"document",
 		"file",
+		"inline",
 		"inline.code",
 		"inline.emphasize",
 		"inline.link",
 		"inline.math",
 		"inline.quote",
-		"inline.text"
+		"inline.text",
+		"other"
 	] as const
 	export type Types = {
+		block: Block
 		"block.assignment": Block.Assignment
 		"block.chapter": Block.Chapter
 		"block.code": Block.Code
@@ -66,6 +70,7 @@ export namespace Class {
 		"block.video": Block.Video
 		document: Document
 		file: File
+		inline: Inline
 		"inline.code": Inline.Code
 		"inline.emphasize": Inline.Emphasize
 		"inline.link": Inline.Link

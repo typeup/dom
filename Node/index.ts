@@ -8,6 +8,15 @@ export abstract class Node {
 		return {}
 	}
 	protected constructor(readonly region?: mendly.Error.Region) {}
+	is(type: Class): this is Extract<this, { class: typeof type }> {
+		return (
+			this.class == type
+			|| (type == "block" && this.class.startsWith("block."))
+			|| (type == "inline" && this.class.startsWith("inline."))
+			|| (type == "file" && this.class == "document")
+			|| type == "other"
+		)
+	}
 	toObject(): { class: Class } & any {
 		return { class: this.class }
 	}
