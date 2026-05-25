@@ -8,7 +8,7 @@ export class Import extends Block {
 	readonly class: Class = "block.import"
 	constructor(
 		readonly source: mendly.Uri,
-		readonly content: File,
+		readonly content: File | string | undefined,
 		region?: mendly.Error.Region
 	) {
 		super(region)
@@ -17,10 +17,14 @@ export class Import extends Block {
 		return `!import ${this.source}\n`
 	}
 	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), source: this.source.toString(), content: this.content.toObject() }
+		return {
+			...super.toObject(),
+			source: this.source.toString(),
+			content: typeof this.content === "string" ? this.content : this.content?.toObject()
+		}
 	}
 }
 
 export namespace Import {}
 
-register("block.import", data => new Import(data.source, Node.create(data.content) as File))
+register("block.import", data => new Import(data.source, Node.create(data.content) as File | string | undefined))
