@@ -11,7 +11,7 @@ export class Item<T extends Item.Content = Item.Content> extends Content<T> {
 		super(content, region)
 	}
 	override toString(symbol: string = " - "): string {
-		return symbol + super.toString()
+		return symbol + super.toString().replaceAll("\n", "\n\t")
 	}
 }
 export namespace Item {

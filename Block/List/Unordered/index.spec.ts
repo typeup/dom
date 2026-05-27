@@ -5,7 +5,24 @@ describe("dom.Block.List.Unordered", () => {
 		sparse: new dom.Block.List.Unordered([
 			new dom.Block.List.Item([new dom.Block.Paragraph([new dom.Inline.Text("Item 0")])])
 		]),
-		dense: new dom.Block.List.Unordered([new dom.Block.List.Item([new dom.Inline.Text("Item 0")])])
+		sparseMultipleBlocks: new dom.Block.List.Unordered([
+			new dom.Block.List.Item([
+				new dom.Block.Paragraph([new dom.Inline.Text("Item 0")]),
+				new dom.Block.EmptyLine(),
+				new dom.Block.Paragraph([new dom.Inline.Text("Item 1")])
+			])
+		]),
+		dense: new dom.Block.List.Unordered([new dom.Block.List.Item([new dom.Inline.Text("Item 0")])]),
+		nested: new dom.Block.List.Unordered([
+			new dom.Block.List.Item([
+				new dom.Inline.Text("Item 0"),
+				new dom.Block.EmptyLine(),
+				new dom.Block.List.Unordered([
+					new dom.Block.List.Item([new dom.Inline.Text("Nested 0")]),
+					new dom.Block.List.Item([new dom.Inline.Text("Nested 1")])
+				])
+			])
+		])
 	}
 	it("constructor", () => expect(data.sparse).toBeTruthy())
 	it.each([
@@ -63,4 +80,7 @@ describe("dom.Block.List.Unordered", () => {
 		{ label: "sparse", node: data.sparse },
 		{ label: "dense", node: data.dense }
 	])("toString $label", ({ node }) => expect(node.toString()).toEqual("- Item 0"))
+	it("toString sparse multiple blocks", () =>
+		expect(data.sparseMultipleBlocks.toString()).toEqual("- Item 0\n\tItem 1"))
+	it("toString nested", () => expect(data.nested.toString()).toEqual("- Item 0\n\t- Nested 0\n\t- Nested 1"))
 })
