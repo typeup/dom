@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Heading", () => {
 	const node = new dom.Block.Heading(3, [new dom.Inline.Text("Header")])

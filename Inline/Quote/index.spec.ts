@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 const text = new dom.Inline.Text("TypeUp")
 const node = new dom.Inline.Quote([text])

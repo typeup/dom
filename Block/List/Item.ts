@@ -1,9 +1,9 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import type { Inline } from "../../Inline"
-import { Node, register } from "../../Node"
-import type { Block } from "../Block"
-import { Content } from "../Content"
+import { Class } from "../../Class/index.js"
+import type { Inline } from "../../Inline/index.js"
+import { Node, register } from "../../Node/index.js"
+import type { Block } from "../Block.js"
+import { Content } from "../Content.js"
 
 export class Item<T extends Item.Content = Item.Content> extends Content<T> {
 	readonly class: Class = "block.list.item"

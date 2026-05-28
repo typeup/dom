@@ -1,8 +1,8 @@
-import type { Block } from "../Block"
-import type { Document } from "../Document"
-import type { File } from "../File"
-import type { Inline } from "../Inline"
-import type { Node } from "../Node"
+import type { Block } from "../Block/index.js"
+import type { Document } from "../Document/index.js"
+import type { File } from "../File/index.js"
+import type { Inline } from "../Inline/index.js"
+import type { Node } from "../Node/index.js"
 
 export type Class = (typeof Class.values)[number]
 

@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 const paragraph = new dom.Block.Paragraph([new dom.Inline.Text("To be or not to be.")])
 const paragraphObject = { class: "block.paragraph", content: [{ class: "inline.text", value: "To be or not to be." }] }

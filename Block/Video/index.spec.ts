@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Video", () => {
 	const node = new dom.Block.Video(

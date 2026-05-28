@@ -1,7 +1,7 @@
-import { Definition as _Definition } from "./Definition"
-import { Item as _Item } from "./Item"
-import { Ordered as _Ordered } from "./Ordered"
-import { Unordered as _Unordered } from "./Unordered"
+import { Definition as _Definition } from "./Definition/index.js"
+import { Item as _Item } from "./Item.js"
+import { Ordered as _Ordered } from "./Ordered/index.js"
+import { Unordered as _Unordered } from "./Unordered/index.js"
 
 export namespace List {
 	export import Definition = _Definition

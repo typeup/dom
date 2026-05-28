@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Inline.Link", () => {
 	const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")])

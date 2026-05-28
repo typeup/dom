@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Frame", () => {
 	const source = new mendly.Uri(undefined, undefined, [".", "frame.html"])

@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Inline.Text", () => {
 	const node = new dom.Inline.Text("value")

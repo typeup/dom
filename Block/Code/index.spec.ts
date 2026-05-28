@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Code", () => {
 	const node = new dom.Block.Code("c", 'printf("Hello, World!")', [new dom.Inline.Text("Caption.")])

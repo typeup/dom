@@ -1,7 +1,7 @@
-import { Class } from "../../Class"
-import { Inline } from "../../Inline"
-import { Node, register } from "../../Node"
-import { Content } from "../Content"
+import { Class } from "../../Class/index.js"
+import { Inline } from "../../Inline/index.js"
+import { Node, register } from "../../Node/index.js"
+import { Content } from "../Content.js"
 
 export class Paragraph extends Content<Inline> {
 	readonly class: Class = "block.paragraph"

@@ -1,8 +1,8 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import { Node, register } from "../../Node"
-import { Block } from "../Block"
-import { Content } from "../Content"
+import { Class } from "../../Class/index.js"
+import { Node, register } from "../../Node/index.js"
+import { Block } from "../Block.js"
+import { Content } from "../Content.js"
 
 export class Section extends Content<Block> {
 	readonly class: Class = "block.section"

@@ -1,4 +1,4 @@
-import { Flag } from "./Flag"
+import { Flag } from "./Flag.js"
 
 describe("Flag", () => {
 	it.each([

@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Inline.Math", () => {
 	const node = new dom.Inline.Math("x^2")

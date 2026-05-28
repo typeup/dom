@@ -1,10 +1,10 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import { Inline } from "../../Inline"
-import { Node, register } from "../../Node"
-import { Content } from "../Content"
-import { Cell as _Cell } from "./Cell"
-import { Row as _Row } from "./Row"
+import { Class } from "../../Class/index.js"
+import { Inline } from "../../Inline/index.js"
+import { Node, register } from "../../Node/index.js"
+import { Content } from "../Content.js"
+import { Cell as _Cell } from "./Cell.js"
+import { Row as _Row } from "./Row.js"
 
 export class Table extends Content<Inline> {
 	readonly class: Class = "block.table"

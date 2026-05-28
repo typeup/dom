@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Table", () => {
 	const node = new dom.Block.Table(

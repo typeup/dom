@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 const node = new dom.Inline.Emphasize([new dom.Inline.Text("TypeUp")])
 

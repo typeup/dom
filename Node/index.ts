@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
-import { Class } from "../Class"
-import { Variables } from "../Variables"
+import { Class } from "../Class/index.js"
+import { Variables } from "../Variables/index.js"
 
 export abstract class Node {
 	abstract readonly class: Class

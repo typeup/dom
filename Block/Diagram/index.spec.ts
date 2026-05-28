@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Diagram", () => {
 	const node = new dom.Block.Diagram("<svg></svg>", [new dom.Inline.Text("Caption.")])

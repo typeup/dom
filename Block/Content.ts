@@ -1,8 +1,8 @@
 import { mendly } from "mendly"
-import { Class } from "../Class"
-import { Node } from "../Node"
-import { Variables } from "../Variables"
-import { Block } from "./Block"
+import { Class } from "../Class/index.js"
+import { Node } from "../Node/index.js"
+import { Variables } from "../Variables/index.js"
+import { Block } from "./Block.js"
 
 export abstract class Content<T extends Node> extends Block {
 	override get variables(): Variables {

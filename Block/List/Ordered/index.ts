@@ -1,7 +1,7 @@
-import { Class } from "../../../Class"
-import { Node, register } from "../../../Node"
-import { Content } from "../../Content"
-import { Item } from "../Item"
+import { Class } from "../../../Class/index.js"
+import { Node, register } from "../../../Node/index.js"
+import { Content } from "../../Content.js"
+import { Item } from "../Item.js"
 
 export class Ordered<T extends Item.Content = Item.Content> extends Content<Item<T>> {
 	readonly class: Class = "block.list.ordered"

@@ -1,9 +1,9 @@
 import { mendly } from "mendly"
-import { Class } from "../../../Class"
-import { Inline } from "../../../Inline"
-import { Node, register } from "../../../Node"
-import { Content } from "../../Content"
-import { Data } from "./Data"
+import { Class } from "../../../Class/index.js"
+import { Inline } from "../../../Inline/index.js"
+import { Node, register } from "../../../Node/index.js"
+import { Content } from "../../Content.js"
+import { Data } from "./Data.js"
 
 export class Term extends Content<Inline> {
 	readonly class: Class = "block.list.definition.term"

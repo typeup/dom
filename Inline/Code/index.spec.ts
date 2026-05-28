@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 const node = new dom.Inline.Code("const pi = 3.1415")
 

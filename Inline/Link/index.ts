@@ -1,9 +1,9 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import { Node, register } from "../../Node"
-import { Content } from "../Content"
-import { Inline } from "../Inline"
-import { Flag as _Flag } from "./Flag"
+import { Class } from "../../Class/index.js"
+import { Node, register } from "../../Node/index.js"
+import { Content } from "../Content.js"
+import { Inline } from "../Inline.js"
+import { Flag as _Flag } from "./Flag.js"
 
 export class Link extends Content {
 	readonly class: Class = "inline.link"

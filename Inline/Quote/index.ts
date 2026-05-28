@@ -1,8 +1,8 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import { Node, register } from "../../Node"
-import { Content } from "../Content"
-import { Inline } from "../Inline"
+import { Class } from "../../Class/index.js"
+import { Node, register } from "../../Node/index.js"
+import { Content } from "../Content.js"
+import { Inline } from "../Inline.js"
 
 export class Quote extends Content {
 	readonly class: Class = "inline.quote"

@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import { register } from "../../Node"
-import { Inline } from "../Inline"
+import { Class } from "../../Class/index.js"
+import { register } from "../../Node/index.js"
+import { Inline } from "../Inline.js"
 
 export class Math extends Inline {
 	readonly class: Class = "inline.math"

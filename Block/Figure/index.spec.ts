@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Figure", () => {
 	const node = new dom.Block.Figure(

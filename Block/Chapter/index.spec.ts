@@ -1,4 +1,4 @@
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Chapter", () => {
 	const node = new dom.Block.Chapter([new dom.Block.Paragraph([new dom.Inline.Text("paragraph")])])

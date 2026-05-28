@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
-import { Class } from "../../Class"
-import { register } from "../../Node"
-import { Block } from "../Block"
+import { Class } from "../../Class/index.js"
+import { register } from "../../Node/index.js"
+import { Block } from "../Block.js"
 
 export class EmptyLine extends Block {
 	readonly class: Class = "block.emptyLine"

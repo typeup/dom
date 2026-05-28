@@ -1,8 +1,8 @@
-import { Class } from "../../../Class"
-import { Node, register } from "../../../Node"
-import { Content } from "../../Content"
-import { Data as _Data } from "./Data"
-import { Term as _Term } from "./Term"
+import { Class } from "../../../Class/index.js"
+import { Node, register } from "../../../Node/index.js"
+import { Content } from "../../Content.js"
+import { Data as _Data } from "./Data.js"
+import { Term as _Term } from "./Term.js"
 
 export class Definition extends Content<Definition.Term> {
 	readonly class: Class = "block.list.definition"

@@ -1,5 +1,5 @@
 import { mendly } from "mendly"
-import { dom } from "../../index"
+import { dom } from "../../index.js"
 
 describe("dom.Block.Paragraph", () => {
 	const node = new dom.Block.Paragraph([new dom.Inline.Text("paragraph")])

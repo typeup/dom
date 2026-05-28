@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
-import { Class } from "../Class"
-import { Inline } from "./Inline"
+import { Class } from "../Class/index.js"
+import { Inline } from "./Inline.js"
 
 export abstract class Content extends Inline {
 	constructor(
