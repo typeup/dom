@@ -47,7 +47,7 @@ describe("dom.Block.List.Unordered", () => {
 			},
 			expected: data.dense
 		}
-	])("create $label", ({ data, expected }) => expect(dom.Node.create(data)).toEqual(expected))
+	])("create $label", ({ data, expected }) => expect(dom.Node.hydrate(data)).toEqual(expected))
 	it("class", () => expect(data.sparse.class).toBe("block.list.unordered"))
 	it("content", () =>
 		expect(data.sparse.content).toEqual([
@@ -75,7 +75,7 @@ describe("dom.Block.List.Unordered", () => {
 				class: "block.list.unordered"
 			}
 		}
-	])("toObject $label", ({ node, expected }) => expect(node.toObject()).toEqual(expected))
+	])("toObject $label", ({ node, expected }) => expect(node.dehydrate()).toEqual(expected))
 	it.each([
 		{ label: "sparse", node: data.sparse },
 		{ label: "dense", node: data.dense }

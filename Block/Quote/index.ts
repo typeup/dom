@@ -22,15 +22,18 @@ export class Quote extends Content<Block> {
 			+ (this.attribution?.length ? `\n${this.attribution.map(a => a.toString()).join("")}` : "")
 		)
 	}
-	override toObject(): { class: Class } | any {
+	override dehydrate(): { class: Class } | any {
 		return {
-			...super.toObject(),
+			...super.dehydrate(),
 			...(this.cite !== undefined && { cite: this.cite }),
-			...(this.attribution?.length && { attribution: this.attribution.map(a => a.toObject()) })
+			...(this.attribution?.length && { attribution: this.attribution.map(a => a.dehydrate()) })
 		}
 	}
 }
 
 export namespace Quote {}
 
-register("block.quote", data => new Quote(data.content.map(Node.create), data.cite, data.attribution?.map(Node.create)))
+register(
+	"block.quote",
+	data => new Quote(data.content.map(Node.hydrate), data.cite, data.attribution?.map(Node.hydrate))
+)

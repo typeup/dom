@@ -16,11 +16,11 @@ export class Heading extends Content<Inline> {
 	override toString(): string {
 		return "#".repeat(this.level) + " " + super.toString()
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), level: this.level }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), level: this.level }
 	}
 }
 
 export namespace Heading {}
 
-register("block.heading", data => new Heading(data.level, data.content.map(Node.create)))
+register("block.heading", data => new Heading(data.level, data.content.map(Node.hydrate)))

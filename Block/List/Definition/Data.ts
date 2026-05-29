@@ -16,4 +16,4 @@ export class Data extends Content<Inline> {
 
 export namespace Data {}
 
-register("block.list.definition.data", data => new Data(data.content.map(Node.create)))
+register("block.list.definition.data", data => new Data(data.content.map(Node.hydrate)))

@@ -12,4 +12,4 @@ export class Paragraph extends Content<Inline> {
 
 export namespace Paragraph {}
 
-register("block.paragraph", data => new Paragraph(data.content.map(Node.create)))
+register("block.paragraph", data => new Paragraph(data.content.map(Node.hydrate)))

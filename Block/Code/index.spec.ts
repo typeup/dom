@@ -5,7 +5,7 @@ describe("dom.Block.Code", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.code",
 				language: "c",
 				value: 'printf("Hello, World!")',
@@ -15,7 +15,7 @@ describe("dom.Block.Code", () => {
 	it("class", () => expect(node.class).toBe("block.code"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("Caption.")]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			language: "c",
 			value: 'printf("Hello, World!")',
 			content: [{ value: "Caption.", class: "inline.text" }],

@@ -16,4 +16,4 @@ export class Chapter extends Content<Block> {
 
 export namespace Chapter {}
 
-register("block.chapter", data => new Chapter(data.content.map(Node.create)))
+register("block.chapter", data => new Chapter(data.content.map(Node.hydrate)))

@@ -17,19 +17,13 @@ export abstract class Node {
 			|| type == "other"
 		)
 	}
-	toObject(): { class: Class } & any {
+	dehydrate(): { class: Class } & any {
 		return { class: this.class }
 	}
-	/**
-	 * @deprecated Use JSON.stringify() manually instead
-	 */
-	toJson(indent: string = ""): string {
-		return JSON.stringify(this, null, indent)
-	}
 	toJSON(): { class: Class } & any {
-		return this.toObject()
+		return this.dehydrate()
 	}
-	static create<K extends Class>(data: { class: K } & any): Class.Types[K] | undefined {
+	static hydrate<K extends Class>(data: { class: K } & any): Class.Types[K] | undefined {
 		const creator = creators[data.class as keyof typeof creators]
 		return creator?.(data) as Class.Types[K] | undefined
 	}
@@ -45,8 +39,8 @@ export abstract class Node {
 }
 export namespace Node {}
 
-export type Creator<K extends Class = Class> = (data: { class: K } & any) => Class.Types[K]
-const creators: { [name in Class]?: Creator } = {}
-export function register<K extends Class>(name: K, creator: Creator<K>) {
-	creators[name] = creator as Creator
+export type Hydrator<K extends Class = Class> = (data: { class: K } & any) => Class.Types[K]
+const creators: { [name in Class]?: Hydrator } = {}
+export function register<K extends Class>(name: K, creator: Hydrator<K>) {
+	creators[name] = creator as Hydrator
 }

@@ -9,13 +9,13 @@ describe("dom.Block.Frame", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.frame",
-				source: new mendly.Uri(undefined, undefined, [".", "frame.html"]),
+				source: "./frame.html",
 				classes,
 				content: [{ class: "inline.text", value: "Caption." }]
-			})?.toObject()
-		).toMatchObject(node.toObject()))
+			})?.dehydrate()
+		).toMatchObject(node.dehydrate()))
 	it.each([
 		["class", () => node.class, "block.frame"],
 		["source", () => node.source, source],
@@ -24,7 +24,7 @@ describe("dom.Block.Frame", () => {
 		["toString", () => node.toString(), "!frame ./frame.html class\nCaption."]
 	])("%s", (_name, actual, expected) => expect(actual()).toEqual(expected))
 	it("toObject", () =>
-		expect(node.toObject()).toMatchObject({
+		expect(node.dehydrate()).toMatchObject({
 			source: "./frame.html",
 			classes,
 			content: [{ value: "Caption.", class: "inline.text" }],

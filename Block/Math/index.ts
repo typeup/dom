@@ -16,11 +16,11 @@ export class Math extends Content<Inline> {
 	override toString(): string {
 		return `$$\n${this.value}\n$$\n${super.toString()}`
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), value: this.value }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), value: this.value }
 	}
 }
 
 export namespace Math {}
 
-register("block.math", data => new Math(data.value, data.content.map(Node.create)))
+register("block.math", data => new Math(data.value, data.content.map(Node.hydrate)))

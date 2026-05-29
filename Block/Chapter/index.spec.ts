@@ -5,7 +5,7 @@ describe("dom.Block.Chapter", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.chapter",
 				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "paragraph" }] }]
 			})
@@ -13,7 +13,7 @@ describe("dom.Block.Chapter", () => {
 	it("class", () => expect(node.class).toBe("block.chapter"))
 	it("name", () => expect(node.content).toEqual([new dom.Block.Paragraph([new dom.Inline.Text("paragraph")])]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			content: [{ content: [{ value: "paragraph", class: "inline.text" }], class: "block.paragraph" }],
 			class: "block.chapter"
 		}))

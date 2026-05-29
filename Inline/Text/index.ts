@@ -11,8 +11,8 @@ export class Text extends Inline {
 	) {
 		super(region)
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), value: this.value }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), value: this.value }
 	}
 	override toString(): string {
 		return this.value

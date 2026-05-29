@@ -19,4 +19,4 @@ export namespace Definition {
 	export import Term = _Term
 }
 
-register("block.list.definition", data => new Definition(data.content.map(Node.create)))
+register("block.list.definition", data => new Definition(data.content.map(Node.hydrate)))

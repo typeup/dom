@@ -13,7 +13,7 @@ describe("dom.Block.List.Definition", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.list.definition",
 				content: [
 					{
@@ -39,7 +39,7 @@ describe("dom.Block.List.Definition", () => {
 			)
 		]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			content: [
 				{
 					content: [{ value: "Alpha", class: "inline.text" }],

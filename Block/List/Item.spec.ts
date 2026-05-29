@@ -21,7 +21,7 @@ describe("dom.Block.List.Item", () => {
 			data: { class: "block.list.item", content: [{ class: "inline.text", value: "Item 0" }] },
 			expected: data.dense
 		}
-	])("create $label", ({ data, expected }) => expect(dom.Node.create(data)).toEqual(expected))
+	])("create $label", ({ data, expected }) => expect(dom.Node.hydrate(data)).toEqual(expected))
 	it.each([
 		{
 			label: "sparse",
@@ -36,7 +36,7 @@ describe("dom.Block.List.Item", () => {
 			node: data.dense,
 			expected: { content: [{ value: "Item 0", class: "inline.text" }], class: "block.list.item" }
 		}
-	])("toObject $label", ({ node, expected }) => expect(node.toObject()).toEqual(expected))
+	])("toObject $label", ({ node, expected }) => expect(node.dehydrate()).toEqual(expected))
 	it.each([
 		{ label: "sparse", node: data.sparse },
 		{ label: "dense", node: data.dense }

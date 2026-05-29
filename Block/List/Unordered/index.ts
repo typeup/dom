@@ -13,4 +13,4 @@ export class Unordered<T extends Item.Content = Item.Content> extends Content<It
 	}
 }
 export namespace Unordered {}
-register("block.list.unordered", data => new Unordered(data.content.map(Node.create)))
+register("block.list.unordered", data => new Unordered(data.content.map(Node.hydrate)))

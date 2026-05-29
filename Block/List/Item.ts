@@ -17,4 +17,4 @@ export class Item<T extends Item.Content = Item.Content> extends Content<T> {
 export namespace Item {
 	export type Content = Inline | Block
 }
-register("block.list.item", data => new Item(data.content.map(Node.create)))
+register("block.list.item", data => new Item(data.content.map(Node.hydrate)))

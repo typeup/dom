@@ -16,11 +16,11 @@ export class Diagram extends Content<Inline> {
 	override toString(): string {
 		return `++\n${this.value}\n++\n${super.toString()}`
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), value: this.value }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), value: this.value }
 	}
 }
 
 export namespace Diagram {}
 
-register("block.diagram", data => new Diagram(data.value, data.content.map(Node.create)))
+register("block.diagram", data => new Diagram(data.value, data.content.map(Node.hydrate)))

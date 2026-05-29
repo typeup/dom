@@ -13,4 +13,4 @@ export class Row extends Content<Cell> {
 
 export namespace Row {}
 
-register("block.table.row", data => new Row(data.content.map(Node.create)))
+register("block.table.row", data => new Row(data.content.map(Node.hydrate)))

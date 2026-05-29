@@ -10,20 +10,26 @@ describe("dom.Block.Import", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.import",
-				source,
-				content: new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
+				source: "./subdocument.tup",
+				content: {
+					class: "file",
+					content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
+				}
 			})
 		).toEqual(node))
-	it("create no content", () => expect(() => dom.Node.create({ class: "block.import", source })).toThrow(TypeError))
+	it("create no content", () =>
+		expect(dom.Node.hydrate({ class: "block.import", source: "./subdocument.tup" })).toEqual(
+			new dom.Block.Import(source, undefined)
+		))
 	it("class", () => expect(node.class).toBe("block.import"))
 	it("source", () => expect(node.source).toEqual(source))
 
 	it("content", () =>
 		expect(node.content).toEqual(new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			source: "./subdocument.tup",
 			content: {
 				class: "file",
@@ -35,6 +41,6 @@ describe("dom.Block.Import", () => {
 		{ node: new dom.Block.Import(source, "Paragraph."), content: "Paragraph." },
 		{ node: new dom.Block.Import(source, undefined), content: undefined }
 	])("toObject content", ({ node, content }) =>
-		expect(node.toObject()).toEqual({ source: "./subdocument.tup", content, class: "block.import" }))
+		expect(node.dehydrate()).toEqual({ source: "./subdocument.tup", content, class: "block.import" }))
 	it("toString", () => expect(node.toString()).toEqual("!import ./subdocument.tup\n"))
 })

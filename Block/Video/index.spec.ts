@@ -10,9 +10,9 @@ describe("dom.Block.Video", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.video",
-				source: new mendly.Uri(undefined, undefined, [".", "video.ogg"]),
+				source: "./video.ogg",
 				classes: ["class"],
 				content: [{ class: "inline.text", value: "Caption." }]
 			})
@@ -23,7 +23,7 @@ describe("dom.Block.Video", () => {
 	it("classes", () => expect(node.classes).toEqual(["class"]))
 	it("content", () => expect(node.content).toEqual([new dom.Inline.Text("Caption.")]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			source: "./video.ogg",
 			classes: ["class"],
 			content: [{ value: "Caption.", class: "inline.text" }],

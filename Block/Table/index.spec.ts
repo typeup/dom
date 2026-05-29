@@ -22,7 +22,7 @@ describe("dom.Block.Table", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.table",
 				alignments: ["left", "center", "right", ""],
 				rows: [
@@ -67,7 +67,7 @@ describe("dom.Block.Table", () => {
 		]))
 	it("content", () => expect(node.content).toEqual([new dom.Block.Paragraph([new dom.Inline.Text("Caption.")])]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			alignments: ["left", "center", "right", ""],
 			rows: [
 				{

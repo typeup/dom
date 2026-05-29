@@ -15,8 +15,8 @@ export class File extends Node {
 	) {
 		super(region)
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), content: this.content.map(element => element.toObject()) }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), content: this.content.map(element => element.dehydrate()) }
 	}
 	override toString(): string {
 		let result = ""
@@ -33,4 +33,4 @@ export class File extends Node {
 
 export namespace File {}
 
-register("file", data => new File(data.content))
+register("file", data => new File(data.content.map(Node.hydrate)))

@@ -14,4 +14,4 @@ export class Quote extends Content {
 	}
 }
 export namespace Quote {}
-register("inline.quote", data => new Quote(data.content.map(Node.create)))
+register("inline.quote", data => new Quote(data.content.map(Node.hydrate)))

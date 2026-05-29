@@ -14,8 +14,8 @@ export class Code extends Content<Inline> {
 	) {
 		super(content, region)
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), language: this.language, value: this.value }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), language: this.language, value: this.value }
 	}
 	override toString() {
 		return `%% ${this.language}\n${this.value}\n%%\n${super.toString()}`
@@ -24,4 +24,4 @@ export class Code extends Content<Inline> {
 
 export namespace Code {}
 
-register("block.code", data => new Code(data.language, data.value, data.content.map(Node.create)))
+register("block.code", data => new Code(data.language, data.value, data.content.map(Node.hydrate)))

@@ -4,7 +4,7 @@ describe("dom.Inline.Link", () => {
 	const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")])
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "inline.link",
 				target: "https://github.com/typeup/",
 				content: [{ class: "inline.text", value: "TypeUp" }]
@@ -17,7 +17,7 @@ describe("dom.Inline.Link", () => {
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])
 	})
 	it("toObject", () => {
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			class: "inline.link",
 			target: "https://github.com/typeup/",
 			content: [{ class: "inline.text", value: "TypeUp" }]
@@ -31,7 +31,7 @@ describe("dom.Inline.Link", () => {
 			const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")], ["blank"])
 			it("create", () =>
 				expect(
-					dom.Node.create({
+					dom.Node.hydrate({
 						class: "inline.link",
 						target: "https://github.com/typeup/",
 						flags: ["blank"],
@@ -42,7 +42,7 @@ describe("dom.Inline.Link", () => {
 				expect(node.flags).toEqual(["blank"])
 			})
 			it("toObject", () => {
-				expect(node.toObject()).toEqual({
+				expect(node.dehydrate()).toEqual({
 					class: "inline.link",
 					target: "https://github.com/typeup/",
 					flags: ["blank"],
@@ -60,7 +60,7 @@ describe("dom.Inline.Link", () => {
 				["download"]
 			)
 			it("toObject", () => {
-				expect(node.toObject()).toEqual({
+				expect(node.dehydrate()).toEqual({
 					class: "inline.link",
 					target: "https://github.com/typeup/file.pdf",
 					flags: ["download"],
@@ -79,7 +79,7 @@ describe("dom.Inline.Link", () => {
 			)
 			it("create", () =>
 				expect(
-					dom.Node.create({
+					dom.Node.hydrate({
 						class: "inline.link",
 						target: "https://github.com/typeup/file.pdf",
 						flags: ["blank", "download"],
@@ -90,7 +90,7 @@ describe("dom.Inline.Link", () => {
 				expect(node.toString()).toEqual("[https://github.com/typeup/file.pdf|blank|download Get PDF]")
 			})
 			it("toObject", () => {
-				expect(node.toObject()).toEqual({
+				expect(node.dehydrate()).toEqual({
 					class: "inline.link",
 					target: "https://github.com/typeup/file.pdf",
 					flags: ["blank", "download"],

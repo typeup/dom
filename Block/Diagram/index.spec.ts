@@ -5,7 +5,7 @@ describe("dom.Block.Diagram", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.diagram",
 				value: "<svg></svg>",
 				content: [{ class: "inline.text", value: "Caption." }]
@@ -15,7 +15,7 @@ describe("dom.Block.Diagram", () => {
 	it("value", () => expect(node.value).toEqual("<svg></svg>"))
 	it("content", () => expect(node.content).toEqual([new dom.Inline.Text("Caption.")]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			value: "<svg></svg>",
 			content: [{ value: "Caption.", class: "inline.text" }],
 			class: "block.diagram"

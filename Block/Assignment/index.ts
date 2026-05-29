@@ -16,8 +16,8 @@ export class Assignment extends Block {
 	) {
 		super(region)
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), name: this.name, value: this.value }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), name: this.name, value: this.value }
 	}
 	override toString() {
 		return this.name + " = " + this.value + "\n"

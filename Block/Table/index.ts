@@ -46,8 +46,8 @@ export class Table extends Content<Inline> {
 		)
 		return rows.join("") + super.toString()
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), alignments: this.alignments, rows: this.rows.map(row => row.toObject()) }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), alignments: this.alignments, rows: this.rows.map(row => row.dehydrate()) }
 	}
 }
 
@@ -56,4 +56,4 @@ export namespace Table {
 	export import Cell = _Cell
 }
 
-register("block.table", data => new Table(data.alignments, data.rows.map(Node.create), data.content.map(Node.create)))
+register("block.table", data => new Table(data.alignments, data.rows.map(Node.hydrate), data.content.map(Node.hydrate)))

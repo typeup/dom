@@ -30,11 +30,14 @@ export class Video extends Content<Inline> {
 	override toString(): string {
 		return `!video ${this.source} ${this.classes}\n${super.toString()}`
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), classes: this.classes, source: this.source.toString() }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), classes: this.classes, source: this.source.toString() }
 	}
 }
 
 export namespace Video {}
 
-register("block.video", data => new Video(data.source, data.classes, data.content.map(Node.create)))
+register(
+	"block.video",
+	data => new Video(mendly.Uri.parse(data.source) ?? mendly.Uri.empty, data.classes, data.content.map(Node.hydrate))
+)

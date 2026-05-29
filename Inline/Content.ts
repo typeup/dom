@@ -12,8 +12,8 @@ export abstract class Content extends Inline {
 	override toString(): string {
 		return this.content.map(c => c.toString()).join("")
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), content: this.content.map(c => c.toObject()) }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), content: this.content.map(c => c.dehydrate()) }
 	}
 }
 

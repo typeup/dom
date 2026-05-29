@@ -17,11 +17,14 @@ export class Figure extends Content<Inline> {
 	override toString(): string {
 		return `!figure ${this.source} ${this.classes}\n${super.toString()}`
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), classes: this.classes, source: this.source.toString() }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), classes: this.classes, source: this.source.toString() }
 	}
 }
 
 export namespace Figure {}
 
-register("block.figure", data => new Figure(data.source, data.classes, data.content.map(Node.create)))
+register(
+	"block.figure",
+	data => new Figure(mendly.Uri.parse(data.source) ?? mendly.Uri.empty, data.classes, data.content.map(Node.hydrate))
+)

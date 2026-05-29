@@ -16,4 +16,4 @@ export class Section extends Content<Block> {
 
 export namespace Section {}
 
-register("block.section", data => new Section(data.content.map(Node.create)))
+register("block.section", data => new Section(data.content.map(Node.hydrate)))

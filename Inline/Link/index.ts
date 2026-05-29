@@ -15,8 +15,8 @@ export class Link extends Content {
 	) {
 		super(content, region)
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), target: this.target, ...(this.flags.length > 0 && { flags: this.flags }) }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), target: this.target, ...(this.flags.length > 0 && { flags: this.flags }) }
 	}
 	override toString(): string {
 		const flagPart = this.flags.length > 0 ? "|" + this.flags.join("|") : ""
@@ -27,4 +27,4 @@ export namespace Link {
 	export import Flag = _Flag
 }
 
-register("inline.link", data => new Link(data.target, data.content.map(Node.create), data.flags ?? []))
+register("inline.link", data => new Link(data.target, data.content.map(Node.hydrate), data.flags ?? []))

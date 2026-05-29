@@ -5,7 +5,7 @@ describe("dom.Block.Math", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.create({
+			dom.Node.hydrate({
 				class: "block.math",
 				value: "a^2 + b^2 = c^2",
 				content: [{ class: "inline.text", value: "Caption." }]
@@ -14,7 +14,7 @@ describe("dom.Block.Math", () => {
 	it("class", () => expect(node.class).toBe("block.math"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("Caption.")]))
 	it("toObject", () =>
-		expect(node.toObject()).toEqual({
+		expect(node.dehydrate()).toEqual({
 			value: "a^2 + b^2 = c^2",
 			content: [{ value: "Caption.", class: "inline.text" }],
 			class: "block.math"

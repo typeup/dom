@@ -17,11 +17,14 @@ export class Frame extends Content<Inline> {
 	override toString(): string {
 		return `!frame ${this.source} ${this.classes}\n${super.toString()}`
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), classes: this.classes, source: this.source.toString() }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), classes: this.classes, source: this.source.toString() }
 	}
 }
 
 export namespace Frame {}
 
-register("block.frame", data => new Frame(data.source, data.classes, data.content.map(Node.create)))
+register(
+	"block.frame",
+	data => new Frame(mendly.Uri.parse(data.source) ?? mendly.Uri.empty, data.classes, data.content.map(Node.hydrate))
+)

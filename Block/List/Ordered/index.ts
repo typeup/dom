@@ -13,4 +13,4 @@ export class Ordered<T extends Item.Content = Item.Content> extends Content<Item
 	}
 }
 export namespace Ordered {}
-register("block.list.ordered", data => new Ordered(data.content.map(Node.create)))
+register("block.list.ordered", data => new Ordered(data.content.map(Node.hydrate)))

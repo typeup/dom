@@ -16,4 +16,4 @@ export class Emphasize extends Content {
 
 export namespace Emphasize {}
 
-register("inline.emphasize", data => new Emphasize(data.content.map(Node.create)))
+register("inline.emphasize", data => new Emphasize(data.content.map(Node.hydrate)))

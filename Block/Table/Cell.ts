@@ -13,11 +13,11 @@ export class Cell extends Content<Inline> {
 	) {
 		super(content, region)
 	}
-	override toObject(): { class: Class } | any {
-		return { ...super.toObject(), header: this.header }
+	override dehydrate(): { class: Class } | any {
+		return { ...super.dehydrate(), header: this.header }
 	}
 }
 
 export namespace Cell {}
 
-register("block.table.cell", data => new Cell(data.header, data.content.map(Node.create)))
+register("block.table.cell", data => new Cell(data.header, data.content.map(Node.hydrate)))
