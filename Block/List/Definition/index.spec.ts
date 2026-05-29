@@ -53,4 +53,8 @@ describe("dom.Block.List.Definition", () => {
 			class: "block.list.definition"
 		}))
 	it("toString", () => expect(node.toString()).toEqual("Alpha\n: Term A\n: First Term"))
+	it.each([
+		{ name: "Data", value: dom.Block.List.Definition.Data },
+		{ name: "Term", value: dom.Block.List.Definition.Term }
+	])("namespace $name", ({ value }) => expect(value).toBeTruthy())
 })

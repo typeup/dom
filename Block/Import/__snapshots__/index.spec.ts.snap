@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dom.Block.Import > dehydrate snapshot 'file' 1`] = `
+{
+  "class": "block.import",
+  "content": {
+    "class": "file",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Paragraph.",
+          },
+        ],
+      },
+    ],
+  },
+  "source": "./subdocument.tup",
+}
+`;
+
+exports[`dom.Block.Import > dehydrate snapshot 'string' 1`] = `
+{
+  "class": "block.import",
+  "content": "Paragraph.",
+  "source": "./subdocument.tup",
+}
+`;
+
+exports[`dom.Block.Import > dehydrate snapshot 'undefined' 1`] = `
+{
+  "class": "block.import",
+  "content": undefined,
+  "source": "./subdocument.tup",
+}
+`;

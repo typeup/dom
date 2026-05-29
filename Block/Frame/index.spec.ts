@@ -23,6 +23,18 @@ describe("dom.Block.Frame", () => {
 		["content", () => node.content, content],
 		["toString", () => node.toString(), "!frame ./frame.html class\nCaption."]
 	])("%s", (_name, actual, expected) => expect(actual()).toEqual(expected))
+	it.each([
+		{ name: "parsed source", source: "./frame.html", expected: "./frame.html" },
+		{ name: "fallback source", source: undefined, expected: "/" }
+	])("create $name", ({ source, expected }) => {
+		const hydrated = dom.Node.hydrate({
+			class: "block.frame",
+			source,
+			classes,
+			content: [{ class: "inline.text", value: "Caption." }]
+		}) as dom.Block.Frame
+		expect(hydrated.source.toString()).toBe(expected)
+	})
 	it("toObject", () =>
 		expect(node.dehydrate()).toMatchObject({
 			source: "./frame.html",
@@ -30,4 +42,8 @@ describe("dom.Block.Frame", () => {
 			content: [{ value: "Caption.", class: "inline.text" }],
 			class: "block.frame"
 		}))
+	it.each([
+		{ name: "with classes", input: new dom.Block.Frame(source, ["class"], content).dehydrate() },
+		{ name: "without classes", input: new dom.Block.Frame(source, [], content).dehydrate() }
+	])("dehydrate snapshot $name", ({ input }) => expect(input).toMatchSnapshot())
 })

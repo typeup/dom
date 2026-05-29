@@ -31,6 +31,18 @@ describe("dom.Block.Video", () => {
 		}))
 	it("toString", () => expect(node.toString()).toEqual("!video ./video.ogg class\nCaption."))
 	it.each([
+		{ name: "parsed source", source: "./video.ogg", expected: "./video.ogg" },
+		{ name: "fallback source", source: undefined, expected: "/" }
+	])("create $name", ({ source, expected }) => {
+		const hydrated = dom.Node.hydrate({
+			class: "block.video",
+			source,
+			classes: ["class"],
+			content: [{ class: "inline.text", value: "Caption." }]
+		}) as dom.Block.Video
+		expect(hydrated.source.toString()).toBe(expected)
+	})
+	it.each([
 		["ogg", "video/ogg"],
 		["mp4", "video/mp4"],
 		["", ""]
@@ -42,4 +54,22 @@ describe("dom.Block.Video", () => {
 		)
 		expect(videoNode.type).toBe(expected)
 	})
+	it.each([
+		{
+			name: "ogg",
+			input: new dom.Block.Video(
+				new mendly.Uri(undefined, undefined, [".", "video.ogg"]),
+				[],
+				[new dom.Inline.Text("Caption.")]
+			).dehydrate()
+		},
+		{
+			name: "mp4",
+			input: new dom.Block.Video(
+				new mendly.Uri(undefined, undefined, [".", "video.mp4"]),
+				[],
+				[new dom.Inline.Text("Caption.")]
+			).dehydrate()
+		}
+	])("dehydrate snapshot $name", ({ input }) => expect(input).toMatchSnapshot())
 })

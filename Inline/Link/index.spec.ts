@@ -26,6 +26,7 @@ describe("dom.Inline.Link", () => {
 	it("toString", () => {
 		expect(node.toString()).toEqual("[https://github.com/typeup/ TypeUp]")
 	})
+	it("namespace", () => expect(dom.Inline.Link.Flag).toBeTruthy())
 	describe("flags", () => {
 		describe("blank", () => {
 			const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")], ["blank"])

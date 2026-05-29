@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dom.Block.Figure > dehydrate snapshot 'with classes' 1`] = `
+{
+  "class": "block.figure",
+  "classes": [
+    "class",
+  ],
+  "content": [
+    {
+      "class": "inline.text",
+      "value": "Caption.",
+    },
+  ],
+  "source": "./image.png",
+}
+`;
+
+exports[`dom.Block.Figure > dehydrate snapshot 'without classes' 1`] = `
+{
+  "class": "block.figure",
+  "classes": [],
+  "content": [
+    {
+      "class": "inline.text",
+      "value": "Caption.",
+    },
+  ],
+  "source": "./image.png",
+}
+`;

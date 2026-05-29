@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dom.Block.Video > dehydrate snapshot 'mp4' 1`] = `
+{
+  "class": "block.video",
+  "classes": [],
+  "content": [
+    {
+      "class": "inline.text",
+      "value": "Caption.",
+    },
+  ],
+  "source": "./video.mp4",
+}
+`;
+
+exports[`dom.Block.Video > dehydrate snapshot 'ogg' 1`] = `
+{
+  "class": "block.video",
+  "classes": [],
+  "content": [
+    {
+      "class": "inline.text",
+      "value": "Caption.",
+    },
+  ],
+  "source": "./video.ogg",
+}
+`;

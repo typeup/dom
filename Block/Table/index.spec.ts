@@ -96,4 +96,8 @@ describe("dom.Block.Table", () => {
 		expect(node.toString()).toEqual(
 			"| Header 0 | Header 1 | Header 2 | Header 3 |\n|:--|:-:|--:|---|\n| value 0 | value 1 | value 2 | value 3 |\nCaption."
 		))
+	it.each([
+		{ name: "Row", value: dom.Block.Table.Row },
+		{ name: "Cell", value: dom.Block.Table.Cell }
+	])("namespace $name", ({ value }) => expect(value).toBeTruthy())
 })
