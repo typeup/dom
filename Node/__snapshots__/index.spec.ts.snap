@@ -1,0 +1,137 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dom.Node > hydrate 'complex nested documents' 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.assignment",
+      "name": "title",
+      "value": "Rollup Sample Root",
+    },
+    {
+      "class": "block.heading",
+      "content": [
+        {
+          "class": "inline.text",
+          "value": "Root Document",
+        },
+      ],
+      "level": 1,
+    },
+    {
+      "class": "block.paragraph",
+      "content": [
+        {
+          "class": "inline.text",
+          "value": "This file is bundled through Rollup and exercises nested TypeUp imports.",
+        },
+      ],
+    },
+    {
+      "class": "block.import",
+      "content": {
+        "class": "document",
+        "content": [
+          {
+            "class": "block.heading",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Level One",
+              },
+            ],
+            "level": 1,
+          },
+          {
+            "class": "block.paragraph",
+            "content": [
+              {
+                "class": "inline.text",
+                "value": "Imported from the root TypeUp file.",
+              },
+            ],
+          },
+          {
+            "class": "block.import",
+            "content": {
+              "class": "document",
+              "content": [
+                {
+                  "class": "block.heading",
+                  "content": [
+                    {
+                      "class": "inline.text",
+                      "value": "Level Two",
+                    },
+                  ],
+                  "level": 1,
+                },
+                {
+                  "class": "block.paragraph",
+                  "content": [
+                    {
+                      "class": "inline.text",
+                      "value": "This import traverses further up to the sibling examples project.",
+                    },
+                  ],
+                },
+              ],
+            },
+            "source": "./nested/level_two",
+          },
+        ],
+      },
+      "source": "./sample/level_one",
+    },
+  ],
+}
+`;
+
+exports[`dom.Node > hydrate 'hydrates block heading' 1`] = `
+{
+  "class": "block.heading",
+  "content": [
+    {
+      "class": "inline.text",
+      "value": "Title",
+    },
+  ],
+  "level": 1,
+}
+`;
+
+exports[`dom.Node > hydrate 'hydrates document' 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.paragraph",
+      "content": [
+        {
+          "class": "inline.text",
+          "value": "Document",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`dom.Node > hydrate 'hydrates inline code' 1`] = `
+{
+  "class": "inline.code",
+  "value": "console.log",
+}
+`;
+
+exports[`dom.Node > hydrate 'hydrates inline text' 1`] = `
+{
+  "class": "inline.text",
+  "value": "Hello",
+}
+`;
+
+exports[`dom.Node > hydrate 'returns undefined for unknown class' 1`] = `undefined`;
+
+exports[`dom.Node > hydrate 'returns undefined when class is missi…' 1`] = `undefined`;

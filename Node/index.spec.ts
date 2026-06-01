@@ -47,6 +47,67 @@ describe("dom.Node", () => {
 		expected
 	}) => expect(node.is(type)).toBe(expected))
 	it.each([
+		{ name: "hydrates inline text", data: nodes.inline.text[0].dehydrate() },
+		{ name: "hydrates inline code", data: nodes.inline.code[0].dehydrate() },
+		{ name: "hydrates block heading", data: nodes.block.heading[0].dehydrate() },
+		{ name: "hydrates document", data: nodes.file.document[0].dehydrate() },
+		{ name: "returns undefined for unknown class", data: { class: "unknown.class" } },
+		{ name: "returns undefined when class is missing", data: {} },
+		{
+			name: "complex nested documents",
+			data: {
+				class: "document",
+				content: [
+					{ class: "block.assignment", name: "title", value: "Rollup Sample Root" },
+					{ class: "block.heading", content: [{ class: "inline.text", value: "Root Document" }], level: 1 },
+					{
+						class: "block.paragraph",
+						content: [
+							{
+								class: "inline.text",
+								value: "This file is bundled through Rollup and exercises nested TypeUp imports."
+							}
+						]
+					},
+					{
+						class: "block.import",
+						content: {
+							class: "document",
+							content: [
+								{ class: "block.heading", content: [{ class: "inline.text", value: "Level One" }], level: 1 },
+								{
+									class: "block.paragraph",
+									content: [{ class: "inline.text", value: "Imported from the root TypeUp file." }]
+								},
+								{
+									class: "block.import",
+									content: {
+										class: "document",
+										content: [
+											{ class: "block.heading", content: [{ class: "inline.text", value: "Level Two" }], level: 1 },
+											{
+												class: "block.paragraph",
+												content: [
+													{
+														class: "inline.text",
+														value: "This import traverses further up to the sibling examples project."
+													}
+												]
+											}
+										]
+									},
+									source: "./nested/level_two"
+								}
+							]
+						},
+						source: "./sample/level_one"
+					}
+				]
+			}
+		}
+	] satisfies Array<{ name: string; data: any }>)("hydrate $name", ({ data }) =>
+		expect(dom.Node.hydrate(data)).toMatchSnapshot())
+	it.each([
 		{
 			name: "basic split",
 			nodes: [nodes.inline.text[0], nodes.block.heading[0], nodes.block.paragraph[0]],
