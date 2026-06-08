@@ -45,13 +45,13 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.16",
-		"@vitest/coverage-v8": "^4.1.7",
+		"@vitest/coverage-v8": "^4.1.8",
 		"rimraf": "^6.1.3",
 		"typescript": "6.0.3",
-		"vite": "^8.0.14",
-		"vitest": "^4.1.7"
+		"vite": "^8.0.16",
+		"vitest": "^4.1.8"
 	},
 	"dependencies": {
-		"mendly": "^3.1.1-beta.24"
+		"mendly": "^3.1.1-beta.26"
 	}
 }

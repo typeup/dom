@@ -20,7 +20,7 @@ export class Import extends Block {
 		return {
 			...super.dehydrate(),
 			source: this.source.toString(),
-			content: typeof this.content === "string" ? this.content : this.content?.dehydrate()
+			content: typeof this.content == "string" ? this.content : this.content?.dehydrate()
 		}
 	}
 }
@@ -28,8 +28,8 @@ export class Import extends Block {
 export namespace Import {}
 
 register("block.import", data => {
-	const hydratedContent = data.content && Node.hydrate(data.content)
-	const content =
-		typeof data.content === "string" ? data.content : hydratedContent instanceof File ? hydratedContent : undefined
-	return new Import(mendly.Uri.parse(data.source) ?? mendly.Uri.empty, content)
+	const hydrated = data.content && Node.hydrate(data.content)
+	const content = typeof data.content == "string" ? data.content : hydrated instanceof File ? hydrated : undefined
+	const source = data.source instanceof mendly.Uri ? data.source : (mendly.Uri.parse(data.source) ?? mendly.Uri.empty)
+	return new Import(source, content)
 })

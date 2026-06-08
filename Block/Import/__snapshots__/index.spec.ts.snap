@@ -36,3 +36,73 @@ exports[`dom.Block.Import > dehydrate snapshot 'undefined' 1`] = `
   "source": "./subdocument.tup",
 }
 `;
+
+exports[`dom.Block.Import > hydrate 'fallback source' 1`] = `
+{
+  "class": "block.import",
+  "content": "Paragraph.",
+  "source": "/",
+}
+`;
+
+exports[`dom.Block.Import > hydrate 'file content' 1`] = `
+{
+  "class": "block.import",
+  "content": {
+    "class": "file",
+    "content": [
+      {
+        "class": "block.paragraph",
+        "content": [
+          {
+            "class": "inline.text",
+            "value": "Paragraph.",
+          },
+        ],
+      },
+    ],
+  },
+  "source": "./subdocument.tup",
+}
+`;
+
+exports[`dom.Block.Import > hydrate 'invalid content shape' 1`] = `
+{
+  "class": "block.import",
+  "content": undefined,
+  "source": "./subdocument.tup",
+}
+`;
+
+exports[`dom.Block.Import > hydrate 'nested content keeps nested source' 1`] = `
+{
+  "class": "document",
+  "content": [
+    {
+      "class": "block.import",
+      "content": {
+        "class": "document",
+        "content": [
+          {
+            "class": "block.import",
+            "content": {
+              "class": "document",
+              "content": [],
+            },
+            "source": "./nested/level_two",
+          },
+        ],
+      },
+      "source": "./sample/level_one",
+    },
+  ],
+}
+`;
+
+exports[`dom.Block.Import > hydrate 'no content' 1`] = `
+{
+  "class": "block.import",
+  "content": undefined,
+  "source": "./subdocument.tup",
+}
+`;

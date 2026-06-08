@@ -8,33 +8,52 @@ describe("dom.Block.Import", () => {
 		new dom.File([new dom.Block.Paragraph([new dom.Inline.Text("Paragraph.")])])
 	)
 	it("constructor", () => expect(node).toBeTruthy())
-	it("create", () =>
-		expect(
-			dom.Node.hydrate({
-				class: "block.import",
-				source: "./subdocument.tup",
-				content: {
-					class: "file",
-					content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
-				}
-			})
-		).toEqual(node))
-	it("create no content", () =>
-		expect(dom.Node.hydrate({ class: "block.import", source: "./subdocument.tup" })).toEqual(
-			new dom.Block.Import(source, undefined)
-		))
-	it("create invalid content shape", () =>
-		expect(
-			dom.Node.hydrate({
-				class: "block.import",
-				source: "./subdocument.tup",
-				content: { class: "inline.text", value: "Paragraph." }
-			})
-		).toEqual(new dom.Block.Import(source, undefined)))
-	it("create fallback source", () =>
-		expect(dom.Node.hydrate({ class: "block.import", source: undefined, content: "Paragraph." })).toEqual(
-			new dom.Block.Import(mendly.Uri.empty, "Paragraph.")
-		))
+	it.each<{ name: string; actual: () => unknown }>([
+		{
+			name: "file content",
+			actual: () =>
+				dom.Node.hydrate({
+					class: "block.import",
+					source: "./subdocument.tup",
+					content: {
+						class: "file",
+						content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
+					}
+				})?.dehydrate()
+		},
+		{
+			name: "no content",
+			actual: () => dom.Node.hydrate({ class: "block.import", source: "./subdocument.tup" })?.dehydrate()
+		},
+		{
+			name: "invalid content shape",
+			actual: () =>
+				dom.Node.hydrate({
+					class: "block.import",
+					source: "./subdocument.tup",
+					content: { class: "inline.text", value: "Paragraph." }
+				})?.dehydrate()
+		},
+		{
+			name: "fallback source",
+			actual: () => dom.Node.hydrate({ class: "block.import", source: undefined, content: "Paragraph." })?.dehydrate()
+		},
+		{
+			name: "nested content keeps nested source",
+			actual: () => {
+				const levelTwo = dom.Document.hydrate({ class: "document", content: [] })
+				const levelOne = dom.Document.hydrate({
+					class: "document",
+					content: [{ class: "block.import", source: "./nested/level_two", content: levelTwo }]
+				})
+				const root = dom.Document.hydrate({
+					class: "document",
+					content: [{ class: "block.import", source: "./sample/level_one", content: levelOne }]
+				})
+				return root?.toJSON()
+			}
+		}
+	])("hydrate $name", ({ actual }) => expect(actual()).toMatchSnapshot())
 	it("class", () => expect(node.class).toBe("block.import"))
 	it("source", () => expect(node.source).toEqual(source))
 
