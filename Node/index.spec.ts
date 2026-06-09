@@ -106,7 +106,7 @@ describe("dom.Node", () => {
 			}
 		}
 	] satisfies Array<{ name: string; data: any }>)("hydrate $name", ({ data }) =>
-		expect(dom.Node.hydrate(data)).toMatchSnapshot())
+		expect(dom.hydrate(data)).toMatchSnapshot())
 	it.each([
 		{
 			name: "basic split",
@@ -199,5 +199,5 @@ describe("dom.Node", () => {
 		classes: dom.Class[]
 		expected: Partial<Record<dom.Class | "other", dom.Node[]>>
 	}>)("split $name", ({ nodes: testNodes, classes, expected }) =>
-		expect(dom.Node.split(testNodes, ...classes)).toEqual(expected))
+		expect(dom.split(testNodes, ...classes)).toEqual(expected))
 })

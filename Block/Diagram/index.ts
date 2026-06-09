@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../../Inline/index.js"
-import { Node, register } from "../../Node/index.js"
 import { Content } from "../Content.js"
 
 export class Diagram extends Content<Inline> {
@@ -23,4 +23,4 @@ export class Diagram extends Content<Inline> {
 
 export namespace Diagram {}
 
-register("block.diagram", data => new Diagram(data.value, data.content.map(Node.hydrate)))
+Hydrator.register("block.diagram", data => new Diagram(data.value, data.content.map(Hydrator.hydrate)))

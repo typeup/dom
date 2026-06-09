@@ -114,5 +114,5 @@ describe("dom.Block.Quote", () => {
 			},
 			expected: new dom.Block.Quote([paragraph], "https://example.com", attribution)
 		}
-	])("create $label", ({ data, expected }) => expect(dom.Node.hydrate(data)).toEqual(expected))
+	])("create $label", ({ data, expected }) => expect(dom.hydrate(data)).toEqual(expected))
 })

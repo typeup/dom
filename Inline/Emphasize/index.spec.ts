@@ -4,9 +4,9 @@ const node = new dom.Inline.Emphasize([new dom.Inline.Text("TypeUp")])
 
 describe("dom.Inline.Emphasize", () => {
 	it("create", () =>
-		expect(
-			dom.Node.hydrate({ class: "inline.emphasize", content: [{ class: "inline.text", value: "TypeUp" }] })
-		).toEqual(node))
+		expect(dom.hydrate({ class: "inline.emphasize", content: [{ class: "inline.text", value: "TypeUp" }] })).toEqual(
+			node
+		))
 	it("properties", () => {
 		expect(node.class).toBe("inline.emphasize")
 		expect(node.content).toEqual([new dom.Inline.Text("TypeUp")])

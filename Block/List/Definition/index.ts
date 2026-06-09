@@ -1,5 +1,5 @@
 import { Class } from "../../../Class/index.js"
-import { Node, register } from "../../../Node/index.js"
+import { Hydrator } from "../../../Hydrator/index.js"
 import { Content } from "../../Content.js"
 import { Data as _Data } from "./Data.js"
 import { Term as _Term } from "./Term.js"
@@ -19,4 +19,4 @@ export namespace Definition {
 	export import Term = _Term
 }
 
-register("block.list.definition", data => new Definition(data.content.map(Node.hydrate)))
+Hydrator.register("block.list.definition", data => new Definition(data.content.map(Hydrator.hydrate)))

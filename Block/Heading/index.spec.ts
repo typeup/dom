@@ -5,7 +5,7 @@ describe("dom.Block.Heading", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({ class: "block.heading", level: 3, content: [{ class: "inline.text", value: "Header" }] })
+			dom.hydrate({ class: "block.heading", level: 3, content: [{ class: "inline.text", value: "Header" }] })
 		).toEqual(node))
 	it("class", () => expect(node.class).toBe("block.heading"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("Header")]))

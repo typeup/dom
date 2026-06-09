@@ -5,7 +5,7 @@ describe("dom.Block.Diagram", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.diagram",
 				value: "<svg></svg>",
 				content: [{ class: "inline.text", value: "Caption." }]

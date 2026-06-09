@@ -12,41 +12,45 @@ describe("dom.Block.Import", () => {
 		{
 			name: "file content",
 			actual: () =>
-				dom.Node.hydrate({
-					class: "block.import",
-					source: "./subdocument.tup",
-					content: {
-						class: "file",
-						content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
-					}
-				})?.dehydrate()
+				dom
+					.hydrate({
+						class: "block.import",
+						source: "./subdocument.tup",
+						content: {
+							class: "file",
+							content: [{ class: "block.paragraph", content: [{ value: "Paragraph.", class: "inline.text" }] }]
+						}
+					})
+					?.dehydrate()
 		},
 		{
 			name: "no content",
-			actual: () => dom.Node.hydrate({ class: "block.import", source: "./subdocument.tup" })?.dehydrate()
+			actual: () => dom.hydrate({ class: "block.import", source: "./subdocument.tup" })?.dehydrate()
 		},
 		{
 			name: "invalid content shape",
 			actual: () =>
-				dom.Node.hydrate({
-					class: "block.import",
-					source: "./subdocument.tup",
-					content: { class: "inline.text", value: "Paragraph." }
-				})?.dehydrate()
+				dom
+					.hydrate({
+						class: "block.import",
+						source: "./subdocument.tup",
+						content: { class: "inline.text", value: "Paragraph." }
+					})
+					?.dehydrate()
 		},
 		{
 			name: "fallback source",
-			actual: () => dom.Node.hydrate({ class: "block.import", source: undefined, content: "Paragraph." })?.dehydrate()
+			actual: () => dom.hydrate({ class: "block.import", source: undefined, content: "Paragraph." })?.dehydrate()
 		},
 		{
 			name: "nested content keeps nested source",
 			actual: () => {
-				const levelTwo = dom.Document.hydrate({ class: "document", content: [] })
-				const levelOne = dom.Document.hydrate({
+				const levelTwo = dom.hydrate({ class: "document", content: [] })
+				const levelOne = dom.hydrate({
 					class: "document",
 					content: [{ class: "block.import", source: "./nested/level_two", content: levelTwo }]
 				})
-				const root = dom.Document.hydrate({
+				const root = dom.hydrate({
 					class: "document",
 					content: [{ class: "block.import", source: "./sample/level_one", content: levelOne }]
 				})

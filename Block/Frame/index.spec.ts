@@ -9,12 +9,14 @@ describe("dom.Block.Frame", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
-				class: "block.frame",
-				source: "./frame.html",
-				classes,
-				content: [{ class: "inline.text", value: "Caption." }]
-			})?.dehydrate()
+			dom
+				.hydrate({
+					class: "block.frame",
+					source: "./frame.html",
+					classes,
+					content: [{ class: "inline.text", value: "Caption." }]
+				})
+				?.dehydrate()
 		).toMatchObject(node.dehydrate()))
 	it.each([
 		["class", () => node.class, "block.frame"],
@@ -27,7 +29,7 @@ describe("dom.Block.Frame", () => {
 		{ name: "parsed source", source: "./frame.html", expected: "./frame.html" },
 		{ name: "fallback source", source: undefined, expected: "/" }
 	])("create $name", ({ source, expected }) => {
-		const hydrated = dom.Node.hydrate({
+		const hydrated = dom.hydrate({
 			class: "block.frame",
 			source,
 			classes,

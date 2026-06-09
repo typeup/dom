@@ -5,7 +5,7 @@ describe("dom.Block.Math", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.math",
 				value: "a^2 + b^2 = c^2",
 				content: [{ class: "inline.text", value: "Caption." }]

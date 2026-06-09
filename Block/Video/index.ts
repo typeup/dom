@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../../Inline/index.js"
-import { Node, register } from "../../Node/index.js"
 import { Content } from "../Content.js"
 
 export class Video extends Content<Inline> {
@@ -37,7 +37,7 @@ export class Video extends Content<Inline> {
 
 export namespace Video {}
 
-register(
+Hydrator.register(
 	"block.video",
-	data => new Video(mendly.Uri.parse(data.source) ?? mendly.Uri.empty, data.classes, data.content.map(Node.hydrate))
+	data => new Video(mendly.Uri.parse(data.source) ?? mendly.Uri.empty, data.classes, data.content.map(Hydrator.hydrate))
 )

@@ -5,7 +5,7 @@ describe("dom.Block.Code", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.code",
 				language: "c",
 				value: 'printf("Hello, World!")',

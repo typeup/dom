@@ -5,9 +5,7 @@ const node = new dom.Inline.Quote([text])
 
 describe("dom.Inline.Quote", () => {
 	it("create", () =>
-		expect(dom.Node.hydrate({ class: "inline.quote", content: [{ class: "inline.text", value: "TypeUp" }] })).toEqual(
-			node
-		))
+		expect(dom.hydrate({ class: "inline.quote", content: [{ class: "inline.text", value: "TypeUp" }] })).toEqual(node))
 	it.each([
 		{ property: "class", expected: "inline.quote" },
 		{ property: "content", expected: [text] }

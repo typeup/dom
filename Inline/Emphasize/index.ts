@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
-import { Node, register } from "../../Node/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Content } from "../Content.js"
 import { Inline } from "../Inline.js"
 
@@ -16,4 +16,4 @@ export class Emphasize extends Content {
 
 export namespace Emphasize {}
 
-register("inline.emphasize", data => new Emphasize(data.content.map(Node.hydrate)))
+Hydrator.register("inline.emphasize", data => new Emphasize(data.content.map(Hydrator.hydrate)))

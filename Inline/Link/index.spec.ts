@@ -4,7 +4,7 @@ describe("dom.Inline.Link", () => {
 	const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")])
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "inline.link",
 				target: "https://github.com/typeup/",
 				content: [{ class: "inline.text", value: "TypeUp" }]
@@ -32,7 +32,7 @@ describe("dom.Inline.Link", () => {
 			const node = new dom.Inline.Link("https://github.com/typeup/", [new dom.Inline.Text("TypeUp")], ["blank"])
 			it("create", () =>
 				expect(
-					dom.Node.hydrate({
+					dom.hydrate({
 						class: "inline.link",
 						target: "https://github.com/typeup/",
 						flags: ["blank"],
@@ -80,7 +80,7 @@ describe("dom.Inline.Link", () => {
 			)
 			it("create", () =>
 				expect(
-					dom.Node.hydrate({
+					dom.hydrate({
 						class: "inline.link",
 						target: "https://github.com/typeup/file.pdf",
 						flags: ["blank", "download"],

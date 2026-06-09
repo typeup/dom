@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../../Inline/index.js"
-import { Node, register } from "../../Node/index.js"
 import { Content } from "../Content.js"
 import { Cell as _Cell } from "./Cell.js"
 import { Row as _Row } from "./Row.js"
@@ -56,4 +56,7 @@ export namespace Table {
 	export import Cell = _Cell
 }
 
-register("block.table", data => new Table(data.alignments, data.rows.map(Node.hydrate), data.content.map(Node.hydrate)))
+Hydrator.register(
+	"block.table",
+	data => new Table(data.alignments, data.rows.map(Hydrator.hydrate), data.content.map(Hydrator.hydrate))
+)

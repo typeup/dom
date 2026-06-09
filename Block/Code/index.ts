@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../../Inline/index.js"
-import { Node, register } from "../../Node/index.js"
 import { Content } from "../Content.js"
 
 export class Code extends Content<Inline> {
@@ -24,4 +24,4 @@ export class Code extends Content<Inline> {
 
 export namespace Code {}
 
-register("block.code", data => new Code(data.language, data.value, data.content.map(Node.hydrate)))
+Hydrator.register("block.code", data => new Code(data.language, data.value, data.content.map(Hydrator.hydrate)))

@@ -10,7 +10,7 @@ describe("dom.Block.Figure", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.figure",
 				source: "./image.png",
 				classes: ["class"],
@@ -26,7 +26,7 @@ describe("dom.Block.Figure", () => {
 		{ name: "parsed source", source: "./image.png", expected: "./image.png" },
 		{ name: "fallback source", source: undefined, expected: "/" }
 	])("create $name", ({ source, expected }) => {
-		const hydrated = dom.Node.hydrate({
+		const hydrated = dom.hydrate({
 			class: "block.figure",
 			source,
 			classes: ["class"],

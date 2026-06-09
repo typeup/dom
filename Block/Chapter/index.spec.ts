@@ -5,7 +5,7 @@ describe("dom.Block.Chapter", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.chapter",
 				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "paragraph" }] }]
 			})

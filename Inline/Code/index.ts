@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
-import { register } from "../../Node/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../Inline.js"
 
 export class Code extends Inline {
@@ -21,4 +21,4 @@ export class Code extends Inline {
 
 export namespace Code {}
 
-register("inline.code", data => new Code(data.value))
+Hydrator.register("inline.code", data => new Code(data.value))

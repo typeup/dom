@@ -52,9 +52,9 @@ describe("dom.Block.Paragraph", () => {
 		`)
 	})
 	it("create", () =>
-		expect(
-			dom.Node.hydrate({ class: "block.paragraph", content: [{ class: "inline.text", value: "paragraph" }] })
-		).toEqual(node))
+		expect(dom.hydrate({ class: "block.paragraph", content: [{ class: "inline.text", value: "paragraph" }] })).toEqual(
+			node
+		))
 	it("class", () => expect(node.class).toBe("block.paragraph"))
 	it("name", () => expect(node.content).toEqual([new dom.Inline.Text("paragraph")]))
 	it("toObject", () =>

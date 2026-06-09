@@ -1,7 +1,8 @@
 import { mendly } from "mendly"
 import { Block } from "../Block/index.js"
 import { Class } from "../Class/index.js"
-import { Node, register } from "../Node/index.js"
+import { Hydrator } from "../Hydrator/index.js"
+import { Node } from "../Node/index.js"
 import { Variables } from "../Variables/index.js"
 
 export class File extends Node {
@@ -33,4 +34,4 @@ export class File extends Node {
 
 export namespace File {}
 
-register("file", data => new File(data.content.map(Node.hydrate)))
+Hydrator.register("file", data => new File(data.content.map(Hydrator.hydrate)))

@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
-import { Node, register } from "../../Node/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Content } from "../Content.js"
 import { Inline } from "../Inline.js"
 import { Flag as _Flag } from "./Flag.js"
@@ -27,4 +27,4 @@ export namespace Link {
 	export import Flag = _Flag
 }
 
-register("inline.link", data => new Link(data.target, data.content.map(Node.hydrate), data.flags ?? []))
+Hydrator.register("inline.link", data => new Link(data.target, data.content.map(Hydrator.hydrate), data.flags ?? []))

@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
-import { register } from "../../Node/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Variables } from "../../Variables/index.js"
 import { Block } from "../Block.js"
 
@@ -26,4 +26,4 @@ export class Assignment extends Block {
 
 export namespace Assignment {}
 
-register("block.assignment", data => new Assignment(data.name, data.value))
+Hydrator.register("block.assignment", data => new Assignment(data.name, data.value))

@@ -1,5 +1,5 @@
 import { Class } from "../../../Class/index.js"
-import { Node, register } from "../../../Node/index.js"
+import { Hydrator } from "../../../Hydrator/index.js"
 import { Content } from "../../Content.js"
 import { Item } from "../Item.js"
 
@@ -13,4 +13,4 @@ export class Unordered<T extends Item.Content = Item.Content> extends Content<It
 	}
 }
 export namespace Unordered {}
-register("block.list.unordered", data => new Unordered(data.content.map(Node.hydrate)))
+Hydrator.register("block.list.unordered", data => new Unordered(data.content.map(Hydrator.hydrate)))

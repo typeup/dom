@@ -1,6 +1,6 @@
 import { Class } from "../../Class/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../../Inline/index.js"
-import { Node, register } from "../../Node/index.js"
 import { Content } from "../Content.js"
 
 export class Paragraph extends Content<Inline> {
@@ -12,4 +12,4 @@ export class Paragraph extends Content<Inline> {
 
 export namespace Paragraph {}
 
-register("block.paragraph", data => new Paragraph(data.content.map(Node.hydrate)))
+Hydrator.register("block.paragraph", data => new Paragraph(data.content.map(Hydrator.hydrate)))

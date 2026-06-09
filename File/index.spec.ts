@@ -5,7 +5,7 @@ describe("dom.File", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "file",
 				content: [{ class: "block.paragraph", content: [{ class: "inline.text", value: "Paragraph." }] }]
 			})

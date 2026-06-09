@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
-import { register } from "../../Node/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Block } from "../Block.js"
 
 export class EmptyLine extends Block {
@@ -15,4 +15,4 @@ export class EmptyLine extends Block {
 
 export namespace EmptyLine {}
 
-register("block.emptyLine", data => new EmptyLine(data.region))
+Hydrator.register("block.emptyLine", data => new EmptyLine(data.region))

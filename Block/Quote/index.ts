@@ -1,7 +1,7 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Inline } from "../../Inline/index.js"
-import { Node, register } from "../../Node/index.js"
 import { Block } from "../Block.js"
 import { Content } from "../Content.js"
 
@@ -33,7 +33,7 @@ export class Quote extends Content<Block> {
 
 export namespace Quote {}
 
-register(
+Hydrator.register(
 	"block.quote",
-	data => new Quote(data.content.map(Node.hydrate), data.cite, data.attribution?.map(Node.hydrate))
+	data => new Quote(data.content.map(Hydrator.hydrate), data.cite, data.attribution?.map(Hydrator.hydrate))
 )

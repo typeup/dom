@@ -2,7 +2,7 @@ import { dom } from "../../index.js"
 
 describe("dom.Inline.Text", () => {
 	const node = new dom.Inline.Text("value")
-	it("create", () => expect(dom.Node.hydrate({ class: "inline.text", value: "value" })).toEqual(node))
+	it("create", () => expect(dom.hydrate({ class: "inline.text", value: "value" })).toEqual(node))
 	it("properties", () => {
 		expect(node.class).toBe("inline.text")
 		expect(node.value).toBe("value")

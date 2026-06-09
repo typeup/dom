@@ -10,7 +10,7 @@ describe("dom.Block.Video", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.video",
 				source: "./video.ogg",
 				classes: ["class"],
@@ -34,7 +34,7 @@ describe("dom.Block.Video", () => {
 		{ name: "parsed source", source: "./video.ogg", expected: "./video.ogg" },
 		{ name: "fallback source", source: undefined, expected: "/" }
 	])("create $name", ({ source, expected }) => {
-		const hydrated = dom.Node.hydrate({
+		const hydrated = dom.hydrate({
 			class: "block.video",
 			source,
 			classes: ["class"],

@@ -13,7 +13,7 @@ describe("dom.Block.List.Definition", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.list.definition",
 				content: [
 					{

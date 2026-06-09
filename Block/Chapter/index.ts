@@ -1,6 +1,6 @@
 import { mendly } from "mendly"
 import { Class } from "../../Class/index.js"
-import { Node, register } from "../../Node/index.js"
+import { Hydrator } from "../../Hydrator/index.js"
 import { Block } from "../Block.js"
 import { Content } from "../Content.js"
 
@@ -16,4 +16,4 @@ export class Chapter extends Content<Block> {
 
 export namespace Chapter {}
 
-register("block.chapter", data => new Chapter(data.content.map(Node.hydrate)))
+Hydrator.register("block.chapter", data => new Chapter(data.content.map(Hydrator.hydrate)))

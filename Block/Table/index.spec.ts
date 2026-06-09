@@ -22,7 +22,7 @@ describe("dom.Block.Table", () => {
 	it("constructor", () => expect(node).toBeTruthy())
 	it("create", () =>
 		expect(
-			dom.Node.hydrate({
+			dom.hydrate({
 				class: "block.table",
 				alignments: ["left", "center", "right", ""],
 				rows: [
